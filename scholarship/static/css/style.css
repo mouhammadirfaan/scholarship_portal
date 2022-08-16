@@ -18,17 +18,30 @@
     background-color: #135785;
     position: sticky;
     z-index: 1000;
+    
 }
 .header .navbar .nav-item a{
-    color: #fff;
-    padding-left: 25px;
+    color: #fff !important;
+    padding-left: 20px;
     font-size: 20px;
     font-family: 'Kdam Thmor Pro', sans-serif;
 }
 .header .navbar .navbar-nav{
-    padding-left: 22rem;
+    padding-left: 15rem;
+}
+.header .navbar .nav-item .nav-link:hover{
+    color: black!important;
+    font-weight: bold;
+    background-color :var(--main-color);
+    border-radius: 10px;
 }
 /* header end */
+/* base page end */
+
+/*---------------------------------------------*/
+/*---------------------------------------------*/
+
+/* home page start */
 
 /* baner start */
 .banar{
@@ -37,7 +50,65 @@
 .banar .banar-img{
     background-image:url("/static/img/meeting.jpg");
     background-repeat:no-repeat;
+    text-align: center;
+    padding:2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover !important;
+    background-position: center !important;
+    width:100%;
+    height:500px;
 }
-
+.banar .banar-img .content{
+    width: 85rem;
+    display: none;
+    display: inline-block;
+}
+.banar .banar-img .content span{
+    display: block;
+    font-size: 2.2rem;
+    color: rgba(142, 39, 77, 0.6);
+    padding-bottom: 1rem;
+    animation:fadeIn .2s linear backwards .2s;
+}
+.banar .banar-img .content h3{
+    font-size: 4vw;
+    color:var(--main-color);
+    text-transform: uppercase;
+    line-height: 1;
+    text-shadow: var(--text-shadow);
+    padding:1rem 0;
+    animation:fadeIn .2s linear backwards .4s;
+}
+.banar .banar-img .content .but:hover{
+    background-color: var(--main-color);
+    border-radius: 10px;
+    font-weight: bold;
+    animation:fadeIn .2s linear backwards .6s;
+}
 /* baner end */
+
+/* our mission section start */
+.mission{
+    background-color: var(--light-white);
+}
+.mission .container{
+    margin-top: 20px;
+    text-align: center;
+}
+/* our mission section end */
+
+/* <!-- footer section start --> */
+.footer{
+    background-color: #135785;
+}
+.footer .container{
+    margin-top: 20px;
+    text-align: center;
+}
+/* <!-- footer section end --> */
+
+/* home page end */
+
 
