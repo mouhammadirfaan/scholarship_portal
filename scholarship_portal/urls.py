@@ -19,5 +19,10 @@ from scholarship.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home')
+    path('', home, name='home'),
+    path('admin_login', admin_login, name='admin_login'),
+    path('provider_login', provider_login, name='provider_login'),
+    path('user_login', user_login, name='user_login'),
+
+
 ]

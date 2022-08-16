@@ -47,13 +47,13 @@
                     <a class="nav-link" href="#">Latest Jobs</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">User Login</a>
+                    <a class="nav-link" href="{% url 'user_login' %}">User Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Provider Login</a>
+                    <a class="nav-link" href="{% url 'provider_login' %}">Provider Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Admin Login</a>
+                    <a class="nav-link" href="{% url 'admin_login' %}">Admin Login</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Contact Us</a>
@@ -68,7 +68,9 @@
 
     {% block content %}
 
-   
+     <section class="section">
+
+     </section>
 
     {% endblock %}
 

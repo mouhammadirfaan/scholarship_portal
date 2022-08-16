@@ -17,7 +17,12 @@
 .header{
     background-color: #135785;
     position: sticky;
+    width: 100%;
+    top:0; left:0; right:0;
     z-index: 1000;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
     
 }
 .header .navbar .nav-item a{
@@ -109,6 +114,77 @@
 }
 /* <!-- footer section end --> */
 
+.admin-form{
+    margin-top: 10px;
+}
+
+
 /* home page end */
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+/* login Pages start */
+
+/* marquee start */
+.marquee{
+    margin-top: 10px;
+    height: 40px;
+    background-color: #222;
+    color: aquamarine;
+    box-shadow: var(--box-shadow);
+    font-size: 20px;
+    font-weight: bold;
+    font-family:'Poppins', sans-serif;
+    font-display: flex;
+
+}
+/* marquee end */
+
+/* admin / user / provider  login start */
+.forms{
+    margin-top: 20px;
+}
+
+.forms .container{
+    border: 3px solid #f1f1f1;
+    padding: 20px 20px;
+}
+
+input[type=text], input[type=password] {
+    
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    font-weight: bold;
+    padding: 14px 20px;
+    margin: 8px 0;
+    width:90px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    
+}
+button:hover {
+    /* opacity: 0.8; */
+    background-color: var(--main-color);
+    color: black;
+    font-weight: bold;
+
+}
+
+/* admin login end */
+
+
+
+/* login Pages end */
+
 
 
