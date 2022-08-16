@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+   --main-color:#602ba4;
+   --black:#222;
+   --white:#fff;
+   --light-black:#777;
+   --light-white:#fff9;
+   --dark-bg:rgba(0,0,0,.7);
+   --light-bg:#eee;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+   --text-shadow:0 1.5rem 3rem rgba(0,0,0,.3);
+}
+
+/* header start */
+.header{
+    background-color: #135785;
+    position: sticky;
+    z-index: 1000;
+}
+.header .navbar .nav-item a{
+    color: #fff;
+    padding-left: 25px;
+    font-size: 20px;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+.header .navbar .navbar-nav{
+    padding-left: 22rem;
+}
+/* header end */
+
+/* baner start */
+.banar{
+    margin: 0px;
+}
+.banar .banar-img{
+    background-image:url("/static/img/meeting.jpg");
+    background-repeat:no-repeat;
+}
+
+/* baner end */
+
