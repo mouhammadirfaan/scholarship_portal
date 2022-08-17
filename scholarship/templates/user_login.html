@@ -22,7 +22,10 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
         
-            <button type="submit">Login</button>
+            <button type="submit" value="login">Login</button>
+            
+            <a href="{% url 'user_signup' %}" id ="bt">CREATE AN ACCOUNT</a>
+            
         </form>
     </div>
 </section>
