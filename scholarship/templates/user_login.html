@@ -16,8 +16,8 @@
     <div class="container">
         <form action="" method="POST">
             {% csrf_token %}
-            <label for="uname"><b>Username</b></label>
-            <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
+            <label for="uname"><b>Email</b></label>
+            <input type="email" class="form-control" placeholder="Enter Email" name="uname" required>
         
             <label for="psw"><b>Password</b></label>
             <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
@@ -31,6 +31,18 @@
 </section>
 
 <!-- admin login form start -->
+
+{% if Error == 'no' %}
+
+<script>
+    alert('Login Successful');
+    window.location = ("{% url 'user_home'%}");
+</script>
+{% else %}
+<script>
+    alert('Invalid Login credentials. \n Please Try Againg...');
+</script>
+{% endif %}
 
 
 

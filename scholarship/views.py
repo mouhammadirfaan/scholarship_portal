@@ -1,4 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from django.contrib.auth.models import User
+from .models import *
+from django.contrib.auth import authenticate, login, logout
+
 
 # Create your views here.
 
@@ -11,8 +16,73 @@ def admin_login(request):
 def provider_login(request):
     return render(request, 'provider_login.html')
 
-def user_login(request):
-    return render(request, 'user_login.html')
 
+# Student Signup here:
 def user_signup(request):
-    return render(request, 'user_signup.html')
+
+    error=""
+
+    if request.method == "POST":
+
+        fName = request.POST['fname']
+        LName = request.POST['lname']
+        phone = request.POST['contact']
+        Email = request.POST['email']
+        pwd = request.POST['psw']
+        gen = request.POST['Radios']
+        img = request.FILES['image']
+
+        try:
+            USER = User.objects.create_user(first_name=fName, last_name=LName, username=Email, password=pwd)
+            StudentUser.objects.create(user=USER, mobile=phone, gender=gen, image=img, usertype="student")
+            error= "no"
+
+        except:
+            error= "yes"
+    
+    dic = {'Error': error}
+    return render(request, 'user_signup.html', dic)
+
+# Student Login here:
+def user_login(request):
+
+    error=""
+
+    if request.method == "POST":
+
+        uName = request.POST['uname']
+        pwd = request.POST['psw']
+
+        USER = authenticate(username=uName, password=pwd)
+
+        if USER:
+            error="no"
+        #     try:
+        #         userdata = StudentUser.objects.get(user=USER)
+                
+        #         if userdata.usertype == "student":
+        #             login(request, USER)
+        #             errror="no"
+        #         else:
+        #             error="yes"
+        #     except:
+        #         error="yes"
+        else:
+            error="yes"
+       
+    dict = {'Error': error}
+
+    return render(request, 'user_login.html', dict)
+
+# Student Home Page here:
+def user_home(request):
+
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+
+    return render(request, 'user_home.html')
+
+# Log-out Function Here:
+def Logout(request):
+    logout(request)
+    return redirect('home')

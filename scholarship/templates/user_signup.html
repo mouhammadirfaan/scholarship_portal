@@ -79,11 +79,11 @@
                 <div class="col-md-6">
                     <label for="psw"><b>Gander</b></label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="Radios" id="exampleRadios1" value="male" checked>
                         <label class="form-check-label" for="exampleRadios1">Male</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="Radios" id="exampleRadios2" value="femail">
                         <label class="form-check-label" for="exampleRadios2">Femail</label>
                       </div>
                 </div>
@@ -92,7 +92,7 @@
                     <!-- <label for="psw"><b>Insert Your Image</b></label> -->
                     <div class="form">
                         <label for="exampleFormControlFile1"><b>Image</b></label><br>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
                     </div>                
                 </div>
 
@@ -104,6 +104,18 @@
         </form>
     </div>
 </section>
+
+{% if Error == 'no' %}
+
+<script>
+    alert('SignUp Successful');
+    window.location = ("{% url 'user_login'%}");
+</script>
+{% else %}
+<script>
+    alert('Something went to Wrong. \n Please Try Againg...');
+</script>
+{% endif %}
 
 <!-- admin login form start -->
 

@@ -1,5 +1,3 @@
-from pyexpat import model
-from re import T
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -9,8 +7,8 @@ from django.contrib.auth.models import User
 
 class StudentUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    mobile = models.CharField(max_length=12, null=False)
-    image = models.FileField(null=True)
+    mobile = models.CharField(max_length=12, null=False, default='0000000')
+    image = models.FileField(null=False)
     gender = models.CharField(max_length=10, null=False)
     usertype = models.CharField(max_length=30, null=False)
 
