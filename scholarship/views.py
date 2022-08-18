@@ -56,17 +56,17 @@ def user_login(request):
         USER = authenticate(username=uName, password=pwd)
 
         if USER:
-            error="no"
-        #     try:
-        #         userdata = StudentUser.objects.get(user=USER)
+            # error="no"
+            try:
+                userdata = StudentUser.objects.get(user=USER)
                 
-        #         if userdata.usertype == "student":
-        #             login(request, USER)
-        #             errror="no"
-        #         else:
-        #             error="yes"
-        #     except:
-        #         error="yes"
+                if userdata.usertype == "student":
+                    login(request, USER)
+                    error="no"
+                else:
+                    error="yes"
+            except:
+                error="yes"
         else:
             error="yes"
        

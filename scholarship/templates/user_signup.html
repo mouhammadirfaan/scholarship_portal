@@ -111,7 +111,7 @@
     alert('SignUp Successful');
     window.location = ("{% url 'user_login'%}");
 </script>
-{% else %}
+{% elif Error == 'yes' %}
 <script>
     alert('Something went to Wrong. \n Please Try Againg...');
 </script>

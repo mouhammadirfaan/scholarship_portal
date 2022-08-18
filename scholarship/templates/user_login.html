@@ -23,7 +23,9 @@
             <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
         
             <button type="submit" value="login">Login</button>
-            
+
+            <!-- <input type="submit" value="login" name="" id="bt"> -->
+
             <a href="{% url 'user_signup' %}" id ="bt">CREATE AN ACCOUNT</a>
             
         </form>
@@ -38,7 +40,7 @@
     alert('Login Successful');
     window.location = ("{% url 'user_home'%}");
 </script>
-{% else %}
+{% elif Error == 'yes' %}
 <script>
     alert('Invalid Login credentials. \n Please Try Againg...');
 </script>
