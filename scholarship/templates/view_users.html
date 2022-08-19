@@ -3,9 +3,59 @@
 
 {% block content %}
 
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">View All Applicants</marquee>
+</section>
+
 <div class="container">
-    
-    <h1>This is view users Home Page</h1>
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+
+                <th>S. No.</th>
+                <th>Image</th>
+                <th>Applicant Name</th>
+                <th>Email ID </th>
+                <th>Phon No.</th>
+                <th>Gender</th>
+                <th>action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for data in userdata %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><img src="{{ data.image.url }}"></td>
+                <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
+                <td>{{ data.user.username }}</td>
+                <td>{{ data.mobile }}</td>
+                <td>{{ data.gender }}</td>
+                <td>{{ forloop.counter }}</td>
+
+
+            </tr>
+            {% endfor %}
+
+            <!-- <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr> -->
+
+        </tbody>
+
+    </table>
 
 </div>
 

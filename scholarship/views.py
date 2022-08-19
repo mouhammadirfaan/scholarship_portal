@@ -54,7 +54,12 @@ def view_users(request):
     if not request.user.is_authenticated:
         return redirect('admin_login')
 
-    return render(request, 'view_users.html')
+    studentdata = StudentUser.objects.all()
+
+    dic = {'userdata': studentdata}
+
+
+    return render(request, 'view_users.html', dic)
 
 
 
