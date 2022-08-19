@@ -27,8 +27,19 @@
     </div>
 </section>
 
-<!-- admin login form start -->
+<!-- admin login form end -->
 
+{% if Error == 'no' %}
+<script>
+    alert('Login Successful');
+    window.location = ("{% url 'admin_home'%}");
+</script>
 
+{% elif Error == 'yes' %}
+<script>
+    alert('Invalid Login credentials. \n Please Try Againg...');
+</script>
+
+{% endif %}
 
 {% endblock%}

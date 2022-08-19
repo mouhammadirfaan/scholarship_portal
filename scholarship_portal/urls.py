@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('admin_login', admin_login, name='admin_login'),
+    path('admin_home', admin_home, name='admin_home'),
+
 
     path('provider_login', provider_login, name='provider_login'),
     path('provider_signup', provider_signup, name='provider_signup'),

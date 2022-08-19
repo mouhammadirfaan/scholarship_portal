@@ -10,8 +10,45 @@ from django.contrib.auth import authenticate, login, logout
 def home(request):
     return render(request, 'home.html')
 
+
+#----------------------------------------------------
+#               ADMIN
+#----------------------------------------------------
+
+# admin login page here:
 def admin_login(request):
-    return render(request, 'admin_login.html')
+
+    
+    error=""
+
+    if request.method == "POST":
+        
+        uName = request.POST['uname']
+        pwd = request.POST['psw']
+
+        ADMIN = authenticate(username=uName, password=pwd)
+
+        try:
+            if ADMIN.is_staff:
+                login(request, ADMIN)
+                error="no"
+        
+        except:
+            error="yes"
+
+    dict = {'Error': error}
+
+    return render(request, 'admin_login.html', dict)
+
+# Admin Home Page here:
+def admin_home(request):
+
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    return render(request, 'admin_home.html')
+
+
 
 #----------------------------------------------------
 #               SCHOLARSHIP PROVIDER
@@ -153,6 +190,7 @@ def user_home(request):
     return render(request, 'user_home.html')
 
 #----------------------------------------------------
+#          LOG OUT FUNCTION
 #----------------------------------------------------
 
 # Log-out Function Here:
