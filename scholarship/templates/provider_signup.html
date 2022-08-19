@@ -5,7 +5,7 @@
 
 <!-- marquee section start -->
 <section class="marquee">
-    <marquee behavior="scroll" direction="left" scrollamount="12">User Sign Up First</marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship Provider Sign Up First</marquee>
 </section>
 <!-- marquee section end -->
 
@@ -22,7 +22,7 @@
     }
 </script>
 
-<!-- user sign-up form start -->
+<!-- provider sign-up form start -->
 
 <section class="forms" id="signup">
    
@@ -46,16 +46,22 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <label for="uname"><b>Contact</b></label>
-                    <input type="text" class="form-control" placeholder="Enter Contact" name="contact" required>
+                    <label for="uname"><b>NGOs / Company Name</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Your NGOs / Company Name" name="company" required>
                 </div>
+                
             </div>
 
             <div class="row">
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="uname"><b>Email</b></label>
                     <input type="email" class="form-control" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="uname"><b>Contact</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Contact" name="contact" required>
                 </div>
 
             </div>
@@ -105,13 +111,13 @@
     </div>
 </section>
 
-<!-- user sign-upn form end -->
+<!-- provider sign-up form end -->
 
 {% if Error == 'no' %}
 
 <script>
     alert('SignUp Successful');
-    window.location = ("{% url 'user_login'%}");
+    window.location = ("{% url 'provider_login'%}");
 </script>
 {% elif Error == 'yes' %}
 <script>

@@ -13,10 +13,79 @@ def home(request):
 def admin_login(request):
     return render(request, 'admin_login.html')
 
+#----------------------------------------------------
+#               SCHOLARSHIP PROVIDER
+#----------------------------------------------------
+
+# Privider sign-up here:
+def provider_signup(request):
+
+    error=""
+
+    if request.method == "POST":
+
+        fName = request.POST['fname']
+        LName = request.POST['lname']
+        comp = request.POST['company']
+        phone = request.POST['contact']
+        Email = request.POST['email']
+        pwd = request.POST['psw']
+        gen = request.POST['Radios']
+        img = request.FILES['image']
+
+        try:
+            USER = User.objects.create_user(first_name=fName, last_name=LName, username=Email, password=pwd)
+            Provider.objects.create(user=USER, mobile=phone, gender=gen, image=img, companyname=comp, usertype="provider", status="pending")
+            error= "no"
+
+        except:
+            error= "yes"
+    
+    dic = {'Error': error}
+    return render(request, 'provider_signup.html', dic)
+
+# Privider Login here:
 def provider_login(request):
-    return render(request, 'provider_login.html')
 
+    error=""
 
+    if request.method == "POST":
+
+        uName = request.POST['uname']
+        pwd = request.POST['psw']
+
+        PROVIDER = authenticate(username=uName, password=pwd)
+
+        if PROVIDER:
+            # error="no"
+            try:
+                providerdata = Provider.objects.get(user=PROVIDER)
+                
+                if providerdata.usertype == "provider" and providerdata.status != "pending":
+                    login(request, PROVIDER)
+                    error="no"
+                else:
+                    error="not"
+            except:
+                error="yes"
+        else:
+            error="yes"
+       
+    dict = {'Error': error}
+
+    return render(request, 'provider_login.html', dict) 
+
+# Provider Home Page here:
+def provider_home(request):
+
+    if not request.user.is_authenticated:
+        return redirect('provider_login')
+
+    return render(request, 'provider_home.html')
+
+#----------------------------------------------------
+#               STUDENT USER
+#----------------------------------------------------
 # Student Signup here:
 def user_signup(request):
 
@@ -42,6 +111,7 @@ def user_signup(request):
     
     dic = {'Error': error}
     return render(request, 'user_signup.html', dic)
+
 
 # Student Login here:
 def user_login(request):
@@ -81,6 +151,9 @@ def user_home(request):
         return redirect('user_login')
 
     return render(request, 'user_home.html')
+
+#----------------------------------------------------
+#----------------------------------------------------
 
 # Log-out Function Here:
 def Logout(request):
