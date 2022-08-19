@@ -48,6 +48,14 @@ def admin_home(request):
 
     return render(request, 'admin_home.html')
 
+# View Users Page in admin_home:
+def view_users(request):
+
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    return render(request, 'view_users.html')
+
 
 
 #----------------------------------------------------
