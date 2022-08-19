@@ -216,5 +216,74 @@ button:hover {
 
 /* login / sign-up Pages end */
 
+/* ------------------------------ */
+/* ------------------------------ */
+
+/* admin-login pages start */
+
+/* view_users page here: */
+.view{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.view .container{
+
+    border: 3px solid #f5eded;
+    padding: 0px;
+    text-align: center;
+}
+
+thead{
+
+    background-color: #00ad6d;
+    height: 50px;
+}
+
+
+.view .container .table{
+    
+    background-color: rgb(239, 238, 245);
+    margin: 0px;
+
+}
+
+.view .container .table :hover{
+    
+    background-color: rgb(205, 150, 130);
+
+}
+.view .container .table tr{
+    border: 3px solid #f8acac;
+    
+}
+
+.view .container .table tbody :hover{
+    /* border: 3px solid #f3a0a0; */
+    background-color: rgb(204, 222, 162);
+    font-weight: bold;
+}
+
+.view .container .table td{
+    /* border: 3px solid #f5eded; */
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+.view .container img{
+    height: 70px;
+    width: 70px;
+    border-radius: 45%;
+    
+}
+
+
+
+
+
+/* admin-login pages end */
+
+
+
 
 
