@@ -27,6 +27,8 @@ urlpatterns = [
     path('view_users', view_users, name='view_users'),
     path('delete_user/<int:pid>', delete_user, name='delete_user'),
     path('providers_pending', providers_pending, name='providers_pending'),
+    path('change_status/<int:sid>', change_status, name='change_status'),
+
 
 
 

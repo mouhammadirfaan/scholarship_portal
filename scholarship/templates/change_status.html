@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- marquee section start -->
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">Chage Pending Status</marquee>
+</section>
+<!-- marquee section end -->
+
+<!-- change form start -->
+
+<section class="forms">
+   
+    <div class="container">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="uname"><b>Provider Name</b></label>
+            <input type="text" class="form-control" value="{{Providerststus.user.first_name}} {{Providerststus.user.last_name}}">
+        
+            <label for="status"><b>Change Status</b></label>
+            <select class="form-select" aria-label="Default select example" name="status">
+                <option value="Accept">Accepted</option>
+                <option value="Reject">Rejected</option>
+            </select>
+
+            <button type="submit" style="margin-top: 10px;">submit</button>
+
+        </form>
+    </div>
+</section>
+
+<!-- changr provider status end -->
+
+{% if Error == 'no' %}
+<script>
+    alert('Status Changed Successfully');
+    window.location = ("{% url 'providers_pending'%}");
+</script>
+
+{% elif Error == 'yes' %}
+<script>
+    alert('Something went to wronge...');
+</script>
+
+{% endif %}
+
+{% endblock%}

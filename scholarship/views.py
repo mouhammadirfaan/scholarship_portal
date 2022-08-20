@@ -72,7 +72,7 @@ def delete_user(request, pid):
 
     return redirect('view_users')
 
-# View Users Page in admin_home:
+# Pending prvider ststus Page in admin_home:
 def providers_pending(request):
 
     if not request.user.is_authenticated:
@@ -83,6 +83,32 @@ def providers_pending(request):
     dic = {'Providerdata': providerdata}
 
     return render(request, 'providers_pending.html', dic)
+
+
+# Change provider Pending ststus Page in admin_home:
+def change_status(request, sid):
+
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    error=""
+
+    providerstastus = Provider.objects.get(id=sid)
+
+    if request.method == "POST":
+        p_ststus = request.POST['status']
+
+        providerstastus.status = p_ststus
+    
+        try:
+            providerstastus.save()
+            error = "no"
+        except:
+            error="yes"
+
+    dic = {'Providerststus': providerstastus, 'Error': error}
+
+    return render(request, 'change_status.html', dic)
 
 #----------------------------------------------------
 #               SCHOLARSHIP PROVIDER
