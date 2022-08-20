@@ -25,6 +25,10 @@ urlpatterns = [
     path('admin_login', admin_login, name='admin_login'),
     path('admin_home', admin_home, name='admin_home'),
     path('view_users', view_users, name='view_users'),
+    path('delete_user/<int:pid>', delete_user, name='delete_user'),
+    path('providers_pending', providers_pending, name='providers_pending'),
+
+
 
 
     path('provider_login', provider_login, name='provider_login'),

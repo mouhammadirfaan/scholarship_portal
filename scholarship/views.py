@@ -61,7 +61,28 @@ def view_users(request):
 
     return render(request, 'view_users.html', dic)
 
+# Delete User Page by admin:
+def delete_user(request, pid):
 
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    studentrecord = StudentUser.objects.get(id=pid)
+    studentrecord.delete()
+
+    return redirect('view_users')
+
+# View Users Page in admin_home:
+def providers_pending(request):
+
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    providerdata = Provider.objects.filter(status="pending")
+
+    dic = {'Providerdata': providerdata}
+
+    return render(request, 'providers_pending.html', dic)
 
 #----------------------------------------------------
 #               SCHOLARSHIP PROVIDER

@@ -223,8 +223,8 @@ button:hover {
 
 /* view_users page here: */
 .view{
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 .view .container{
@@ -232,7 +232,9 @@ button:hover {
     border: 3px solid #f5eded;
     padding: 0px;
     text-align: center;
+
 }
+
 
 thead{
 
