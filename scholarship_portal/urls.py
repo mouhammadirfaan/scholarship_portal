@@ -27,6 +27,10 @@ urlpatterns = [
     path('view_users', view_users, name='view_users'),
     path('delete_user/<int:pid>', delete_user, name='delete_user'),
     path('providers_pending', providers_pending, name='providers_pending'),
+    path('providers_accepted', providers_accepted, name='providers_accepted'),
+    path('providers_rejected', providers_rejected, name='providers_rejected'),
+    path('providers_all', providers_all, name='providers_all'),
+
     path('change_status/<int:sid>', change_status, name='change_status'),
 
 

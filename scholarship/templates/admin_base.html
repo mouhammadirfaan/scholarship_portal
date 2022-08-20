@@ -74,10 +74,10 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                       <li><a class="dropdown-item" href="{% url 'providers_pending' %}">Pending</a></li>
-                        <li><a class="dropdown-item" href="#">Accepted</a></li>
-                        <li><a class="dropdown-item" href="#">Rejected</a></li>
+                        <li><a class="dropdown-item" href="{% url 'providers_accepted' %}">Accepted</a></li>
+                        <li><a class="dropdown-item" href="{% url 'providers_rejected' %}">Rejected</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">All Provider</a></li>
+                        <li><a class="dropdown-item" href="{% url 'providers_all' %}">All Provider</a></li>
                     </ul>
                   </li>
 

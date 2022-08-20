@@ -85,6 +85,45 @@ def providers_pending(request):
     return render(request, 'providers_pending.html', dic)
 
 
+# Accepted prvider ststus Page in admin_home:
+def providers_accepted(request):
+    
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    providerdata = Provider.objects.filter(status="accept")
+
+    dic = {'Providerdata': providerdata}
+
+    return render(request, 'providers_accepted.html', dic)
+
+
+# Rejected prvider ststus Page in admin_home:
+def providers_rejected(request):
+    
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    providerdata = Provider.objects.filter(status="reject")
+
+    dic = {'Providerdata': providerdata}
+
+    return render(request, 'providers_rejected.html', dic)
+
+
+# Rejected prvider ststus Page in admin_home:
+def providers_all(request):
+    
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    providerdata = Provider.objects.all()
+
+    dic = {'Providerdata': providerdata}
+
+    return render(request, 'providers_all.html', dic)
+
+
 # Change provider Pending ststus Page in admin_home:
 def change_status(request, sid):
 

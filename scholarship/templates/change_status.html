@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'admin_base.html' %}
 {% load static %}
 
 {% block content %}
@@ -37,7 +37,7 @@
 {% if Error == 'no' %}
 <script>
     alert('Status Changed Successfully');
-    window.location = ("{% url 'providers_pending'%}");
+    window.location = ("{% url 'providers_all'%}");
 </script>
 
 {% elif Error == 'yes' %}
