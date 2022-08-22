@@ -48,6 +48,12 @@ def admin_home(request):
 
     return render(request, 'admin_home.html')
 
+# Admin can change  Password 
+def change_passwordadmin(request):
+
+    return render(request, 'change_passwordadmin.html')
+
+
 # View Users Page in admin_home:
 def view_users(request):
 
@@ -62,12 +68,12 @@ def view_users(request):
     return render(request, 'view_users.html', dic)
 
 # Delete User Page by admin:
-def delete_user(request, pid):
+def delete_user(request, uid):
 
     if not request.user.is_authenticated:
         return redirect('admin_login')
 
-    studentrecord = StudentUser.objects.get(id=pid)
+    studentrecord = User.objects.get(id=uid)
     studentrecord.delete()
 
     return redirect('view_users')
@@ -149,6 +155,17 @@ def change_status(request, sid):
 
     return render(request, 'change_status.html', dic)
 
+# Delete Provider Page by admin:
+def delete_provider(request, pid):
+
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    providerrecord = User.objects.get(id=pid)
+    providerrecord.delete()
+
+    return redirect('providers_all')
+
 #----------------------------------------------------
 #               SCHOLARSHIP PROVIDER
 #----------------------------------------------------
@@ -197,7 +214,7 @@ def provider_login(request):
             try:
                 providerdata = Provider.objects.get(user=PROVIDER)
                 
-                if providerdata.usertype == "provider" and providerdata.status != "pending":
+                if providerdata.usertype == "provider" and providerdata.status != "pending" and providerdata.status != "Reject":
                     login(request, PROVIDER)
                     error="no"
                 else:

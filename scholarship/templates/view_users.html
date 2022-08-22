@@ -55,7 +55,7 @@ $(document).ready(function() {
                     <td>{{ data.user.username }}</td>
                     <td>{{ data.mobile }}</td>
                     <td>{{ data.gender }}</td>
-                    <td><a href="{% url 'delete_user' data.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    <td><a href="{% url 'delete_user' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
 
                 </tr>

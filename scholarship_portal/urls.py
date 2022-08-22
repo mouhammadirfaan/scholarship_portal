@@ -24,15 +24,18 @@ urlpatterns = [
     path('', home, name='home'),
     path('admin_login', admin_login, name='admin_login'),
     path('admin_home', admin_home, name='admin_home'),
+    path('change_passwordadmin', change_passwordadmin, name='change_passwordadmin'),
+
     path('view_users', view_users, name='view_users'),
-    path('delete_user/<int:pid>', delete_user, name='delete_user'),
+    path('delete_user/<int:uid>', delete_user, name='delete_user'),
+
     path('providers_pending', providers_pending, name='providers_pending'),
     path('providers_accepted', providers_accepted, name='providers_accepted'),
     path('providers_rejected', providers_rejected, name='providers_rejected'),
     path('providers_all', providers_all, name='providers_all'),
-
+    
     path('change_status/<int:sid>', change_status, name='change_status'),
-
+    path('delete_provider/<int:pid>', delete_provider, name='delete_provider'),
 
 
 

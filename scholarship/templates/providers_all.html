@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 
 <section class="marquee">
-    <marquee behavior="scroll" direction="left" scrollamount="12">Rejected Providers</marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="12">All Providers</marquee>
 </section>
 
 <section class="view"> 
@@ -42,6 +42,7 @@ $(document).ready(function() {
                     <th>Gender</th>
                     <th>Status</th>
                     <th>Action</th>
+                    
 
                 </tr>
 
@@ -59,7 +60,9 @@ $(document).ready(function() {
                     <td>{{ data.mobile }}</td>
                     <td>{{ data.gender }}</td>
                     <td>{{ data.status }}</td>
-                    <td><a href="{% url 'change_status' data.id %}" type="button" class="btn btn-info">Change</a></td>
+                    <td><a href="{% url 'change_status' data.id %}" type="button" class="btn btn-info">Change</a>
+                    <a href="{% url 'delete_provider' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
 
 
                 </tr>
