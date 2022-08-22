@@ -44,10 +44,16 @@
                     <a class="nav-link active"  aria-current="page" href="{% url 'provider_home' %}">Home</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="#">Add Job</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="#">Jobs List</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Change Password</a>
+                    <a class="nav-link" href="#">Applied Candidates</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'change_passwordprovider' %}">Change Password</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'Logout' %}">Log Out</a>
@@ -59,6 +65,7 @@
                     <a class="nav-link" href="#">Contact Us</a>
                   </li> -->
                 </ul>
+                <a class="navbar-brand" href="#" style="padding-left: 10px;">{{request.user.last_name}}</a>
               </div>
             </div>
           </nav>

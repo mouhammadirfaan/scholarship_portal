@@ -1,3 +1,5 @@
+import errno
+import re
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.models import User
@@ -51,7 +53,28 @@ def admin_home(request):
 # Admin can change  Password 
 def change_passwordadmin(request):
 
-    return render(request, 'change_passwordadmin.html')
+    
+    error=""
+
+    if request.method == "POST":
+
+        currentpwd = request.POST['currentpass']
+        newpwd = request.POST['conformpass']
+
+        try:
+            adminuser=User.objects.get(id=request.user.id)
+            if adminuser.check_password(currentpwd):
+                adminuser.set_password(newpwd) 
+                adminuser.save()
+                error="no"
+
+            else:
+                error="not"
+        except:
+            error="yes"
+    
+    dic = {'Error': error }
+    return render(request, 'change_passwordadmin.html', dic)
 
 
 # View Users Page in admin_home:
@@ -236,6 +259,33 @@ def provider_home(request):
 
     return render(request, 'provider_home.html')
 
+
+# Provider user can change  Password 
+def change_passwordprovider(request):
+
+    error=""
+
+    if request.method == "POST":
+
+        currentpwd = request.POST['currentpass']
+        newpwd = request.POST['conformpass']
+
+        try:
+            provideruser=User.objects.get(id=request.user.id)
+            if provideruser.check_password(currentpwd):
+                provideruser.set_password(newpwd) 
+                provideruser.save()
+                error="no"
+
+            else:
+                error="not"
+        except:
+            error="yes"
+    
+    dic = {'Error': error }
+    return render(request, 'change_passwordprovider.html', dic)
+
+
 #----------------------------------------------------
 #               STUDENT USER
 #----------------------------------------------------
@@ -304,6 +354,35 @@ def user_home(request):
         return redirect('user_login')
 
     return render(request, 'user_home.html')
+
+
+# Student user can change  Password 
+def change_passworduser(request):
+
+    # if not request.user.is_authenticated:
+    #     return redirect('user_login')
+
+    error=""
+
+    if request.method == "POST":
+
+        currentpwd = request.POST['currentpass']
+        newpwd = request.POST['conformpass']
+
+        try:
+            studentuser=User.objects.get(id=request.user.id)
+            if studentuser.check_password(currentpwd):
+                studentuser.set_password(newpwd) 
+                studentuser.save()
+                error="no"
+
+            else:
+                error="not"
+        except:
+            error="yes"
+    
+    dic = {'Error': error }
+    return render(request, 'change_passworduser.html', dic)
 
 #----------------------------------------------------
 #          LOG OUT FUNCTION
