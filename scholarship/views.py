@@ -260,6 +260,15 @@ def provider_home(request):
     return render(request, 'provider_home.html')
 
 
+# Provider Home Page here:
+def add_scholarship(request):
+
+    if not request.user.is_authenticated:
+        return redirect('provider_login')
+
+    return render(request, 'add_scholarship.html')
+
+
 # Provider user can change  Password 
 def change_passwordprovider(request):
 
