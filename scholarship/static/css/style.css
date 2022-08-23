@@ -35,7 +35,7 @@
     padding-left: 15rem;
 }
 .header .navbar .nav-item .nav-link:hover{
-    color: black!important;
+    color: rgb(0, 0, 0)!important;
     font-weight: bold;
     background-color :var(--main-color);
     border-radius: 10px;
