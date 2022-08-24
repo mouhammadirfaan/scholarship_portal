@@ -43,8 +43,8 @@ class AddScholarship(models.Model):
     scholarshiptype =  models.CharField(max_length=100, null=False)
     prviousmarks = models.CharField(max_length=100, null=False)
     income = models.CharField(max_length=100, null=True)
-    createdate = models.DateField()
     discription = models.TextField()
+    createdate = models.DateField()
 
     def __str__(self):
         return self.title

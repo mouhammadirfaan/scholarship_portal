@@ -266,6 +266,34 @@ def add_scholarship(request):
     if not request.user.is_authenticated:
         return redirect('provider_login')
 
+    error=""
+
+    if request.method == "POST":
+
+        Title = request.POST['title']
+        startDate = request.POST['startdate']
+        endDate = request.POST['enddates']
+        Income = request.POST['income']
+        Type = request.POST['type']
+        Marks = request.POST['marks']
+        no = request.POST['nofscholarship']
+        Location=request.POST['location']
+        Logo = request.FILES['logo']
+        disc = request.POST['discription']
+
+
+        USER=request.user
+        PROVIDER = request.objects.get(user=USER)
+
+        try:
+            AddScholarship.objects.create(provider=PROVIDER, title=Title, logo=Logo)
+            error= "no"
+
+        except:
+            error= "yes"
+    
+    dic = {'Error': error}
+
     return render(request, 'add_scholarship.html')
 
 
