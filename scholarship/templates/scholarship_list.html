@@ -1,0 +1,75 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- data tables and export button  JS Code start -->
+<!-- <script>
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+</script> -->
+<!-- data tables and export button JS Code end -->
+
+
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship List</marquee>
+</section>
+
+<section class="view"> 
+
+    <div class="container">
+
+        <table class="table" id="example" >
+
+            <thead>
+
+                <tr>
+
+                    <th>S. No.</th>
+                    <th>Logo</th>
+                    <th>Title</th>
+                    <th>Start Date</th>
+                    <th>End date</th>
+                    <th>Action</th>
+                    
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for data in Providerdata %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><img src="{{ data.logo.url }}"></td>
+                    <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
+                    <td>{{ data.title }}</td>
+                    <td>{{ data.user.username }}</td>
+                    <td>{{ data.startdate }}</td>
+                    <td>{{ data.startdate }}</td>
+                    <td>{{ data.status }}</td>
+                    <td><a href="{% url 'change_status' data.id %}" type="button" class="btn btn-info">Change</a>
+                    <a href="{% url 'delete_provider' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+</section>
+
+{% endblock %}

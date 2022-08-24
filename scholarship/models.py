@@ -33,7 +33,7 @@ class Provider(models.Model):
     
 # Provider Add scholarship datails start
 class AddScholarship(models.Model):
-    procider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+    provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, null=False)
     logo = models.FileField()
     startdate = models.DateField()

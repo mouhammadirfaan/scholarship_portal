@@ -51,6 +51,8 @@ urlpatterns = [
     path('provider_home', provider_home, name='provider_home'),
     path('change_passwordprovider', change_passwordprovider, name='change_passwordprovider'),
     path('add_scholarship', add_scholarship, name='add_scholarship'),
+    path('scholarship_list', scholarship_list, name='scholarship_list'),
+
 
 
 # ------------------------------------

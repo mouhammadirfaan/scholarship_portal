@@ -107,17 +107,16 @@
 <!-- provider Add scholarship details form end -->
 
 {% if Error == 'no' %}
-
 <script>
-    alert(' Successful');
-    window.location = ("{% url 'provider_login'%}");
+    alert('Your Scholarship added Successfully');
+    window.location = ("{% url 'scholarship_list'%}");
 </script>
+
 {% elif Error == 'yes' %}
 <script>
     alert('Something went to Wrong. \n Please Try Againg...');
 </script>
 {% endif %}
 
-</div>
 
 {% endblock %}

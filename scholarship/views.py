@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 
+from datetime import date
+
 
 # Create your views here.
 
@@ -272,7 +274,7 @@ def add_scholarship(request):
 
         Title = request.POST['title']
         startDate = request.POST['startdate']
-        endDate = request.POST['enddates']
+        endDate = request.POST['enddate']
         Income = request.POST['income']
         Type = request.POST['type']
         Marks = request.POST['marks']
@@ -280,13 +282,13 @@ def add_scholarship(request):
         Location=request.POST['location']
         Logo = request.FILES['logo']
         disc = request.POST['discription']
-
-
         USER=request.user
-        PROVIDER = request.objects.get(user=USER)
+        PROVIDER = Provider.objects.get(user=USER)
 
         try:
-            AddScholarship.objects.create(provider=PROVIDER, title=Title, logo=Logo)
+            AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
+            enddate=endDate, income=Income, scholarshiptype=Type, noofscholarships=no, logo=Logo, 
+            prviousmarks=Marks, Location=Location, discription=disc, createdate=date.today())
             error= "no"
 
         except:
@@ -294,7 +296,15 @@ def add_scholarship(request):
     
     dic = {'Error': error}
 
-    return render(request, 'add_scholarship.html')
+    return render(request, 'add_scholarship.html', dic)
+
+# Scholarship List Page here:
+def scholarship_list(request):
+
+    if not request.user.is_authenticated:
+        return redirect('provider_login')
+
+    return render(request, 'scholarship_list.html')
 
 
 # Provider user can change  Password 
