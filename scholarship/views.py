@@ -1,5 +1,7 @@
 import errno
+from pickletools import read_bytes1
 import re
+from tokenize import Pointfloat
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.models import User
@@ -304,7 +306,12 @@ def scholarship_list(request):
     if not request.user.is_authenticated:
         return redirect('provider_login')
 
-    return render(request, 'scholarship_list.html')
+    USER = request.user
+    PROVIDER = Provider.objects.get(user=USER)
+    SCHOLARSHIP = AddScholarship.objects.filter(provider=PROVIDER)
+
+    dic={'scholarship': SCHOLARSHIP}
+    return render(request, 'scholarship_list.html', dic)
 
 
 # Provider user can change  Password 

@@ -1,4 +1,4 @@
-{% extends 'admin_base.html' %}
+{% extends 'provider_base.html' %}
 {% load static %}
 
 {% block content %}
@@ -36,7 +36,6 @@ $(document).ready(function() {
                     <th>S. No.</th>
                     <th>Logo</th>
                     <th>Title</th>
-                    <th>Start Date</th>
                     <th>End date</th>
                     <th>Action</th>
                     
@@ -47,19 +46,13 @@ $(document).ready(function() {
 
             <tbody>
 
-                {% for data in Providerdata %}
+                {% for data in scholarship %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td><img src="{{ data.logo.url }}"></td>
-                    <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
                     <td>{{ data.title }}</td>
-                    <td>{{ data.user.username }}</td>
-                    <td>{{ data.startdate }}</td>
-                    <td>{{ data.startdate }}</td>
-                    <td>{{ data.status }}</td>
-                    <td><a href="{% url 'change_status' data.id %}" type="button" class="btn btn-info">Change</a>
-                    <a href="{% url 'delete_provider' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                    </td>
+                    <td>{{ data.enddate }}</td>
+                   
 
 
                 </tr>
