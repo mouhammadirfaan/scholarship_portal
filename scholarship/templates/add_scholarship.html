@@ -3,8 +3,121 @@
 
 {% block content %}
 
-<div class="container">
-    <h1>This is add scholarship Page</h1>
+
+    <!-- marquee section start -->
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">Add Scholarship Details</marquee>
+</section>
+<!-- marquee section end -->
+
+<!-- provider Add scholarship details form start -->
+
+<section class="forms" style="margin-bottom: 60px;">
+   
+    <div class="container" id="">
+        <form action="" method="POST"  name="details" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="title"><b>Scholarship Title</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Scholarship Title" name="title" required>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <label for="startdate"><b>Start Date</b></label>
+                    <input type="date" class="form-control" placeholder="" name="startdate" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="enddate"><b>End Date</b></label>
+                    <input type="date" class="form-control" placeholder="" name="enddate" required>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="income"><b>Income(Per Month)</b></label>
+                    <input type="text" class="form-control" placeholder="Max Family Income" name="income">
+                </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <label for="type"><b>Type of Scholarship</b></label>
+                    <input type="text" class="form-control" placeholder="eg. For Bachlor/Master" name="type" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="marks"><b>Prvious Marks</b></label>
+                    <input type="text" class="form-control" placeholder="Min Previous Marks/CGPA" name="marks" required>
+                </div>
+
+            </div> 
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="nofscholarship"><b>No. of Scholarships</b></label>
+                    <input type="int" class="form-control" placeholder="No. of Scholarships" name="nofscholarship" required>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="location"><b>Location</b></label>
+                    <input type="text" class="form-control" placeholder="Location" name="location" required>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- <div class="col-md-6">
+                   
+                </div> -->
+                <div class="col-md-6">
+                    <div class="form" style="margin: 10px 0;">
+                        <label for="logo"><b>Company Logo</b></label><br>
+                        <input type="file" class="form-control-file" name="logo" id="">
+                    </div>   
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="dis"><b>Discription</b></label>
+                    <textarea class="form-control" placeholder="Discription here:" name="discription" id="" cols="18" rows="6" required></textarea>
+                </div>
+            </div>
+        
+            <button type="submit" value="submit" id="bt">Post</button>
+
+            
+        </form>
+    </div>
+</section>
+
+<!-- provider Add scholarship details form end -->
+
+{% if Error == 'no' %}
+
+<script>
+    alert(' Successful');
+    window.location = ("{% url 'provider_login'%}");
+</script>
+{% elif Error == 'yes' %}
+<script>
+    alert('Something went to Wrong. \n Please Try Againg...');
+</script>
+{% endif %}
+
 </div>
 
 {% endblock %}

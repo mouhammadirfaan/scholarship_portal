@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your All models here.
 
-# Student User start
+# Student User SignUp details start
 class StudentUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     mobile = models.CharField(max_length=20, null=True)
@@ -16,7 +16,7 @@ class StudentUser(models.Model):
 
 # Student User end
 
-# Provider User start
+# Provider User SignUp details start
 class Provider(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     mobile = models.CharField(max_length=12, null=False)
@@ -31,7 +31,23 @@ class Provider(models.Model):
 # Provider User end
 
     
+# Provider Add scholarship datails start
+class AddScholarship(models.Model):
+    procider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100, null=False)
+    logo = models.FileField()
+    startdate = models.DateField()
+    enddate = models.DateField()
+    noofscholarships = models.IntegerField()
+    Location = models.CharField(max_length=256, null=False)
+    scholarshiptype =  models.CharField(max_length=100, null=False)
+    prviousmarks = models.CharField(max_length=100, null=False)
+    income = models.CharField(max_length=100, null=True)
+    createdate = models.DateField()
+    discription = models.TextField()
 
+    def __str__(self):
+        return self.title
+# Provider Add scholarship  end
 
-# Student User end
 
