@@ -6,7 +6,7 @@
 
     <!-- marquee section start -->
 <section class="marquee">
-    <marquee behavior="scroll" direction="left" scrollamount="12">Edit Scholarship Details</marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="12">Add Scholarship Details</marquee>
 </section>
 <!-- marquee section end -->
 
@@ -21,19 +21,19 @@
 
                 <div class="col-md-12">
                     <label for="title"><b>Scholarship Title</b></label>
-                    <input type="text" class="form-control" placeholder="Enter Scholarship Title" name="title" required>
+                    <input type="text" class="form-control" value="{{EditScholarship.title}}" placeholder="Enter Scholarship Title" name="title" required>
                 </div>
             </div>
 
             <div class="row">
 
                 <div class="col-md-6">
-                    <label for="startdate"><b>Start Date</b></label>
+                    <label for="startdate"><b>Start Date</b></label> <span style="color: red;">[{{EditScholarship.startdate}}]</span> 
                     <input type="date" class="form-control" placeholder="" name="startdate" required>
                 </div>
 
                 <div class="col-md-6">
-                    <label for="enddate"><b>End Date</b></label>
+                    <label for="enddate"><b>End Date</b></label> <span style="color: red;">[{{EditScholarship.enddate}}]</span> 
                     <input type="date" class="form-control" placeholder="" name="enddate" required>
                 </div>
 
@@ -43,19 +43,19 @@
 
                 <div class="col-md-12">
                     <label for="income"><b>Income(Per Month)</b></label>
-                    <input type="text" class="form-control" placeholder="Max Family Income" name="income">
+                    <input type="text" class="form-control" value="{{EditScholarship.income}}" placeholder="Max Family Income" name="income">
                 </div>
 
             <div class="row">
 
                 <div class="col-md-6">
                     <label for="type"><b>Type of Scholarship</b></label>
-                    <input type="text" class="form-control" placeholder="eg. For Bachlor/Master" name="type" required>
+                    <input type="text" class="form-control" value="{{EditScholarship.scholarshiptype}}" placeholder="eg. For Bachlor/Master" name="type" required>
                 </div>
 
                 <div class="col-md-6">
                     <label for="marks"><b>Prvious Marks</b></label>
-                    <input type="text" class="form-control" placeholder="Min Previous Marks/CGPA" name="marks" required>
+                    <input type="text" class="form-control" value="{{EditScholarship.prviousmarks}}" placeholder="Min Previous Marks/CGPA" name="marks" required>
                 </div>
 
             </div> 
@@ -64,7 +64,7 @@
 
                 <div class="col-md-12">
                     <label for="nofscholarship"><b>No. of Scholarships</b></label>
-                    <input type="int" class="form-control" placeholder="No. of Scholarships" name="nofscholarship" required>
+                    <input type="int" class="form-control" value="{{EditScholarship.noofscholarships}}" placeholder="No. of Scholarships" name="nofscholarship" required>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
 
                 <div class="col-md-12">
                     <label for="location"><b>Location</b></label>
-                    <input type="text" class="form-control" placeholder="Location" name="location" required>
+                    <input type="text" class="form-control" value="{{EditScholarship.Location}}" placeholder="Location" name="location" required>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@
                 <div class="col-md-6">
                     <div class="form" style="margin: 10px 0;">
                         <label for="logo"><b>Company Logo</b></label><br>
-                        <input type="file" class="form-control-file" name="logo" id="">
+                        <img src="{{ EditScholarship.logo.url}}" style="height: 70px; width: 70px;" ><a href="#" style="padding: 0 10px; font-weight: bolder;">change Logo</a>
                     </div>   
                 </div>
             </div>
@@ -93,11 +93,11 @@
 
                 <div class="col-md-12">
                     <label for="dis"><b>Discription</b></label>
-                    <textarea class="form-control" placeholder="Discription here:" name="discription" id="" cols="18" rows="6" required></textarea>
+                    <textarea class="form-control" placeholder="Discription here:" name="discription" id="" cols="18" rows="6" required>{{EditScholarship.discription}}</textarea>
                 </div>
             </div>
         
-            <button type="submit" value="submit" id="bt">Post</button>
+            <button type="submit" value="submit" id="bt">Submit</button>
 
             
         </form>
@@ -108,7 +108,7 @@
 
 {% if Error == 'no' %}
 <script>
-    alert('Your Scholarship added Successfully');
+    alert('Your Scholarship updated Successfully');
     window.location = ("{% url 'scholarship_list'%}");
 </script>
 

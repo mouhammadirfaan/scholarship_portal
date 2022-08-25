@@ -313,6 +313,52 @@ def scholarship_list(request):
     dic={'scholarship': SCHOLARSHIP}
     return render(request, 'scholarship_list.html', dic)
 
+# Edit Schilarship details by provider
+def edit_scholarshipdetails(request, eid):
+    
+    if not request.user.is_authenticated:
+        return redirect('provider_login')
+
+    error=""
+    editscholarship = AddScholarship.objects.get(id=eid)
+    if request.method == "POST":
+
+        Title = request.POST['title']
+        startDate = request.POST['startdate']
+        endDate = request.POST['enddate']
+        Income = request.POST['income']
+        Type = request.POST['type']
+        Marks = request.POST['marks']
+        no = request.POST['nofscholarship']
+        Location=request.POST['location']
+        Logo = request.FILES['logo']
+        disc = request.POST['discription']
+        USER=request.user
+        PROVIDER = Provider.objects.get(user=USER)
+
+        try:
+            AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
+            enddate=endDate, income=Income, scholarshiptype=Type, noofscholarships=no, logo=Logo, 
+            prviousmarks=Marks, Location=Location, discription=disc, createdate=date.today())
+            error= "no"
+
+        except:
+            error= "yes"
+    
+    dic = {'Error': error, 'EditScholarship': editscholarship}
+
+    return render(request, 'edit_scholarshipdetails.html', dic)
+
+# delete Add Scholarship by provider
+def delete_addscholarship(request, aid):
+    
+    if not request.user.is_authenticated:
+        return redirect('provider_login')
+
+    scholarshipdata = User.objects.get(id=aid)
+    scholarshipdata.delete()
+
+    return redirect('scholarship_list')
 
 # Provider user can change  Password 
 def change_passwordprovider(request):

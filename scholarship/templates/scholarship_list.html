@@ -52,9 +52,10 @@ $(document).ready(function() {
                     <td><img src="{{ data.logo.url }}"></td>
                     <td>{{ data.title }}</td>
                     <td>{{ data.enddate }}</td>
-                   
-
-
+                    <td><a href="{% url 'edit_scholarshipdetails' data.id %}"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        &nbsp; || &nbsp;
+                        <a href="{% url 'delete_addscholarship' data.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
                 </tr>
                 {% endfor %}
 
