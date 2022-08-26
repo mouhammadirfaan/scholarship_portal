@@ -6,7 +6,7 @@
 
     <!-- marquee section start -->
 <section class="marquee">
-    <marquee behavior="scroll" direction="left" scrollamount="12">Add Scholarship Details</marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="12">Edit Scholarship Details</marquee>
 </section>
 <!-- marquee section end -->
 
@@ -29,12 +29,12 @@
 
                 <div class="col-md-6">
                     <label for="startdate"><b>Start Date</b></label> <span style="color: red;">[{{EditScholarship.startdate}}]</span> 
-                    <input type="date" class="form-control" placeholder="" name="startdate" required>
+                    <input type="date" class="form-control" placeholder="" name="startdate">
                 </div>
 
                 <div class="col-md-6">
                     <label for="enddate"><b>End Date</b></label> <span style="color: red;">[{{EditScholarship.enddate}}]</span> 
-                    <input type="date" class="form-control" placeholder="" name="enddate" required>
+                    <input type="date" class="form-control" placeholder="" name="enddate">
                 </div>
 
             </div>
@@ -78,15 +78,15 @@
 
             <div class="row">
 
-                <!-- <div class="col-md-6">
-                   
-                </div> -->
                 <div class="col-md-6">
                     <div class="form" style="margin: 10px 0;">
                         <label for="logo"><b>Company Logo</b></label><br>
-                        <img src="{{ EditScholarship.logo.url}}" style="height: 70px; width: 70px;" ><a href="#" style="padding: 0 10px; font-weight: bolder;">change Logo</a>
+                        <input type="file" class="form-control-file" name="logo" id="">
+                        <img src="{{ EditScholarship.logo.url}}" style="height: 70px; width: 70px;">
                     </div>   
                 </div>
+
+                
             </div>
 
             <div class="row">

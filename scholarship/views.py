@@ -260,8 +260,13 @@ def provider_home(request):
 
     if not request.user.is_authenticated:
         return redirect('provider_login')
+    
+    USER = request.user
+    PROVIDER = Provider.objects.get(user=USER)
 
-    return render(request, 'provider_home.html')
+    dic={'Provider': PROVIDER}
+
+    return render(request, 'provider_home.html', dic)
 
 
 # Provider Home Page here:
@@ -331,19 +336,54 @@ def edit_scholarshipdetails(request, eid):
         Marks = request.POST['marks']
         no = request.POST['nofscholarship']
         Location=request.POST['location']
-        Logo = request.FILES['logo']
         disc = request.POST['discription']
-        USER=request.user
-        PROVIDER = Provider.objects.get(user=USER)
+        
+        editscholarship.title = Title
+        editscholarship.income = Income
+        editscholarship.scholarshiptype = Type
+        editscholarship.noofscholarships = no
+        editscholarship.prviousmarks=Marks
+        editscholarship.Location=Location
+        editscholarship. discription=disc
+
+
 
         try:
-            AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
-            enddate=endDate, income=Income, scholarshiptype=Type, noofscholarships=no, logo=Logo, 
-            prviousmarks=Marks, Location=Location, discription=disc, createdate=date.today())
-            error= "no"
+            editscholarship.save()
+            error="no"
 
         except:
             error= "yes"
+
+        if startDate:
+            try:
+                editscholarship.startdate = startDate
+                editscholarship.save()
+            except:
+                pass
+        else:
+            pass
+
+        if endDate:
+            try:
+                editscholarship.enddate = endDate
+                editscholarship.save()
+            except:
+                pass
+        else:
+            pass
+
+        
+        try:
+            Logo = request.FILES['logo']
+            editscholarship.logo = Logo
+            editscholarship.save()
+        except:
+            pass
+        
+
+            
+
     
     dic = {'Error': error, 'EditScholarship': editscholarship}
 
