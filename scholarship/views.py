@@ -1,4 +1,5 @@
 import errno
+from gettext import lngettext
 from pickletools import read_bytes1
 import re
 from tokenize import Pointfloat
@@ -264,7 +265,37 @@ def provider_home(request):
     USER = request.user
     PROVIDER = Provider.objects.get(user=USER)
 
-    dic={'Provider': PROVIDER}
+    error=""
+
+    if request.method == "POST":
+
+        fName = request.POST['fname']
+        LName = request.POST['lname']
+        comp = request.POST['company']
+        phone = request.POST['contact']
+        gen = request.POST['Radios']
+
+        PROVIDER.user.first_name = fName
+        PROVIDER.user.last_name = LName
+        PROVIDER.mobile = phone
+        PROVIDER.companyname = comp
+        PROVIDER.gender = gen
+
+        try:
+            PROVIDER.save()
+            PROVIDER.user.save()
+            error= "no"
+        except:
+            error= "yes"
+
+        try:
+            img = request.FILES['image']
+            PROVIDER.image = img
+            PROVIDER.save()
+            error= "no"
+        except:
+            pass
+    dic={'Error': error, 'Provider': PROVIDER}
 
     return render(request, 'provider_home.html', dic)
 
