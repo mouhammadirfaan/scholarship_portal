@@ -523,8 +523,47 @@ def user_home(request):
 
     if not request.user.is_authenticated:
         return redirect('user_login')
+    
+    USER = request.user
+    STUDENT = StudentUser.objects.get(user=USER)
+    error=""
 
-    return render(request, 'user_home.html')
+    if request.method == "POST":
+
+        fName = request.POST['fname']
+        LName = request.POST['lname']
+        phone = request.POST['contact']
+        gen = request.POST['Radios']
+        
+
+        STUDENT.user.first_name = fName
+        STUDENT.user.last_name = LName
+        STUDENT.mobile = phone
+        STUDENT.gender = gen
+
+
+
+
+
+        try:
+            STUDENT.save()
+            STUDENT.user.save()
+            error = "no"
+
+        except:
+            error= "yes"
+
+        try:
+            img = request.FILES['image']
+            STUDENT.image = img
+            STUDENT.save()
+            error="no"
+        except:
+            pass
+    
+    dic = {'Error': error, 'Student': STUDENT}
+
+    return render(request, 'user_home.html', dic)
 
 
 # Student user can change  Password 

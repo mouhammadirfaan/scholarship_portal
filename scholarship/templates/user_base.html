@@ -52,13 +52,10 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'Logout' %}">Log Out</a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin_login' %}">Admin Login</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                  </li> -->
                 </ul>
+                
+                <a class="navbar-brand" href="#" style="padding-left: 35px; color: yellow; font-weight: bold;">{{request.user.first_name}} {{request.user.last_name}}</a>
+
               </div>
             </div>
           </nav>

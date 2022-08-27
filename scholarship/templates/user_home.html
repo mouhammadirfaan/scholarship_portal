@@ -3,8 +3,142 @@
 
 {% block content %}
 
-<div class="container">
-    <h1>This is User Home Page</h1>
-</div>
+<!-- marquee section start -->
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">User's Details</marquee>
+</section>
+<!-- marquee section end -->
+<style>
+img {
+  border: 2px solid #FA6900;
+  border-radius: 4px;
+  padding: 5px;
+  width: 180px;
+  height: 220;
+  margin-top: 30px;
+  margin-left: 20px;
+}
 
+img:hover {
+  box-shadow: 0 0 3px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
+
+
+<!-- provider sign-up profile or update form start -->
+
+<section class="forms" id="">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- form column -->
+            <div class="col-md-9"> 
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Firstname</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Firstname" value="{{ Student.user.first_name }}" name="fname" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Lastname</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Lastname" value="{{ Student.user.last_name }}" name="lname" required>
+                        </div>
+        
+                    </div>
+        
+
+        
+                    <div class="row">
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Email</b></label>
+                            <input type="email" class="form-control" placeholder="Enter Email" value="{{ Student.user.username }}" name="email" readonly required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Contact</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Contact" value="{{ Student.mobile}}" name="contact" required>
+                        </div>
+        
+                    </div>
+        
+                    <div class="row">
+        
+                        <div class="col-md-6">
+                            <label for="psw"><b>Gander</b></label>
+                            {% if Student.gender == 'male' %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Radios" id="exampleRadios1" value="male" checked>
+                                <label class="form-check-label" for="exampleRadios1">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Radios" id="exampleRadios2" value="femail">
+                                <label class="form-check-label" for="exampleRadios2">Femail</label>
+                            </div>
+
+                            {% elif Student.gender == 'femail' %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Radios" id="exampleRadios1" value="male">
+                                <label class="form-check-label" for="exampleRadios1">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Radios" id="exampleRadios2" value="femail" checked>
+                                <label class="form-check-label" for="exampleRadios2">Femail</label>
+                            </div>
+                              
+                            {% endif %}
+                        </div>
+        
+                        <div class="col-md-6">
+                            <!-- <label for="psw"><b>Insert Your Image</b></label> -->
+                            <div class="form">
+                                <label for="exampleFormControlFile1"><b>Change Image</b></label><br>
+                                <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1" accept="image/*">
+                            </div>                
+                        </div>
+        
+                    </div>
+                
+                    <button type="submit" value="signup" id="bt">Update</button>
+        
+                    
+                </form>
+
+            </div>
+
+            <!-- pictire column -->
+            <div class="col-md-3">
+
+                <img src="{{ Student.image.url }}">
+
+            </div>
+
+
+
+        </div>
+
+
+        
+    </div>
+</section>
+
+<!-- provider sign-up form end -->
+
+{% if Error == 'no' %}
+
+<script>
+    alert('Successfully updated');
+    window.location = ("{% url 'user_home'%}");
+</script>
+{% elif Error == 'yes' %}
+<script>
+    alert('Something went to Wrong. \n Please Try Againg...');
+</script>
+{% endif %}
 {% endblock %}

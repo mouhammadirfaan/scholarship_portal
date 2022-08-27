@@ -27,7 +27,7 @@ img:hover {
 
 <!-- provider sign-up profile or update form start -->
 
-<section class="forms" id="signup">
+<section class="forms">
 
     <div class="container" id="">
 
@@ -36,7 +36,7 @@ img:hover {
             <!-- form column -->
             <div class="col-md-9"> 
 
-                <form action="" method="POST"  name="signup" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
         
@@ -106,7 +106,7 @@ img:hover {
                             <!-- <label for="psw"><b>Insert Your Image</b></label> -->
                             <div class="form">
                                 <label for="exampleFormControlFile1"><b>Change Image</b></label><br>
-                                <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
+                                <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1" accept="image/*">
                             </div>                
                         </div>
         
