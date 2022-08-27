@@ -26,6 +26,8 @@ urlpatterns = [
 #             ADMIN URLS
 # ------------------------------------
     path('', home, name='home'),
+    path('latest_scholarships', latest_scholarships, name='latest_scholarships'),
+
     path('admin_login', admin_login, name='admin_login'),
     path('admin_home', admin_home, name='admin_home'),
     path('change_passwordadmin', change_passwordadmin, name='change_passwordadmin'),
@@ -54,6 +56,8 @@ urlpatterns = [
     path('scholarship_list', scholarship_list, name='scholarship_list'),
     path('edit_scholarshipdetails/<int:eid>', edit_scholarshipdetails, name='edit_scholarshipdetails'),
     path('delete_addscholarship/<int:aid>', delete_addscholarship, name='delete_addscholarship'),
+    path('user_latestscholarships', user_latestscholarships, name='user_latestscholarships'),
+
 
 
 

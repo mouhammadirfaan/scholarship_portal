@@ -1,4 +1,4 @@
-import errno
+
 from gettext import lngettext
 from pickletools import read_bytes1
 import re
@@ -15,9 +15,17 @@ from datetime import date
 # Create your views here.
 
 def home(request):
+
     return render(request, 'home.html')
 
+# Latest Scholarship view here
+def latest_scholarships(request):
 
+    allscholarship = AddScholarship.objects.all().order_by('-startdate')
+
+    dic = {'AllScholarship': allscholarship}
+
+    return render(request, 'latest_scholarships.html', dic)
 #----------------------------------------------------
 #               ADMIN
 #----------------------------------------------------
@@ -594,6 +602,14 @@ def change_passworduser(request):
     dic = {'Error': error }
     return render(request, 'change_passworduser.html', dic)
 
+#vUser Latest Scholarship view here
+def user_latestscholarships(request):
+
+    allscholarship = AddScholarship.objects.all().order_by('-startdate')
+
+    dic = {'AllScholarship': allscholarship}
+
+    return render(request, 'user_latestscholarships.html', dic)
 #----------------------------------------------------
 #          LOG OUT FUNCTION
 #----------------------------------------------------
