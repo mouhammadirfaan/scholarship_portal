@@ -574,6 +574,33 @@ def user_home(request):
     return render(request, 'user_home.html', dic)
 
 
+#  Student Signup here:
+def user_profile(request):
+
+    # error=""
+
+    # if request.method == "POST":
+
+    #     Degree = request.POST['degree']
+    #     Marks = request.POST['marks']
+    #     Income = request.POST['income']
+    #     Location = request.POST['location']
+    #     disc = request.POST['discription']
+        
+    #     USER = request.user
+    #     STUDENT = StudentUser.objects.get(user=USER)
+
+    #     try: 
+    #         StudentProfile.objects.create(student=STUDENT, currentdegree=Degree, previousmarks=Marks, income=Income, 
+    #         location=Location, discriotion=disc, dateaplied=date.today() )
+    #         error= "no"
+            
+    #     except:
+    #         error= "yes"
+    
+    # dic = {'Error': error}
+    return render(request, 'user_profile.html')
+
 # Student user can change  Password 
 def change_passworduser(request):
 

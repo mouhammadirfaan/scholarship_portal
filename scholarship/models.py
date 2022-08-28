@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your All models here.
 
 # Student User SignUp details start
@@ -10,7 +11,13 @@ class StudentUser(models.Model):
     image = models.FileField()
     gender = models.CharField(max_length=10, null=False)
     usertype = models.CharField(max_length=30, null=False)
-
+    currentdegree = models.CharField(max_length=100, blank=True)
+    previousmarks = models.CharField(max_length=100, blank=True)
+    income = models.CharField(max_length=100, blank=True)
+    location = models.CharField(max_length=200, blank=True)
+    discriotion = models.TextField(blank=True)
+    
+    
     def __str__(self):
         return self.user.username
 
@@ -45,9 +52,21 @@ class AddScholarship(models.Model):
     income = models.CharField(max_length=100, null=True)
     discription = models.TextField()
     createdate = models.DateField()
+    scholarshipform = models.FileField(blank=True)
 
     def __str__(self):
         return self.title
 # Provider Add scholarship  end
 
+# Student  Profile start
+# class StudentProfile(models.Model):
+#     student = models.ForeignKey(StudentUser, on_delete=models.CASCADE)
+#     currentdegree = models.CharField(max_length=100)
+#     previousmarks = models.CharField(max_length=100)
+#     income = models.CharField(max_length=100)
+#     location = models.CharField(max_length=200)
+#     discriotion = models.TextField()
 
+#     def __str__(self):
+#         return self.student.user.username
+    

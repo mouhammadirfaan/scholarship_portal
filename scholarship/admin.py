@@ -4,4 +4,6 @@ from .models import StudentUser, Provider, AddScholarship
 
 admin.site.register(StudentUser),
 admin.site.register(Provider),
-admin.site.register(AddScholarship)
+admin.site.register(AddScholarship),
+# admin.site.register(StudentProfile)
+

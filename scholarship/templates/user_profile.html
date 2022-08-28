@@ -1,0 +1,101 @@
+{% extends 'user_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- marquee section start -->
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">Complete User Profile</marquee>
+</section>
+<!-- marquee section end -->
+
+<!-- user profile form start -->
+
+<section class="forms" id="profile">
+   
+    <div class="container" id="" style="margin-bottom: 40px;">
+        <form action="" method="POST"  name="profile" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="name"><b>Student Name</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Name" name="name" value="{{request.user.first_name}} {{request.user.last_name}}" readonly required>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" class="form-control" placeholder="Enter Email" value="{{request.user.username}}" name="email" readonly required>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <label for="degree"><b>Current Degree</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Current Degree" name="degree" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="marks"><b>Previoue Marks</b></label>
+                    <input type="text" class="form-control" placeholder="Enter previous" name="marks" required>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="income"><b>Income(Pre Month)</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Income" name="income" required>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="location"><b>Location</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Location" name="location" required>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="dis"><b>Discription</b></label>
+                    <textarea class="form-control" name="discription" placeholder="Discription here:" id="" cols="18" rows="6"></textarea>
+                    
+                </div>
+
+
+            </div>
+        
+            <button type="submit" value="signup" id="bt">submit</button>
+
+            
+        </form>
+    </div>
+</section>
+
+<!-- user sign-upn form end -->
+
+{% if Error == 'no' %}
+
+<script>
+    alert('SignUp Successful');
+    window.location = ("{% url 'user_home'%}");
+</script>
+{% elif Error == 'yes' %}
+<script>
+    alert('Something went to Wrong. \n Please Try Againg...');
+</script>
+{% endif %}
+
+
+
+
+
+{% endblock%}
