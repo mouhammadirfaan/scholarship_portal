@@ -56,17 +56,4 @@ class AddScholarship(models.Model):
 
     def __str__(self):
         return self.title
-# Provider Add scholarship  end
-
-# Student  Profile start
-# class StudentProfile(models.Model):
-#     student = models.ForeignKey(StudentUser, on_delete=models.CASCADE)
-#     currentdegree = models.CharField(max_length=100)
-#     previousmarks = models.CharField(max_length=100)
-#     income = models.CharField(max_length=100)
-#     location = models.CharField(max_length=200)
-#     discriotion = models.TextField()
-
-#     def __str__(self):
-#         return self.student.user.username
     

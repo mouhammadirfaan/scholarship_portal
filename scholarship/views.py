@@ -542,12 +542,23 @@ def user_home(request):
         LName = request.POST['lname']
         phone = request.POST['contact']
         gen = request.POST['Radios']
-        
+        Degree = request.POST['degree']
+        Marks = request.POST['marks']
+        Income = request.POST['income']
+        Location = request.POST['location']
+        disc = request.POST['discription']
 
         STUDENT.user.first_name = fName
         STUDENT.user.last_name = LName
         STUDENT.mobile = phone
         STUDENT.gender = gen
+        STUDENT.currentdegree = Degree
+        STUDENT.previousmarks = Marks
+        STUDENT.income = Income
+        STUDENT.location = Location
+        STUDENT.discriotion = disc
+
+
 
 
 
@@ -573,33 +584,6 @@ def user_home(request):
 
     return render(request, 'user_home.html', dic)
 
-
-#  Student Signup here:
-def user_profile(request):
-
-    # error=""
-
-    # if request.method == "POST":
-
-    #     Degree = request.POST['degree']
-    #     Marks = request.POST['marks']
-    #     Income = request.POST['income']
-    #     Location = request.POST['location']
-    #     disc = request.POST['discription']
-        
-    #     USER = request.user
-    #     STUDENT = StudentUser.objects.get(user=USER)
-
-    #     try: 
-    #         StudentProfile.objects.create(student=STUDENT, currentdegree=Degree, previousmarks=Marks, income=Income, 
-    #         location=Location, discriotion=disc, dateaplied=date.today() )
-    #         error= "no"
-            
-    #     except:
-    #         error= "yes"
-    
-    # dic = {'Error': error}
-    return render(request, 'user_profile.html')
 
 # Student user can change  Password 
 def change_passworduser(request):

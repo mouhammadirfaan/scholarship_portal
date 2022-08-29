@@ -69,7 +69,6 @@ urlpatterns = [
     path('user_login', user_login, name='user_login'),
     path('user_signup', user_signup, name='user_signup'),
     path('user_home', user_home, name='user_home'),
-    # path('user_profile', user_profile, name='user_profile'),
     path('change_passworduser', change_passworduser, name='change_passworduser'),
 
     path('Logout', Logout, name='Logout')

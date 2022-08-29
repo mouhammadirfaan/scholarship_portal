@@ -5,7 +5,7 @@
 
 <!-- marquee section start -->
 <section class="marquee">
-    <marquee behavior="scroll" direction="left" scrollamount="12">User's Details</marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="12">Complete Your Profile</marquee>
 </section>
 <!-- marquee section end -->
 <style>
@@ -29,7 +29,7 @@ img:hover {
 
 <section class="forms" id="">
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 50px;">
 
         <div class="row">
 
@@ -67,6 +67,37 @@ img:hover {
                         </div>
         
                     </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label for="degree"><b>Current Degree</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Current Degree" name="degree" value="{{ Student.currentdegree}}" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="marks"><b>Previoue Marks</b></label>
+                            <input type="text" class="form-control" placeholder="Enter previous" name="marks" value="{{ Student.previousmarks}}" required>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+        
+                        <div class="col-md-12">
+                            <label for="income"><b>Income(Pre Month)</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Income" name="income" value="{{ Student.income}}" required>
+                        </div>
+        
+                    </div>
+        
+                    <div class="row">
+        
+                        <div class="col-md-12">
+                            <label for="location"><b>Location</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Location" name="location" value="{{ Student.location}}" required>
+                        </div>
+        
+                    </div>
         
                     <div class="row">
         
@@ -94,7 +125,8 @@ img:hover {
                               
                             {% endif %}
                         </div>
-        
+                    
+    
                         <div class="col-md-6">
                             <!-- <label for="psw"><b>Insert Your Image</b></label> -->
                             <div class="form">
@@ -104,6 +136,16 @@ img:hover {
                         </div>
         
                     </div>
+
+                    <div class="row">
+        
+                        <div class="col-md-12">
+                            <label for="dis"><b>Discription</b></label>
+                            <textarea class="form-control" name="discription" placeholder="Discription here:" id="" cols="18" rows="6">{{ Student.discriotion}}</textarea>
+                            
+                        </div>
+                    </div>
+        
                 
                     <button type="submit" value="signup" id="bt">Update</button>
         
