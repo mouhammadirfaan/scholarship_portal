@@ -613,14 +613,35 @@ def change_passworduser(request):
     dic = {'Error': error }
     return render(request, 'change_passworduser.html', dic)
 
-#vUser Latest Scholarship view here
+#User Latest Scholarship view here
 def user_latestscholarships(request):
 
     allscholarship = AddScholarship.objects.all().order_by('-startdate')
 
-    dic = {'AllScholarship': allscholarship}
+    USER = request.user
+    STUDENT = StudentUser.objects.get(user=USER)
+    applystudent = ApplyScholarship.objects.filter(student=STUDENT)
+
+    List=[]
+
+    for data in applystudent:
+        List.append(data.addscholarship.id)
+
+
+    dic = {'AllScholarship': allscholarship, 'List':List}
 
     return render(request, 'user_latestscholarships.html', dic)
+
+
+#  Scholarship whole details view here
+def scholarship_details(request, pid):
+
+    scholarship = AddScholarship.objects.get(id=pid)
+
+
+    dic = {'ScholarshipId': scholarship}
+
+    return render(request, 'scholarship_details.html', dic)
 #----------------------------------------------------
 #          LOG OUT FUNCTION
 #----------------------------------------------------

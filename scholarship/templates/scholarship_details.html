@@ -1,0 +1,62 @@
+{% extends 'user_base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship Details</marquee>
+</section>
+
+<section class="details"> 
+
+    <div class="container mt-4 mb-5 shadow-lg" style="border: 3px solid #fafafa; background-color: beige; padding: 20px 10px;">
+
+            <div class="row mt-3">
+
+                <div class="col-md-8">
+                    <h2>{{ ScholarshipId.title }}</h2>
+                    <p><b>Comapny Name: </b>{{ ScholarshipId.provider.companyname}} <a href="{% url 'user_latestscholarships' %}" style="margin-left:5px;">[ view all scholarships])</a></p>
+                    <p><b>Location: </b>{{ ScholarshipId.Location}}</p>
+                    <p><b>Creation Date: </b><a href="#">({{ScholarshipId.createdate}})</a></p>
+                    <p>Start Date: <a href="#">({{ScholarshipId.startdate}})</a>  End Date: <a href="#">({{ScholarshipId.enddate}})</a></p>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="{{ ScholarshipId.logo.url }}" style="width: 300px; height: 220;">
+                </div>
+        </div>
+
+        <hr>
+        <hr>
+
+        <div>
+            <h6>Totle Scholarships</h6>
+            <p>{{ScholarshipId.noofscholarships}}</p>
+        </div>
+        <div>
+            <h6>Scholarship Type</h6>
+            <p>{{ScholarshipId.scholarshiptype}}</p>
+        </div>
+        <div>
+            <h6>Marks Criteria</h6>
+            <p>Minimum {{ScholarshipId.prviousmarks}}</p>
+        </div>
+        <div>
+            <h6>Income</h6>
+            <p>{{ScholarshipId.income}} /month</p>
+        </div>
+
+        <div>
+            <h6>Discription: </h6>
+            <textarea class="form-control" name="" id="" cols="30" rows="10" style="margin-bottom: 10px; background-color:beige;">{{ScholarshipId.discription}}</textarea>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success" style="height:40px; width:auto">Apply for this scholarship</button>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

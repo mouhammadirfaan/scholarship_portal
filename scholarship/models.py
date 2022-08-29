@@ -1,3 +1,4 @@
+from statistics import mode
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -57,3 +58,10 @@ class AddScholarship(models.Model):
     def __str__(self):
         return self.title
     
+class ApplyScholarship(models.Model):
+    addscholarship = models.ForeignKey(AddScholarship, on_delete=models.CASCADE)
+    student = models.ForeignKey(StudentUser, on_delete=models.CASCADE)
+    scholarshipform = models.FileField(blank=True)
+    applyeddate = models.DateField()
+
+

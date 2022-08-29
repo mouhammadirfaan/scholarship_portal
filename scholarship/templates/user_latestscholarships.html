@@ -56,7 +56,12 @@ $(document).ready(function() {
                     <td>{{ data.startdate }}</td>
                     <td>{{ data.enddate }}</td>
                     <td>{{ data.noofscholarships }}</td>
-                    <td><a href="{% url 'user_login' %}" type="button" class="btn btn-info">Apply</tr>
+                    {% if data.id in List %}
+                    <td>Applied</td>
+                    {% else %}
+                    <td><a href="{% url 'scholarship_details' data.id  %}" type="button" class="btn btn-info">Apply</td>
+                    {% endif %}
+                </tr>
                 {% endfor %}
 
             </tbody>

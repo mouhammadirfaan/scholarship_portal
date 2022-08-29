@@ -56,7 +56,6 @@ urlpatterns = [
     path('scholarship_list', scholarship_list, name='scholarship_list'),
     path('edit_scholarshipdetails/<int:eid>', edit_scholarshipdetails, name='edit_scholarshipdetails'),
     path('delete_addscholarship/<int:aid>', delete_addscholarship, name='delete_addscholarship'),
-    path('user_latestscholarships', user_latestscholarships, name='user_latestscholarships'),
 
 
 
@@ -70,6 +69,9 @@ urlpatterns = [
     path('user_signup', user_signup, name='user_signup'),
     path('user_home', user_home, name='user_home'),
     path('change_passworduser', change_passworduser, name='change_passworduser'),
+    path('user_latestscholarships', user_latestscholarships, name='user_latestscholarships'),
+    path('scholarship_details/<int:pid>', scholarship_details, name='scholarship_details'),
+
 
     path('Logout', Logout, name='Logout')
 
