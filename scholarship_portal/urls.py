@@ -71,6 +71,8 @@ urlpatterns = [
     path('change_passworduser', change_passworduser, name='change_passworduser'),
     path('user_latestscholarships', user_latestscholarships, name='user_latestscholarships'),
     path('scholarship_details/<int:pid>', scholarship_details, name='scholarship_details'),
+    path('applyforscholarship/<int:pid>', applyforscholarship, name='applyforscholarship'),
+
 
 
     path('Logout', Logout, name='Logout')

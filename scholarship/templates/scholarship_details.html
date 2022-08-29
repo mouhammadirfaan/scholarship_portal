@@ -16,7 +16,7 @@
 
                 <div class="col-md-8">
                     <h2>{{ ScholarshipId.title }}</h2>
-                    <p><b>Comapny Name: </b>{{ ScholarshipId.provider.companyname}} <a href="{% url 'user_latestscholarships' %}" style="margin-left:5px;">[ view all scholarships])</a></p>
+                        <p><b>Comapny Name: </b>{{ ScholarshipId.provider.companyname}} <a href="{% url 'user_latestscholarships' %}" style="margin-left:5px;">[ view all scholarships ]</a></p>
                     <p><b>Location: </b>{{ ScholarshipId.Location}}</p>
                     <p><b>Creation Date: </b><a href="#">({{ScholarshipId.createdate}})</a></p>
                     <p>Start Date: <a href="#">({{ScholarshipId.startdate}})</a>  End Date: <a href="#">({{ScholarshipId.enddate}})</a></p>
@@ -53,7 +53,7 @@
         </div>
 
         <div>
-            <button type="submit" class="btn btn-success" style="height:40px; width:auto">Apply for this scholarship</button>
+            <a href="{% url 'applyforscholarship' ScholarshipId.id %}" class="btn btn-success" >Apply for this scholarship</a>
         </div>
 
     </div>

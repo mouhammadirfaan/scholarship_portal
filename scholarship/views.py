@@ -588,8 +588,8 @@ def user_home(request):
 # Student user can change  Password 
 def change_passworduser(request):
 
-    # if not request.user.is_authenticated:
-    #     return redirect('user_login')
+    if not request.user.is_authenticated:
+        return redirect('user_login')
 
     error=""
 
@@ -616,6 +616,9 @@ def change_passworduser(request):
 #User Latest Scholarship view here
 def user_latestscholarships(request):
 
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+
     allscholarship = AddScholarship.objects.all().order_by('-startdate')
 
     USER = request.user
@@ -636,12 +639,48 @@ def user_latestscholarships(request):
 #  Scholarship whole details view here
 def scholarship_details(request, pid):
 
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+
     scholarship = AddScholarship.objects.get(id=pid)
 
 
     dic = {'ScholarshipId': scholarship}
 
     return render(request, 'scholarship_details.html', dic)
+
+#  Apply for scholarship view here
+def applyforscholarship(request, pid):
+
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+    error = ""
+
+    USER = request.user
+    STUDENT = StudentUser.objects.get(user=USER)
+    SCHOLARSHIP = AddScholarship.objects.get(id=pid)
+
+    currentdate = date.today()
+
+    if SCHOLARSHIP.enddate < currentdate:
+        error = 'closed'
+    elif SCHOLARSHIP.startdate > currentdate:
+        error = 'notopend'
+    
+    else:
+        try:
+            if request.method == "POST":
+                Form = request.FILES['forms']
+
+                ApplyScholarship.objects.create(addscholarship=SCHOLARSHIP, student=STUDENT, scholarshipform=Form, applyeddate=date.today())
+                error = 'done'
+        except:
+            error = 'no'
+
+
+    dic = {'Error': error, 'Applyed': STUDENT}
+
+    return render(request, 'applyforscholarship.html', dic)
 #----------------------------------------------------
 #          LOG OUT FUNCTION
 #----------------------------------------------------
