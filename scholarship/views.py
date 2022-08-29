@@ -465,6 +465,17 @@ def change_passwordprovider(request):
     return render(request, 'change_passwordprovider.html', dic)
 
 
+# Scholarship List Page here:
+def applied_candidates(request):
+
+    if not request.user.is_authenticated:
+        return redirect('provider_login')
+
+ 
+    Applied = ApplyScholarship.objects.filter()
+
+    dic={'AppliedCandidates': Applied}
+    return render(request, 'applied_candidates.html', dic)
 #----------------------------------------------------
 #               STUDENT USER
 #----------------------------------------------------

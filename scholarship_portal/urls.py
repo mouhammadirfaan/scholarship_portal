@@ -72,6 +72,8 @@ urlpatterns = [
     path('user_latestscholarships', user_latestscholarships, name='user_latestscholarships'),
     path('scholarship_details/<int:pid>', scholarship_details, name='scholarship_details'),
     path('applyforscholarship/<int:pid>', applyforscholarship, name='applyforscholarship'),
+    path('applied_candidates', applied_candidates, name='applied_candidates'),
+
 
 
 
