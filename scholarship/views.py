@@ -327,6 +327,7 @@ def add_scholarship(request):
         no = request.POST['nofscholarship']
         Location=request.POST['location']
         Logo = request.FILES['logo']
+        Form = request.FILES['forms']
         disc = request.POST['discription']
         USER=request.user
         PROVIDER = Provider.objects.get(user=USER)
@@ -334,7 +335,7 @@ def add_scholarship(request):
         try:
             AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
             enddate=endDate, income=Income, scholarshiptype=Type, noofscholarships=no, logo=Logo, 
-            prviousmarks=Marks, Location=Location, discription=disc, createdate=date.today())
+            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())
             error= "no"
 
         except:
@@ -416,6 +417,13 @@ def edit_scholarshipdetails(request, eid):
         try:
             Logo = request.FILES['logo']
             editscholarship.logo = Logo
+            editscholarship.save()
+        except:
+            pass
+
+        try:
+            Form = request.FILES['forms']
+            editscholarship.scholarshipform = Form
             editscholarship.save()
         except:
             pass

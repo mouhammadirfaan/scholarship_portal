@@ -79,13 +79,21 @@
             <div class="row">
 
                 <div class="col-md-6">
+                    <div class="forms" style="margin: 10px 0;">
+                        <label for="form"><b>Update Scholarship Form</b></label><br>
+                        <input type="file" class="form-control-file" name="forms" id="">
+                        <!-- <img src="{{ EditScholarship.scholarshipform.url}}" style="height: 70px; width: 70px;"> -->
+                        <a href="{{ EditScholarship.scholarshipform.url}}" class="btn btn-info">View Form</a>
+                    </div>   
+                </div>
+
+                <div class="col-md-6">
                     <div class="form" style="margin: 10px 0;">
                         <label for="logo"><b>Company Logo</b></label><br>
                         <input type="file" class="form-control-file" name="logo" id="">
                         <img src="{{ EditScholarship.logo.url}}" style="height: 70px; width: 70px;">
                     </div>   
                 </div>
-
                 
             </div>
 
