@@ -34,24 +34,32 @@
             <h6>Totle Scholarships</h6>
             <p>{{ScholarshipId.noofscholarships}}</p>
         </div>
+        <hr>
         <div>
             <h6>Scholarship Type</h6>
             <p>{{ScholarshipId.scholarshiptype}}</p>
         </div>
+        <hr>
         <div>
             <h6>Marks Criteria</h6>
             <p>Minimum {{ScholarshipId.prviousmarks}}</p>
         </div>
+        <hr>
         <div>
             <h6>Income</h6>
             <p>{{ScholarshipId.income}} /month</p>
         </div>
-
+        <hr>
+        <div>
+            <h6>Scholarship Form</h6>
+            <p><a href="{{ ScholarshipId.scholarshipform.url}}" class="btn btn-info">View Form</a></p>
+        </div>
+        <hr>
         <div>
             <h6>Discription: </h6>
             <textarea class="form-control" name="" id="" cols="30" rows="10" style="margin-bottom: 10px; background-color:beige;">{{ScholarshipId.discription}}</textarea>
         </div>
-
+        <hr>
         <div>
             <a href="{% url 'applyforscholarship' ScholarshipId.id %}" class="btn btn-success" >Apply for this scholarship</a>
         </div>
