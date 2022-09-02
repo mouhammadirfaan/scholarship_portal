@@ -1,0 +1,62 @@
+{% extends 'provider_base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">student Details</marquee>
+</section>
+
+<section class="details"> 
+
+    <div class="container mt-4 mb-5 shadow-lg" style="border: 3px solid #fafafa; background-color: beige; padding: 20px 10px;">
+
+            <div class="row mt-3">
+
+                <div class="col-md-8">
+                    <h2>{{ applieduser.student.user.first_name }} {{ applieduser.student.user.last_name }}</h2>
+                    <p><b>Gender </b>{{ applieduser.student.gender }}</p>
+                    <p><b>Job Title: </b>{{ applieduser.addscholarship.title }} </p>
+                    <p><b>Comapny Name: </b>{{ applieduser.addscholarship.provider.companyname }} </p>
+                    <p><b>Location: </b>{{ applieduser.student.location}}</p>
+                    <p><b>Applied Date: </b><a href="#">({{applieduser.applyeddate}})</a></p>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="{{ applieduser.student.image.url }}" style="width: 300px; height: 220;">
+                </div>
+        </div>
+
+        <hr>
+        <div>
+            <h6>Current Degree</h6>
+            <p>{{applieduser.student.currentdegree}}</p>
+        </div>
+        <hr>
+        <div>
+            <h6>Previous Marks</h6>
+            <p>{{applieduser.student.previousmarks}}</p>
+        </div>
+        <hr>
+        <div>
+            <h6>Income</h6>
+            <p>{{applieduser.student.income}} /month</p>
+        </div>
+        <hr>
+        <div>
+            <h6>Scholarship Form</h6>
+            <p><a href="{{ applieduser.scholarshipform.url}}" class="btn btn-info">View Form</a></p>
+        </div>
+        <hr>
+        <div>
+            <h6>Discription: </h6>
+            <textarea class="form-control" name="" id="" cols="30" rows="10" style="margin-bottom: 10px; background-color:beige;">{{ applieduser.student.discriotion }}</textarea>
+        </div>
+        <hr>
+        
+
+    </div>
+</section>
+
+{% endblock %}

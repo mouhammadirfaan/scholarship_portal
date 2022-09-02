@@ -480,10 +480,24 @@ def applied_candidates(request):
         return redirect('provider_login')
 
  
-    Applied = ApplyScholarship.objects.filter()
+    Applied = ApplyScholarship.objects.all()
 
     dic={'AppliedCandidates': Applied}
     return render(request, 'applied_candidates.html', dic)
+
+#  Students whole details view by provider here
+def user_details(request, pid):
+
+    if not request.user.is_authenticated:
+        return redirect('provider_login')
+
+    Applieduser = ApplyScholarship.objects.get(id=pid)
+
+
+    dic = {'applieduser': Applieduser}
+
+    return render(request, 'user_details.html', dic)
+
 #----------------------------------------------------
 #               STUDENT USER
 #----------------------------------------------------

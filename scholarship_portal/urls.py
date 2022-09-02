@@ -56,7 +56,7 @@ urlpatterns = [
     path('scholarship_list', scholarship_list, name='scholarship_list'),
     path('edit_scholarshipdetails/<int:eid>', edit_scholarshipdetails, name='edit_scholarshipdetails'),
     path('delete_addscholarship/<int:aid>', delete_addscholarship, name='delete_addscholarship'),
-
+    path('user_details/<int:pid>', user_details, name='user_details'),
 
 
 

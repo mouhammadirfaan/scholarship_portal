@@ -41,6 +41,7 @@ $(document).ready(function() {
                     <th>Company Name</th>
                     <th>Apply Date</th>
                     <th>Form</th>
+                    <th>Candidate Details</th>
                     
 
                 </tr>
@@ -61,6 +62,9 @@ $(document).ready(function() {
                     <td>{{ data.addscholarship.provider.companyname }}</td>
                     <td>{{ data.applyeddate }}</td>
                     <td><a href="{{ data.scholarshipform.url }}">Download</a></td>
+                    <td><a href="{% url 'user_details' data.id %}" class="btn btn-info">view</a></td>
+
+
                     
                 </tr>
 
