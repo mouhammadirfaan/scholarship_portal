@@ -2,12 +2,14 @@
 
 :root{
    --main-color:#602ba4;
-   --black:#222;
+   --black:#0f0f0f22;
    --white:#fff;
    --light-black:#777;
    --light-white:#fff9;
    --dark-bg:rgba(0,0,0,.7);
    --light-bg:#eee;
+   --green:#3b89ff;
+   --maganda: #3bfff8;
    --border:.1rem solid var(--black);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
    --text-shadow:0 1.5rem 3rem rgba(0,0,0,.3);
@@ -15,7 +17,7 @@
 
 /* header start */
 .header{
-    background-color: #135785;
+    background-color: black !important;
     position: sticky;
     width: 100%;
     top:0; left:0; right:0;
@@ -24,6 +26,11 @@
     margin: 0px;
     margin-bottom: 0px;
     
+}
+.header .navbar-brand{
+    color: #3bfff8;
+    font-size: 30px;
+    font-family:Arial Narrow Bold;
 }
 .header .navbar .nav-item a{
     color: #fff !important;
@@ -65,6 +72,7 @@
     width:100%;
     height:500px;
 }
+
 .banar .banar-img .content{
     width: 85rem;
     display: none;
