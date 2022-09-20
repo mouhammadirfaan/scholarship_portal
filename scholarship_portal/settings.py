@@ -144,6 +144,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # LOGIN_URL = '/login/'
 
 #Forget Password
+
+# import smtplib
+# from django.core.mail import send_mail
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -155,7 +160,6 @@ EMAIL_HOST_PASSWORD = 'knulqecybstehrjp'
 
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 

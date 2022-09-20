@@ -11,6 +11,8 @@ from django.contrib.auth import authenticate, login, logout
 
 from datetime import date
 
+# from django.core.mail import send_mail
+
 
 # Create your views here.
 
