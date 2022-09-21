@@ -8,6 +8,35 @@
     <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship Details</marquee>
 </section>
 
+<section class="schilar-details">
+
+    <div class="container" id="detal-page">
+
+        <div class="row" id="row-a" style="width: 100%;">
+
+            <!-- col-1 -->
+            <div class="col-md-4" id="clm-a">
+                <img class="logo-img" src="{{ ScholarshipId.logo.url }}" style="width: 300px; height: 220;">
+            </div>
+
+            <!-- col-2 -->
+            <div class="col-md-7" id="clm-b">
+                <h2>{{ ScholarshipId.provider.companyname}}</h2>
+                <h3>{{ ScholarshipId.title }}</h3>
+                <a href="#" class="clm-details"><i class="fa fa-location"></i> {{ ScholarshipId.Location}}</a>
+                <a href="#" class="clm-details"><i class="fa fa-calendar"></i> {{ScholarshipId.createdate}}</a><br>
+                <a href="#" class="clm-details"><i class="fa fa-calendar"></i> {{ScholarshipId.startdate}}</a>
+                <a href="#" class="clm-details"><i class="fa fa-calendar"></i> {{ScholarshipId.enddate}}</a>
+            </div>
+        
+        </div>
+
+
+    </div>
+
+</section>
+
+
 <section class="details"> 
 
     <div class="container mt-4 mb-5 shadow-lg" style="border: 3px solid #fafafa; background-color: beige; padding: 20px 10px;">
