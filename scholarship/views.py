@@ -18,7 +18,12 @@ from datetime import date
 
 def home(request):
 
-    return render(request, 'home.html')
+    allscholarship = AddScholarship.objects.all().order_by('-startdate')
+
+
+    dic = {'AllScholarship': allscholarship}
+
+    return render(request, 'home.html', dic)
 
 # Latest Scholarship view here
 def latest_scholarships(request):

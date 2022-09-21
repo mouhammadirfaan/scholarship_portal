@@ -23,6 +23,69 @@ $(document).ready(function() {
     <marquee behavior="scroll" direction="left" scrollamount="12">Latest Scholarships</marquee>
 </section>
 
+<section class="schilarsship-list" id="schilarships">
+
+    {% for data in AllScholarship %}
+
+    <div class="scholarship-card">
+        <p>{{ forloop.counter }}</p>
+        <div class="row" style="width:100%;">
+
+            <!-- col-1 -->
+            <div class="col-md-8">
+                <div class="scholarship-name">
+
+                    <img class="profile" src="{{ data.logo.url }}" alt="">
+                        <div class="scholarship-detail">
+                            <h4>{{ data.provider.companyname }}</h4>
+                            <h3>{{ data.title }}</h3>
+                            <p>{{ data.discription }}</p>
+                            <a href="#" class="detail-1"><i class="fa fa-location"></i> {{ data.Location }}</a>
+                            <a href="#" class="detail-1"><i class="fa fa-location"></i> {{ data.startdate }}</a>
+                        </div>
+                </div>
+            </div>
+
+            <!-- col-2 -->
+            <div class="col-md-2">
+                <div class="scholarship-name">
+                    <div class="scholarship-lable">
+                        <a class="lable-a" href="#">{{ data.scholarshiptype }}</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- col-3 -->
+            <div class="col-md-2">
+                <div class="scholarship-name">
+                    <div class="posted">
+                        {% if data.id in List %}
+                        <p>Applied</p>
+                        {% else %}
+                        <a href="% url 'scholarship_details' data.id  %}" class="btn btn-info">Apply</a>
+                        {% endif %}
+
+                        <a href="#" class="post-date"><i class="fa fa-calander"></i>{{ data.enddate }}</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+
+
+<!-- Schilarship details start -->
+
+<!-- 
 <section class="view"> 
 
     <div class="container">
@@ -56,6 +119,7 @@ $(document).ready(function() {
                     <td>{{ data.startdate }}</td>
                     <td>{{ data.enddate }}</td>
                     <td>{{ data.noofscholarships }}</td>
+
                     {% if data.id in List %}
                     <td>Applied</td>
                     {% else %}
@@ -69,6 +133,6 @@ $(document).ready(function() {
         </table>
 
     </div>
-</section>
+</section> -->
 
 {% endblock %}
