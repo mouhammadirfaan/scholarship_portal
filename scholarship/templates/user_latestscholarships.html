@@ -28,7 +28,7 @@ $(document).ready(function() {
     {% for data in AllScholarship %}
 
     <div class="scholarship-card">
-        <p>{{ forloop.counter }}</p>
+
         <div class="row" style="width:100%;">
 
             <!-- col-1 -->
@@ -63,7 +63,7 @@ $(document).ready(function() {
                         {% if data.id in List %}
                         <p>Applied</p>
                         {% else %}
-                        <a href="% url 'scholarship_details' data.id  %}" class="btn btn-info">Apply</a>
+                        <a href="{% url 'scholarship_details' data.id  %}" class="btn btn-info">Apply</a>
                         {% endif %}
 
                         <a href="#" class="post-date"><i class="fa fa-calander"></i>{{ data.enddate }}</a>

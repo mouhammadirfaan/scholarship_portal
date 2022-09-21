@@ -27,12 +27,13 @@
 
 <section class="schilarsship-list" id="schilarships">
 
-    {% for data in AllScholarship %}
+    {% for data in AllScholarship|slice:":3"  %}
 
     
 
     <div class="scholarship-card">
-        <p>{{ forloop.counter }}</p>
+
+        
         <div class="row" style="width:100%;">
 
             <!-- col-1 -->
@@ -75,6 +76,10 @@
 
 
     </div>
+    <!-- {% if forloop.counter == 3 %}
+        {{ break }}
+    {% endif %} -->
+
     {% endfor %}
 
     <a href="{% url 'latest_scholarships' %}" class="more">More List</a>
