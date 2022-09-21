@@ -107,7 +107,7 @@
 .schilarsship-list{
     margin: 5%;
     padding: 1rem;
-    background-color: rgb(223, 223, 223);
+    background-color: #f3f3f3;
 }
 .scholarship-card{
     display: flex;
@@ -212,9 +212,11 @@
 }
 
 
-/* schilarship detail start */
+/* schilarship detail end */
 
+/* scholarship detail during apply start */
 
+/* scholarship detail during apply end */
 
 
 /* <!-- footer section start --> */
