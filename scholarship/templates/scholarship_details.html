@@ -9,7 +9,7 @@
         margin-left: 15%;
         margin-right: 15%;
         padding: 1rem;
-        background-color: #f3f3f3;
+        /* background-color: #f3f3f3; */
     }
     #detal-page{
         display: flex;
@@ -30,7 +30,7 @@
         width: 70px;
         height: 120px;
         margin: 1rem;
-        padding: 0.1rem 6rem 0.1rem 0.1rem ;
+        padding: 0.1rem 1rem 0.1rem 5rem ;
         margin-bottom: 3rem;
     }
     #clm-b{
@@ -47,6 +47,14 @@
         font-family: monospace;
         font-weight: bolder;
     }
+    #clm-b > p {
+        text-align: justify;
+
+    }
+    #clm-b > p >b {
+        color: #3341ab;
+
+    }
     #clm-b > a{
         text-decoration: none;
         font-size: 1rem;
@@ -58,6 +66,44 @@
         font-size: 1rem;
         font-weight: bold;
     }
+    .remaining-details{
+        margin-top: 1rem;
+    }
+    .remaining-details > a{
+        text-decoration: none;
+        padding-top: 2px;
+        font-size: 1rem;
+        color: #3341ab;
+
+    }
+    .remaining-details > a >span{
+        color: cadetblue;
+        font-size: 1.1rem;
+        font-weight: bold;
+
+    }
+    .remaining-details #view-form{
+        margin-top: 10px;
+
+    }
+
+    .more-apply{
+    display: block;
+    text-decoration: none;
+    margin: 20px auto;
+    padding: 0,3rem 2rem;
+    width: 250px;
+    background-color: transparent;
+    color: rgb(164, 175, 12);
+    border: 1px solid rgb(164, 175, 12);
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.more-apply:hover{
+    background-color: rgb(164, 175, 12);
+    color: white;
+}
     
     
 
@@ -85,11 +131,13 @@
                 <a href="#" class="date"><span class="clm-details">Start Date</span>&nbsp;&nbsp;<i class="fa fa-calendar"></i> {{ScholarshipId.startdate}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="#" class="date"><span class="clm-details">Last Date</span>&nbsp;&nbsp;<i class="fa fa-calendar"></i> {{ScholarshipId.enddate}}</a>
 
-                <div>
-                    <p><b>Totle Scholarships: </b> {{ScholarshipId.noofscholarships}}</p>
-                    <p><b>Scholarship Type: </b> {{ScholarshipId.scholarshiptype}}</p>
-                    <p><b>Marks Criteria: </b> Minimum {{ScholarshipId.prviousmarks}}</p>
-                    <p><b>Income: </b> {{ScholarshipId.income}} /month</p>
+                <div class="remaining-details">
+                    <a href="#" class="det"><span>Totle Scholarships</span>&nbsp;&nbsp;{{ScholarshipId.noofscholarships}}</a><br>
+                    <a href="#" class="det"><span>Scholarship Type</span>&nbsp;&nbsp;{{ScholarshipId.scholarshiptype}}</a><br>
+                    <a href="#" class="det"><span>Marks Criteria</span>&nbsp;&nbsp;Minimum {{ScholarshipId.prviousmarks}}</a><br>
+                    <a href="#" class="det"><span>Income</span>&nbsp;&nbsp;{{ScholarshipId.income}} /month</a><br>
+                    <a href="{{ ScholarshipId.scholarshipform.url}}" class="btn btn-info" id="view-form">View Form</a>
+
 
                 </div>
             </div>
@@ -99,25 +147,10 @@
                 <img class="logo-imgs" src="{{ ScholarshipId.logo.url }}" style="width: 300px; height: 220;">
 
             </div>
-        
+            <a href="{% url 'applyforscholarship' ScholarshipId.id %}" class="more-apply">Apply for this scholarship</a>
+
         </div>
-
-        <!-- ////////// -->
-
-        <!-- <div class="row">
-
-            <div class="col-md-4">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quidem eum. Eius omnis eveniet, eligendi dolore temporibus iusto maiores ab voluptas tenetur esse delectus quod expedita molestiae ducimus quibusdam assumenda.</p>
-
-            </div>
-            <div class="col-md-7">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptatibus nulla accusamus error vitae! Asperiores et saepe quisquam iste harum rerum dicta ab, optio impedit earum ipsa voluptatibus fugiat similique.</p>
-
-            </div>
-
-
-        </div> -->
-        
+        <!-- <a href="{% url 'applyforscholarship' ScholarshipId.id %}" class="more-apply">Apply for this scholarship</a> -->
 
 
     </div>
