@@ -43,7 +43,7 @@
 }
 .header .navbar .nav-item .nav-link:hover{
     color: rgb(0, 0, 0)!important;
-    font-weight: bold;
+    /* font-weight: bold; */
     background-color :var(--main-color);
     border-radius: 10px;
 }
@@ -249,9 +249,26 @@
 
 /* schilarship detail end */
 
-/* scholarship detail during apply start */
+/* join with us start */
+.join{
+    width: 100%;
+    height: 350px;
+    background-image: url("/static/img/bg-1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    align-items: center;
+    position: relative;
+}
 
-/* scholarship detail during apply end */
+/* join with us end */
+
+
 
 
 /* <!-- footer section start --> */
@@ -344,12 +361,31 @@
 /* admin / user / provider  login start */
 .forms{
     margin-top: 25px;
+    
 }
+#form{
+    padding-left: 20rem;
+    padding-right: 20rem;
+    background-color: rgb(244, 242, 242);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 
+}
 .forms .container{
     border: 3px solid #f1f1f1;
+    background-color: white;
     padding: 20px 20px;
+    box-shadow: rgb(0, 0, 0, 0.20) 0px 1px 4px;
+
 }
+.login-title{
+    text-align: center;
+    font-family: Copperplate;
+    padding-bottom: 10px;
+    color: #602ba4;
+
+}
+    
 
 input[type=text], input[type=password], input[type=email] {
     
@@ -367,7 +403,6 @@ button{
     margin: 8px 0;
     width:90px;
     height: 50px;
-    /* border-radius: 10px; */
     border: none;
     cursor: pointer;  
 }
@@ -387,6 +422,7 @@ button:hover {
 #bt{
     background-color: #00ad6d;
     color: white;
+    text-decoration: none;
     padding: 14px 20px;
     margin: 20px 12px;
     width: 150px;
