@@ -68,7 +68,10 @@
     }
     .remaining-details{
         margin-top: 1rem;
+        width: 100%;     
+        
     }
+   
     .remaining-details > a{
         text-decoration: none;
         padding-top: 2px;
@@ -83,7 +86,9 @@
 
     }
     .remaining-details #view-form{
-        margin-top: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 5rem;
 
     }
 
@@ -114,6 +119,9 @@
     <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship Details</marquee>
 </section>
 
+<h2 class="titles">scholarship details</h2>
+
+
 <section class="schilar-details">
 
     <div class="container" id="detal-page">
@@ -132,10 +140,10 @@
                 <a href="#" class="date"><span class="clm-details">Last Date</span>&nbsp;&nbsp;<i class="fa fa-calendar"></i> {{ScholarshipId.enddate}}</a>
 
                 <div class="remaining-details">
-                    <a href="#" class="det"><span>Totle Scholarships</span>&nbsp;&nbsp;{{ScholarshipId.noofscholarships}}</a><br>
-                    <a href="#" class="det"><span>Scholarship Type</span>&nbsp;&nbsp;{{ScholarshipId.scholarshiptype}}</a><br>
-                    <a href="#" class="det"><span>Marks Criteria</span>&nbsp;&nbsp;Minimum {{ScholarshipId.prviousmarks}}</a><br>
-                    <a href="#" class="det"><span>Income</span>&nbsp;&nbsp;{{ScholarshipId.income}} /month</a><br>
+                    <a href="#" class="det"><span>Totle Scholarships:</span>&nbsp;&nbsp;{{ScholarshipId.noofscholarships}}</a><br>
+                    <a href="#" class="det"><span>Scholarship Type:</span>&nbsp;&nbsp;&nbsp;{{ScholarshipId.scholarshiptype}}</a><br>
+                    <a href="#" class="det"><span>Marks Criteria:</span>&nbsp;&nbsp;&nbsp;&nbsp;Minimum {{ScholarshipId.prviousmarks}}</a><br>
+                    <a href="#" class="det"><span>Income:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{ScholarshipId.income}} /month</a><br>
                     <a href="{{ ScholarshipId.scholarshipform.url}}" class="btn btn-info" id="view-form">View Form</a>
 
 
@@ -150,71 +158,9 @@
             <a href="{% url 'applyforscholarship' ScholarshipId.id %}" class="more-apply">Apply for this scholarship</a>
 
         </div>
-        <!-- <a href="{% url 'applyforscholarship' ScholarshipId.id %}" class="more-apply">Apply for this scholarship</a> -->
-
 
     </div>
 
 </section>
-
-
-<!-- <section class="details"> 
-
-    <div class="container mt-4 mb-5 shadow-lg" style="border: 3px solid #fafafa; background-color: beige; padding: 20px 10px;">
-
-            <div class="row mt-3">
-
-                <div class="col-md-8">
-                    <h2>{{ ScholarshipId.title }}</h2>
-                        <p><b>Comapny Name: </b>{{ ScholarshipId.provider.companyname}} <a href="{% url 'user_latestscholarships' %}" style="margin-left:5px;">[ view all scholarships ]</a></p>
-                    <p><b>Location: </b>{{ ScholarshipId.Location}}</p>
-                    <p><b>Creation Date: </b><a href="#">({{ScholarshipId.createdate}})</a></p>
-                    <p>Start Date: <a href="#">({{ScholarshipId.startdate}})</a>  End Date: <a href="#">({{ScholarshipId.enddate}})</a></p>
-                </div>
-
-                <div class="col-md-4">
-                    <img src="{{ ScholarshipId.logo.url }}" style="width: 300px; height: 220;">
-                </div>
-        </div>
-
-        <hr>
-        <hr>
-
-        <div>
-            <h6>Totle Scholarships</h6>
-            <p>{{ScholarshipId.noofscholarships}}</p>
-        </div>
-        <hr>
-        <div>
-            <h6>Scholarship Type</h6>
-            <p>{{ScholarshipId.scholarshiptype}}</p>
-        </div>
-        <hr>
-        <div>
-            <h6>Marks Criteria</h6>
-            <p>Minimum {{ScholarshipId.prviousmarks}}</p>
-        </div>
-        <hr>
-        <div>
-            <h6>Income</h6>
-            <p>{{ScholarshipId.income}} /month</p>
-        </div>
-        <hr>
-        <div>
-            <h6>Scholarship Form</h6>
-            <p><a href="{{ ScholarshipId.scholarshipform.url}}" class="btn btn-info">View Form</a></p>
-        </div>
-        <hr>
-        <div>
-            <h6>Discription: </h6>
-            <textarea class="form-control" name="" id="" cols="30" rows="10" style="margin-bottom: 10px; background-color:beige;">{{ScholarshipId.discription}}</textarea>
-        </div>
-        <hr>
-        <div>
-            <a href="{% url 'applyforscholarship' ScholarshipId.id %}" class="btn btn-success" >Apply for this scholarship</a>
-        </div>
-
-    </div>
-</section> -->
 
 {% endblock %}

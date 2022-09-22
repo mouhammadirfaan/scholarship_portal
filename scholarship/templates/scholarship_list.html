@@ -54,7 +54,7 @@ $(document).ready(function() {
                     <td>{{ data.enddate }}</td>
                     <td><a href="{% url 'edit_scholarshipdetails' data.id %}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         &nbsp; || &nbsp;
-                        <a href="{% url 'delete_addscholarship' data.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        <a href="{% url 'delete_addscholarship' data.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

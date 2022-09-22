@@ -449,8 +449,8 @@ def delete_addscholarship(request, aid):
     if not request.user.is_authenticated:
         return redirect('provider_login')
 
-    scholarshipdata = User.objects.get(id=aid)
-    scholarshipdata.delete()
+    scholarshipdelete = AddScholarship.objects.get(id=aid)
+    scholarshipdelete.delete()
 
     return redirect('scholarship_list')
 

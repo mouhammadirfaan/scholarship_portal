@@ -290,15 +290,16 @@
     margin-top: 6rem;
 }
 #clm-btm > a{
-   margin-left: 10rem; 
-   margin-right: 10rem;
-   padding-left:2.5rem;
-   padding-right: 2.5rem;
+   margin-left: 8rem; 
+   margin-right: 8rem;
+   padding-left: 4rem;
+   padding-right: 4rem;
 }
 .join-butten{
     width: 300rem;
     text-decoration: none;
     font-size: 20px;
+    font-family: Times New Roman;
     padding: 1rem;
     border: none;
     color: black;
@@ -511,7 +512,7 @@ button:hover {
         /* TABLE */
 
 /* view_users page here: */
-/* .view{
+.view{
     margin-top: 30px;
     margin-bottom: 50px;
 }
@@ -547,25 +548,25 @@ thead{
 .view .container .table tr{
     border: 3px solid #f8acac;
     
-} */
+}
 
-/* .view .container .table tbody :hover{ */
+.view .container .table tbody :hover{
     /* border: 3px solid #f3a0a0; */
-    /* background-color: rgb(204, 222, 162);
+    background-color: rgb(204, 222, 162);
     font-weight: bold;
-} */
+}
 
-/* .view .container .table td{
+.view .container .table td{
     padding-top: 30px;
     padding-bottom: 15px;
-} */
+}
 
-/* .view .container img{
+.view .container img{
     height: 70px;
     width: 70px;
     border-radius: 45%;
     
-} */
+}
 /* ////////////////////////////////////// */
 
 
