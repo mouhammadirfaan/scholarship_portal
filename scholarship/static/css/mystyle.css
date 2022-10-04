@@ -34,12 +34,12 @@
 }
 .header .navbar .nav-item a{
     color: #fff !important;
-    padding-left: 20px;
+    padding-left: 25px;
     font-size: 20px;
     font-family: 'Kdam Thmor Pro', sans-serif;
 }
 .header .navbar .navbar-nav{
-    padding-left: 15rem;
+    padding-left: 25rem;
 }
 .header .navbar .nav-item .nav-link:hover{
     color: rgb(0, 0, 0)!important;
@@ -64,7 +64,7 @@
 }
 
 .user-profile .nav_right ul li.nr_li{
-	margin-left: 20rem;
+	margin-left: 12rem;
 	cursor: pointer;
 	color: #fff;
 	font-size: 20px;
@@ -77,8 +77,8 @@
 }
 
 .user-profile .nav_right ul li img{
-	width: 40px;
-    height: 40px;
+	width: 45px;
+    height: 45px;
     border-radius: 50%;
 	vertical-align: middle;
 }
@@ -86,7 +86,7 @@
 .user-profile .dd_menu {
     position: absolute;
     right: -25px;
-    top: 80px;
+    top: 82px;
     display: flex;
     background: #fff;
     border-radius: 15px;
@@ -95,8 +95,9 @@
 }
 
 .user-profile .dd_menu .dd_left{
+    /* background: black; */
 	background: #74ded8;
-	padding: 15px 20px;
+	padding: 15px 13px;
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
@@ -105,13 +106,18 @@
 	color: #fff;
 }
 
-.user-profile .dd_menu .dd_right{
-	padding: 15px 20px;
+.user-profile .dd_menu .dd_right{  
+	padding: 15px 15px;
 }
 
 .user-profile .dd_menu li{
 	margin-bottom: 10px;
-	color: #868686;
+    color: #868686;
+}
+.user-profile .dd_menu li a{
+	text-decoration: none;
+    color: #868686;
+
 }
 
 .user-profile .dd_menu:before{
