@@ -69,24 +69,25 @@
 	color: #fff;
 	font-size: 20px;
 	position: relative;
-    margin-bottom: 0.9rem;
+    /* margin-bottom: 0.2rem; */
 }
 
 .user-profile .nav_right ul li.nr_li:hover {
     color: #cefffc;
 }
 
-.user-profile .nav_right ul li img{
+.user-profile .nav_right ul li #profile-img{
 	width: 45px;
     height: 45px;
     border-radius: 50%;
 	vertical-align: middle;
+    margin-top: 12px;
 }
 
 .user-profile .dd_menu {
     position: absolute;
     right: -25px;
-    top: 82px;
+    top: 75px;
     display: flex;
     background: #fff;
     border-radius: 15px;

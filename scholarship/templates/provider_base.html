@@ -64,21 +64,62 @@
                     </ul>
                   </li>
                   
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" href="{% url 'change_passwordprovider' %}">Change Password</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'Logout' %}">Log Out</a>
-                  </li>
-                  
+                  </li> -->
+
                 </ul>
-                <a class="navbar-brand" href="#" style="padding-left: 35px; color: yellow; font-weight: bold;">{{request.user.first_name}} {{request.user.last_name}}</a>
+
+                <!-- User Account -->
+                <div class="user-profile">
+                  <div class="nav_right">
+                    <ul>
+                      <li class="nr_li dd_main">
+                        <img src="{% static 'img/profile.png' %}" id="profile-img" alt="profile_img">
+                        <div class="dd_menu">
+                          <div class="dd_left">
+                            <ul>
+                              <li><i class="fa fa-user-alt"></i></li>
+                              <li><i class="fa fa-key"></i></li>
+                              <li><i class="fas fa-sign-out-alt"></i></li>
+                            </ul>
+                          </div>
+                          <div class="dd_right">
+                            <ul>
+                              <li><a href="#">{{request.user.first_name}}</a></li>
+                              <li><a href="{% url 'change_passwordprovider' %}">Change</a></li>
+                              <li><a href="{% url 'Logout' %}">Logout</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- <li class="nr_li">
+                        <i class="fas fa-envelope-open-text"></i>
+                      </li> -->
+                    </ul>
+                  </div>
+                </div>
+                
+                
+                <!-- \\\\\\\\\\\\\\\ -->
+
+                <!-- <a class="navbar-brand" href="#" style="padding-left: 35px; color: yellow; font-weight: bold;">{{request.user.first_name}} {{request.user.last_name}}</a> -->
               </div>
             </div>
           </nav>
 
     </section>
     <!-- header section end -->
+    <script>
+      var dd_main = document.querySelector(".dd_main");
+    
+      dd_main.addEventListener("click", function(){
+        this.classList.toggle("active");
+      })
+    </script>
 
 {% block content %}
 
