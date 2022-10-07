@@ -10,6 +10,7 @@ from .models import *
 from django.contrib.auth import authenticate, login, logout
 
 from datetime import date
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # from django.core.mail import send_mail
 
@@ -28,7 +29,17 @@ def home(request):
 # Latest Scholarship view here
 def latest_scholarships(request):
 
-    allscholarship = AddScholarship.objects.all().order_by('-startdate')
+    user_list = AddScholarship.objects.all().order_by('-startdate')
+
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(user_list, 3)
+    try:
+        allscholarship = paginator.page(page)
+    except PageNotAnInteger:
+        allscholarship = paginator.page(1)
+    except EmptyPage:
+        allscholarship = paginator.page(paginator.num_pages)
 
     dic = {'AllScholarship': allscholarship}
 
@@ -36,6 +47,7 @@ def latest_scholarships(request):
 #----------------------------------------------------
 #               ADMIN
 #----------------------------------------------------
+
 
 # admin login page here:
 def admin_login(request):

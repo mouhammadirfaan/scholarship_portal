@@ -339,6 +339,30 @@
 
 /* schilarship detail end */
 
+/* Pagination start */
+.pagination{
+    margin-top: 20px;
+    margin-bottom: 10px;    
+}
+.pagination li{
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border: 2px solid black;
+    text-align: center;
+    background-color:white;
+    
+
+}
+.pagination li a{
+    text-decoration: none;   
+}
+.pagination li:hover{
+    background-color: #7b5f91;
+    color: #0f0f10;
+}
+/* Pagination End */
+
 /* join with us start */
 .join{
     width: 100%;
