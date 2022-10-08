@@ -3,16 +3,17 @@
 
 {% block content %}
 
-<!-- data tables and export button  JS Code start -->
-
-<!-- data tables and export button JS Code end -->
-
 
 <h2 class="titles">latest scholarship</h2>
 
 
 <section class="schilarsship-list" id="jsscholarships">
-
+    
+    <form  action="" method="GET">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Search Scholarships">
+        <button type="submit" ><i class="fas fa-search"></i></button>
+      </form>
 
     {% for data in AllScholarship %}
 

@@ -10,7 +10,10 @@ from .models import *
 from django.contrib.auth import authenticate, login, logout
 
 from datetime import date
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
+
 
 # from django.core.mail import send_mail
 
@@ -31,6 +34,16 @@ def latest_scholarships(request):
 
     user_list = AddScholarship.objects.all().order_by('-startdate')
 
+# SEARCH HERE
+
+
+    if request.method=='GET':
+        search_term = request.GET.get('query')
+        if search_term != None:
+            user_list = AddScholarship.objects.filter(title__icontains=search_term)
+
+
+# PAGINATION HERE
     page = request.GET.get('page', 1)
 
     paginator = Paginator(user_list, 3)
