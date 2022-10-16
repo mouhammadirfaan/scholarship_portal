@@ -34,20 +34,36 @@
 }
 .header .navbar .nav-item a{
     color: #fff !important;
-    padding-left: 25px;
     font-size: 20px;
     font-family: 'Kdam Thmor Pro', sans-serif;
+
 }
 .header .navbar .navbar-nav{
-    padding-left: 25rem;
+    padding-left: 20rem;
 }
-.header .navbar .nav-item .nav-link:hover{
-    color: rgb(0, 0, 0)!important;
-    /* font-weight: bold; */
-    background-color :var(--main-color);
-    border-radius: 10px;
+.header .navbar .nav-item .nav-link{
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
 }
-/* -------User Accounrt------ */
+.header .navbar .nav-item .nav-link::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #3bfff8;
+    position: absolute;
+    left: 0; 
+    bottom: 0;
+    transition: 0.5s;
+
+}
+
+.header .navbar .nav-item .nav-link:hover:after{
+    width: 100%;
+}
+
+ -------User Accounrt------ */
 
 .user-profile{
 	width: 100%;
@@ -147,17 +163,24 @@
     margin: 0px;
 }
 .banar .banar-img{
-    background-image:url("/static/img/meeting.jpg");
+    background-image:url("/static/img/baner.jpg");
     background-repeat:no-repeat;
-    text-align: center;
-    padding:2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover !important;
-    background-position: center !important;
+    background-size: cover;
+    background-position: center;
     width:100%;
-    height:500px;
+    height: 130vh; 
+}
+
+.banar .banar-img::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(145, 183, 222, 0.6) 0%, rgba(121, 164, 211, 0.5) 100%),
+    linear-gradient(180deg, rgba(113, 178, 247, 0.65) 0%, transparent 100%);
+    height: 142vh; 
 }
 
 .banar .banar-img .content{
@@ -367,7 +390,7 @@
 .join{
     width: 100%;
     height: 350px;
-    background-image: url("/static/img/bg-1.png");
+    background-image: url("/static/img/doner.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -392,7 +415,6 @@
 }
 .join-detail{
     min-width: 280px;
-    /* width: 50%; */ 
     z-index: 2;
     margin-bottom: 1rem;
 }
