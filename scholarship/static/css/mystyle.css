@@ -112,7 +112,6 @@
 }
 
 .user-profile .dd_menu .dd_left{
-    /* background: black; */
 	background: #74ded8;
 	padding: 15px 13px;
 	border-top-left-radius: 15px;
@@ -178,38 +177,74 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(145, 183, 222, 0.6) 0%, rgba(121, 164, 211, 0.5) 100%),
-    linear-gradient(180deg, rgba(113, 178, 247, 0.65) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(176, 202, 229, 0.6) 0%, rgba(158, 186, 215, 0.5) 100%),
+    linear-gradient(180deg, rgba(7, 12, 18, 0.65) 0%, transparent 100%);
     height: 142vh; 
 }
-
-.banar .banar-img .content{
-    width: 85rem;
-    display: none;
-    display: inline-block;
+.banar-text{
+    color: #fff;
+    position: absolute;
+    bottom: 7%;
+    margin-left: 5%;
+    text-align: center;
 }
-.banar .banar-img .content span{
-    display: block;
-    font-size: 2.2rem;
-    color: rgba(142, 39, 77, 0.6);
-    padding-bottom: 1rem;
-    animation:fadeIn .2s linear backwards .2s;
-}
-.banar .banar-img .content h3{
-    font-size: 4vw;
-    color:var(--main-color);
-    text-transform: uppercase;
-    line-height: 1;
-    text-shadow: var(--text-shadow);
-    padding:1rem 0;
-    animation:fadeIn .2s linear backwards .4s;
-}
-.banar .banar-img .content .but:hover{
-    background-color: var(--main-color);
-    border-radius: 10px;
+.banar-text h1{
+    font-size: 80px;
     font-weight: bold;
-    animation:fadeIn .2s linear backwards .6s;
+    line-height:100px;
+    font-family: serifs;
+    color: transparent;
+    -webkit-text-stroke: 1px #4de8af;
+    background:url("/static/img/back.png");
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
 }
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
+    }
+
+}
+
+.banar-text p{
+    font-size: 30px;
+    font-weight: 200;
+    font-family: cursive;
+}
+.banar-text .banar-row{
+    display: flex;
+    flex-wrap:wrap;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 70px;
+}
+.banar-text .banar-row a{
+
+    color: #3bfff8;
+    text-decoration: none;
+    margin: 10px 20px;
+    padding: 5px 25px;
+    border: 2px solid #3bfff8;
+    border-radius: 25px;
+    text-align: center;
+    background: transparent;
+    font-weight: bold;
+    cursor: pointer;   
+    position: relative;
+    overflow: hidden;
+}
+
+.banar-text .banar-row a:hover{
+    border: none;
+    border-radius: 25px;
+    background: #3bfff8;
+    position: relative;
+    color:#fff;
+    transition: 0.9s;
+   
+}
+
 /* baner end */
 
 
@@ -448,6 +483,7 @@
     background: transparent;
     border: 2px solid rgb(209, 209, 27);
     color: rgb(209, 209, 27);
+    transition: 0.9s;
 
 }
 
