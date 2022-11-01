@@ -5,7 +5,12 @@
 
 <!-- data tables and export button  JS Code start -->
 <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+</script>
 
+<!-- <script>
 $(document).ready(function() {
     $('#example').DataTable( {
         dom: 'Bfrtip',
@@ -14,8 +19,8 @@ $(document).ready(function() {
         ]
     } );
 } );
+</script> -->
 
-</script>
 <!-- data tables and export button JS Code end -->
 
 
@@ -23,49 +28,45 @@ $(document).ready(function() {
     <marquee behavior="scroll" direction="left" scrollamount="12">View All Applicants</marquee>
 </section>
 
-<section class="view"> 
+<section class="view-table"> 
+<div class="container">
 
-    <div class="container">
+    <table class="appointments" id="">
+        <thead>
+            <td>Sr. No</td>
+            <td>Image</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone No</td>
+            <td>Gender</td>
+            <td>Actions</td>
+        </thead>
+        <tbody>
 
-        <table class="table" id="example" >
+            {% for data in userdata %}
 
-            <thead>
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><img class="timgs" src="{{ data.image.url }}"></td>
+                <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
+                <td>{{ data.user.username }}</td>
+                <td>{{ data.mobile }}</td>
+                <td>{{ data.gender }}</td>
+                <td>
+                    <!-- <i class="far fa-eye"></i>
+                    <i class="far fa-edit"></i> -->
+                    <a href="{% url 'delete_user' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="far fa-trash-alt"></i></a>
 
-                <tr>
+                    <!-- <i class="far fa-trash-alt"></i> -->
+                </td>
+            </tr>
 
-                    <th>S. No.</th>
-                    <th>Image</th>
-                    <th>Applicant Name</th>
-                    <th>Email ID </th>
-                    <th>Phon No.</th>
-                    <th>Gender</th>
-                    <th>Delete</th>
+            {% endfor %}
+           
+        </tbody>
+    </table>
 
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                {% for data in userdata %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td><img src="{{ data.image.url }}"></td>
-                    <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
-                    <td>{{ data.user.username }}</td>
-                    <td>{{ data.mobile }}</td>
-                    <td>{{ data.gender }}</td>
-                    <td><a href="{% url 'delete_user' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-
-
-                </tr>
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-
-    </div>
+</div>
 </section>
 
 {% endblock %}

@@ -19,57 +19,53 @@ $(document).ready(function() {
 <!-- data tables and export button JS Code end -->
 
 
-<section class="marquee">
+<!-- <section class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="12">Accepted Applicants</marquee>
-</section>
+</section> -->
 
-<section class="view"> 
+<h2 class="titles">Accepted Applicants</h2>
 
+<section class="view-table"> 
     <div class="container">
-
-        <table class="table" id="example" >
-
+    
+        <table class="appointments" id="">
             <thead>
-
-                <tr>
-
-                    <th>S. No.</th>
-                    <th>Image</th>
-                    <th>Applicant Name</th>
-                    <th>Company Name</th>
-                    <th>Email ID </th>
-                    <th>Phon No.</th>
-                    <th>Gender</th>
-                    <th>Status</th>
-                    <!-- <th>Action</th> -->
-
-                </tr>
-
+                <td>Sr. No</td>
+                <td>Image</td>
+                <td>Name</td>
+                <th>Company</th>
+                <td>Email</td>
+                <td>Phone No</td>
+                <td>Gender</td>
+                <td>Status</td>
+                <!-- <td>Actions</td> -->
             </thead>
-
             <tbody>
-
+    
                 {% for data in Providerdata %}
+    
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td><img src="{{ data.image.url }}"></td>
+                    <td><img class="timgs" src="{{ data.image.url }}"></td>
                     <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
                     <td>{{ data.companyname }}</td>
                     <td>{{ data.user.username }}</td>
                     <td>{{ data.mobile }}</td>
                     <td>{{ data.gender }}</td>
                     <td>{{ data.status }}</td>
-                    <!-- <td><a href="{% url 'change_status' data.id %}" type="button" class="btn btn-info">Change</a></td> -->
-
-
+                    <!-- <td>
+                        <i class="far fa-eye"></i>
+                        <i class="far fa-edit"></i>    
+                        <i class="far fa-trash-alt"></i>
+                    </td> -->
                 </tr>
+    
                 {% endfor %}
-
+               
             </tbody>
-
         </table>
-
+    
     </div>
-</section>
+    </section>
 
 {% endblock %}

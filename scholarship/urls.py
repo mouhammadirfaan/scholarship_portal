@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 from scholarship.views import *
 from django.conf import settings
 from django.conf.urls.static import static
-
 # Forget Password Library
 from django.contrib.auth import views as auth_views 
 
@@ -55,7 +54,7 @@ urlpatterns = [
     path('provider_signup', provider_signup, name='provider_signup'),
     path('provider_home', provider_home, name='provider_home'),
     path('change_passwordprovider', change_passwordprovider, name='change_passwordprovider'),
-    path('add_scholarship', add_scholarship, name='add_scholarship'),
+    path('add_scholarship/', add_scholarship, name='add_scholarship'),
     path('scholarship_list', scholarship_list, name='scholarship_list'),
     path('edit_scholarshipdetails/<int:eid>', edit_scholarshipdetails, name='edit_scholarshipdetails'),
     path('delete_addscholarship/<int:aid>', delete_addscholarship, name='delete_addscholarship'),
@@ -76,8 +75,14 @@ urlpatterns = [
     path('scholarship_details/<int:pid>', scholarship_details, name='scholarship_details'),
     path('applyforscholarship/<int:pid>', applyforscholarship, name='applyforscholarship'),
     path('applied_candidates', applied_candidates, name='applied_candidates'),
+    path('applied_candidates', applied_candidates, name='applied_candidates'),
+
+    # for notification
+    path('view_userapplication/<int:application_id>/', view_userapplication, name='view_userapplication'),
 
 
+    # path('notifications/', include('notification.urls')),
+    # path('notifications/', include(('notification.urls', 'home'), namespace='notification')),
 
 
     path('Logout', Logout, name='Logout'),

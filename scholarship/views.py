@@ -3,6 +3,7 @@ from gettext import lngettext
 from pickletools import read_bytes1
 import re
 from tokenize import Pointfloat
+from venv import create
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.models import User
@@ -12,7 +13,8 @@ from django.contrib.auth import authenticate, login, logout
 from datetime import date
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.db.models import Q
+# from django.db.models import Q
+
 
 
 # from django.core.mail import send_mail
@@ -46,7 +48,7 @@ def latest_scholarships(request):
 # PAGINATION HERE
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(user_list, 3)
+    paginator = Paginator(user_list, 5)
     try:
         allscholarship = paginator.page(page)
     except PageNotAnInteger:
@@ -154,7 +156,7 @@ def providers_pending(request):
 
     providerdata = Provider.objects.filter(status="pending")
 
-    dic = {'Providerdata': providerdata}
+    dic = {'Pandingdata': providerdata}
 
     return render(request, 'providers_pending.html', dic)
 
@@ -180,7 +182,7 @@ def providers_rejected(request):
 
     providerdata = Provider.objects.filter(status="reject")
 
-    dic = {'Providerdata': providerdata}
+    dic = {'Rejecteddata': providerdata}
 
     return render(request, 'providers_rejected.html', dic)
 
@@ -193,7 +195,7 @@ def providers_all(request):
 
     providerdata = Provider.objects.all()
 
-    dic = {'Providerdata': providerdata}
+    dic = {'ALLProviderdata': providerdata}
 
     return render(request, 'providers_all.html', dic)
 
@@ -365,17 +367,22 @@ def add_scholarship(request):
         PROVIDER = Provider.objects.get(user=USER)
 
         try:
-            AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
+            addscholaeship = AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
             enddate=endDate, income=Income, scholarshiptype=Type, noofscholarships=no, logo=Logo, 
-            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())
+            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())            
+            
+            #for notification
             error= "no"
+            
 
         except:
             error= "yes"
-    
+        
+        
     dic = {'Error': error}
 
     return render(request, 'add_scholarship.html', dic)
+
 
 # Scholarship List Page here:
 def scholarship_list(request):
@@ -623,12 +630,6 @@ def user_home(request):
         STUDENT.location = Location
         STUDENT.discriotion = disc
 
-
-
-
-
-
-
         try:
             STUDENT.save()
             STUDENT.user.save()
@@ -746,6 +747,25 @@ def applyforscholarship(request, pid):
     dic = {'Error': error, 'Applyed': STUDENT}
 
     return render(request, 'applyforscholarship.html', dic)
+
+
+# For User Notifivation
+
+def view_userapplication(request, application_id):
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+
+    application = Provider.objects.get(id=application_id)
+
+    # {'userprofile': request.user.userprofile}
+
+    dict = {'message': application}
+    return render(request, 'view_userapplication.html',dict )
+
+
+    
+
+
 #----------------------------------------------------
 #          LOG OUT FUNCTION
 #----------------------------------------------------

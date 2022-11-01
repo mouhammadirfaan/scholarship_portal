@@ -62,7 +62,7 @@ urlpatterns = [
     path('user_details/<int:pid>', user_details, name='user_details'),
 
 
-
+    #for notifications
 
 
 # ------------------------------------
