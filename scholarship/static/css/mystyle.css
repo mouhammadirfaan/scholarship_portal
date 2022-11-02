@@ -596,52 +596,77 @@
 #form{
     padding-left: 5rem;
     padding-right: 5rem;
-    background-color: rgb(255, 255, 254);
+    border-radius: 40px;
+    background: #e0e0e0;
+    box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2), -12px -12px 24px 0 rgba(255, 255, 255, 1);
     padding-top: 5rem;
     padding-bottom: 5rem;
+    width: 800px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15rem;
 
 }
-.forms .container{
+
+/* .forms .container{
     border: 3px solid #f1f1f1;
     background-color: white;
     padding: 20px 20px;
     box-shadow: rgb(0, 0, 0, 0.20) 0px 1px 4px;
 
-}
+} */
 .login-title{
     text-align: center;
-    font-family: Copperplate;
-    padding-bottom: 10px;
-    color: #602ba4;
-
+    font-size: 35px;
+    color: #5ab9ea;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
-    
+
 
 input[type=text], input[type=password], input[type=email] {
     
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
+    background: #e0e0e0;
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
 
-button{
-    background-color: #3bfff8;
-    color: black;
+.login{
+    
+    margin-top: 10px;
+    background-color: #e0e0e0;
+    color:black;
+    text-decoration: none;
     padding: 14px 20px;
     margin: 8px 0;
     width:90px;
     height: 50px;
     border: none;
-    cursor: pointer;  
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #5ab9ea;
+    cursor: pointer;
+    border-radius: 40px;
+    box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2), -12px -12px 24px 0 rgba(255, 255, 255, 1);
+
 }
-button:hover {
+.login:hover {
     /* opacity: 0.8; */
-    background-color:#74ded8 ;
+    /* background-color:#74ded8 ;
     color: black;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 10px; */
+
+    border: 1px solid #e0e0e0;
+
 
 }
 
@@ -649,7 +674,8 @@ button:hover {
 
 /* create an accout start */
 #bt{
-    background-color: #3bfff8;
+    margin-top: 10px;
+    background-color: #e0e0e0;
     color:black;
     text-decoration: none;
     padding: 14px 20px;
@@ -657,16 +683,20 @@ button:hover {
     width: 150px;
     height: 50px;
     border: none;
-    cursor: pointer;   
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #5ab9ea;
+    cursor: pointer;
+    border-radius: 40px;
+    box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2), -12px -12px 24px 0 rgba(255, 255, 255, 1);
+
 }
 #bt:hover {
-    /* opacity: 0.8; */
-    background-color: #74ded8;
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
-   
-
+    border: 1px solid #e0e0e0;
 }
 /* create an accout end */
 
@@ -753,6 +783,8 @@ thead{
 
 
 /* admin-login pages end */
+
+
 
 /* /////////////////   ADMIN HOME PAGE START ///////////////// */
 .view-table{

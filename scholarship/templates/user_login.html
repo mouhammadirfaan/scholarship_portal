@@ -3,11 +3,6 @@
 
 {% block content %}
 
-<!-- marquee section start -->
-<section class="marquee">
-    <marquee behavior="scroll" direction="left" scrollamount="12">User Login</marquee>
-</section>
-<!-- marquee section end -->
 
 <!-- user login form start -->
 
@@ -16,8 +11,8 @@
 
 <section class="forms" id="form">
 
-    <div class="container" id="">
-        <h2 class="login-title">Login</h2>
+    <div class="container" id="sign-form">
+        <h2 class="login-title">Student Login</h2>
         <form action="" method="POST">
             {% csrf_token %}
             <label for="uname"><b>Email</b></label>
@@ -28,15 +23,16 @@
         
             <button class="login" type="submit" value="login">Login</button>
 
-            <!-- <input type="submit" value="login" name="" id="bt"> -->
 
-            <a class="register" href="{% url 'user_signup' %}" id ="bt">Regirter</a><hr>
-            
+            <a class="register" href="{% url 'user_signup' %}" id ="bt">Regirter</a>
+            <hr>
             <p><a href="{% url 'password_reset' %}" >Forgotten Your Password?</a></p>
             
         </form>
     </div>
-</section>
+</section> 
+
+
 
 <!-- user login form end -->
 
