@@ -8,13 +8,25 @@
 <section class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="12">Edit Scholarship Details</marquee>
 </section>
+<h2 class="titles">Edit Scholarship Details</h2>
 <!-- marquee section end -->
-
+<style>
+#edit-scholarship{
+    padding: 2rem 2rem;
+    border-radius: 40px;
+    background: #e0e0e0;
+    box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2), -12px -12px 24px 0 rgba(255, 255, 255, 1);
+    margin-left: 3rem;
+    margin-right: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+</style>
 <!-- provider Add scholarship details form start -->
 
 <section class="forms" style="margin-bottom: 60px;">
    
-    <div class="container" id="">
+    <div class="container" id="edit-scholarship">
         <form action="" method="POST"  name="details" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row">

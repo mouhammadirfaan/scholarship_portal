@@ -7,9 +7,11 @@
 <section class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="12">Apply for scholarship</marquee>
 </section>
+<h2 class="titles">Apply for scholarship</h2>
+
 <!-- marquee section end -->
 <style>
-img {
+#img-userprofile{
   border: 2px solid #FA6900;
   border-radius: 4px;
   padding: 5px;
@@ -18,18 +20,26 @@ img {
   margin-top: 30px;
   margin-left: 20px;
 }
+#complete-userprofile{
+    padding: 2rem 2rem;
+    border-radius: 40px;
+    background: #e0e0e0;
+    box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2), -12px -12px 24px 0 rgba(255, 255, 255, 1);
+    margin-left: 3rem;
+    margin-right: 3rem;
+    align-items: center;
+    justify-content: center;
 
-img:hover {
-  box-shadow: 0 0 3px 1px rgba(0, 140, 186, 0.5);
 }
+
 </style>
 
 
 <!-- provider sign-up profile or update form start -->
 
-<section class="forms" id="">
+<section class="forms">
 
-    <div class="container" style="margin-bottom: 50px;">
+    <div class="container" id="complete-userprofile" style="margin-bottom: 50px;">
 
         <div class="row">
 
@@ -157,7 +167,7 @@ img:hover {
             <!-- pictire column -->
             <div class="col-md-3">
 
-                <img src="{{ Applyed.image.url }}">
+                <img src="{{ Applyed.image.url }}" id="img-userprofile">
 
             </div>
 

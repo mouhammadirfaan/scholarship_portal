@@ -22,12 +22,12 @@ $(document).ready(function() {
 <section class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship List</marquee>
 </section>
+<h2 class="titles">Scholarship List</h2>
+<section class="view-table"> 
 
-<section class="view"> 
+    <div class="container" >
 
-    <div class="container">
-
-        <table class="table" id="example" >
+        <table class="appointments" id="example" >
 
             <thead>
 
@@ -49,12 +49,12 @@ $(document).ready(function() {
                 {% for data in scholarship %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td><img src="{{ data.logo.url }}"></td>
+                    <td><img class="timgs" src="{{ data.logo.url }}"></td>
                     <td>{{ data.title }}</td>
                     <td>{{ data.enddate }}</td>
                     <td><a href="{% url 'edit_scholarshipdetails' data.id %}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         &nbsp; || &nbsp;
-                        <a href="{% url 'delete_addscholarship' data.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        <a href="{% url 'delete_addscholarship' data.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

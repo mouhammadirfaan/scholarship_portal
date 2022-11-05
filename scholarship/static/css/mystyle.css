@@ -593,6 +593,7 @@
     margin-top: 25px;
     
 }
+
 #form{
     padding-left: 5rem;
     padding-right: 5rem;
@@ -601,11 +602,10 @@
     box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2), -12px -12px 24px 0 rgba(255, 255, 255, 1);
     padding-top: 5rem;
     padding-bottom: 5rem;
-    width: 800px;
-    height: auto;
+    margin-left: 8rem;
+    margin-right: 8rem;
     align-items: center;
     justify-content: center;
-    margin-left: 14rem;
 
 }
 
@@ -790,7 +790,7 @@ thead{
 
     min-height: 100vh;
     /* left: 300px; */
-    background: #f5f5f5;
+    /* background: #f5f5f5; */
 }
 
 /* .top-bar {

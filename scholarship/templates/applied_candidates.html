@@ -23,11 +23,11 @@ $(document).ready(function() {
     <marquee behavior="scroll" direction="left" scrollamount="12">Applied Candidates </marquee>
 </section>
 
-<section class="view"> 
+<section class="view-table"> 
 
     <div class="container">
 
-        <table class="table" id="example" >
+        <table class="appointments" id="example" >
 
             <thead>
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
                     <td>{{ data.addscholarship.title }}</td>
                     <td>{{ data.addscholarship.provider.companyname }}</td>
                     <td>{{ data.applyeddate }}</td>
-                    <td><a href="{{ data.scholarshipform.url }}">Download</a></td>
+                    <td><a href="{{ data.scholarshipform.url }}" class="btn">Download</a></td>
                     <td><a href="{% url 'user_details' data.id %}" class="btn btn-info">view</a></td>
 
 
