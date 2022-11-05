@@ -55,7 +55,7 @@ $(document).ready(function() {
                         <i class="far fa-edit"></i> -->
                         <a href="{% url 'change_status' data.id %}" type="button" class="btn btn-info">Change</a>
 
-                        <a href="{% url 'delete_user' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="far fa-trash-alt"></i></a>
+                        <a href="{% url 'delete_provider' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="far fa-trash-alt"></i></a>
     
                         <!-- <i class="far fa-trash-alt"></i> -->
                     </td>

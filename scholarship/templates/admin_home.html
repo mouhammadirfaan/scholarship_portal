@@ -20,171 +20,96 @@
     <div class="cards">
         <div class="card">
             <div class="card-content">
-                <div class="number">67</div>
-                <div class="card-name">Appointments</div>
+                <div class="number">{{ student_count }}</div>
+                <div class="card-name">Total Students</div>
             </div>
             <div class="icon-box">
-                <i class="fas fa-briefcase-medical"></i>
+                <i class="fa-solid fa-user"></i>
+                <!-- <i class="fas fa-briefcase-medical"></i> -->
             </div>
         </div>
         <div class="card">
             <div class="card-content">
-                <div class="number">105</div>
-                <div class="card-name">New Patients</div>
+                <div class="number">{{ provider_count }}</div>
+                <div class="card-name">Total Provider</div>
             </div>
             <div class="icon-box">
-                <i class="fas fa-wheelchair"></i>
+                <!-- <i class="fas fa-wheelchair"></i> -->
+                <i class="fa-solid fa-user"></i>
             </div>
         </div>
         <div class="card">
             <div class="card-content">
-                <div class="number">8</div>
-                <div class="card-name">Operations</div>
+                <div class="number">{{ pending_count }}</div>
+                <div class="card-name">Panding Provider</div>
             </div>
             <div class="icon-box">
-                <i class="fas fa-bed"></i>
+                <!-- <i class="fas fa-bed"></i> -->
+                <i class="fa-solid fa-user"></i>
             </div>
         </div>
         <div class="card">
             <div class="card-content">
-                <div class="number">$4500</div>
-                <div class="card-name">Earnings</div>
+                <div class="number">{{ rejected_count }}</div>
+                <div class="card-name">Rejected Provider</div>
             </div>
             <div class="icon-box">
-                <i class="fas fa-dollar-sign"></i>
+                <!-- <i class="fas fa-dollar-sign"></i> -->
+                <i class="fa-solid fa-user"></i>
             </div>
         </div>
     </div>
     <div class="tables">
         <div class="last-appointments">
             <div class="heading">
-                <h2>Last Appointments</h2>
-                <a href="#" class="btn">View All</a>
+                <h2>Register Donors</h2>
+                <a href="{% url 'providers_all' %}" class="btn">View All</a>
             </div>
             <table class="appointments">
                 <thead>
                     <td>Name</td>
-                    <td>Doctor</td>
-                    <td>Condition</td>
+                    <td>Pnone No</td>
+                    <td>Status</td>
                     <td>Actions</td>
                 </thead>
                 <tbody>
+
+                {% for data in show_provider|slice:":5" %}
+
                     <tr>
-                        <td>Liam Smith Doe</td>
-                        <td>Dr. Benjamin</td>
-                        <td>fracture</td>
-                        <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-trash-alt"></i>
-                        </td>
+                        <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
+                        <td>{{ data.mobile }}</td>
+                        <td>{{ data.status }}</td>
+                        <td><a href="{% url 'delete_provider' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="far fa-trash-alt"></i></a></td>
                     </tr>
-                    <tr>
-                        <td>Emma</td>
-                        <td>Dr. Noah</td>
-                        <td>depression</td>
-                        <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-trash-alt"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Olivia Smith </td>
-                        <td>Dr. Liam</td>
-                        <td>arthritis</td>
-                        <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-trash-alt"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Isabella Doe</td>
-                        <td>Dr. Noah</td>
-                        <td>flu</td>
-                        <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-trash-alt"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sophia Smith </td>
-                        <td>Dr. Olivia</td>
-                        <td>fracture</td>
-                        <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-trash-alt"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Liam Smith Doe</td>
-                        <td>Dr. Benjamin</td>
-                        <td>fracture</td>
-                        <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-trash-alt"></i>
-                        </td>
-                    </tr>
+                {% endfor %}
+
                 </tbody>
             </table>
         </div>
         <div class="doctor-visiting">
             <div class="heading">
-                <h2>Doctor Visiting</h2>
-                <a href="#" class="btn">View All</a>
+                <h3>Register Students</h3>
+                <a href="{% url 'view_users' %}" class="btn">View All</a>
             </div>
             <table class="visiting">
                 <thead>
-                    <td>Photo</td>
+                    
                     <td>Name</td>
-                    <td>Visit time</td>
-                    <td>Detail</td>
+                    <td>Phone No</td>
+                    <td>Action</td>
                 </thead>
                 <tbody>
+                    {% for data in show_student|slice:":5" %}
                     <tr>
-                        <td>
-                            <div class="img-box-small">
-                                <img src="doctor1.png" alt="">
-                            </div>
-                        </td>
-                        <td>Benjamin</td>
-                        <td>14:00</td>
-                        <td><i class="far fa-eye"></i></td>
+                        <td>{{ data.user.first_name }} {{ data.user.last_name }}</td>
+                        <td>{{ data.mobile }}</td>
+                       
+                        <td><a href="{% url 'delete_user' data.user.id %}" onclick="return confirm('Are you sure? \nYou want to delete...')"><i class="far fa-trash-alt"></i></a></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="img-box-small">
-                                <img src="doctor3.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>Liam</td>
-                        <td>15:00</td>
-                        <td><i class="far fa-eye"></i></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="img-box-small">
-                                <img src="doctor2.png" alt="">
-                            </div>
-                        </td>
-                        <td>Noah</td>
-                        <td>16:00</td>
-                        <td><i class="far fa-eye"></i></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="img-box-small">
-                                <img src="doctor4.png" alt="">
-                            </div>
-                        </td>
-                        <td>Sophia</td>
-                        <td>17:00</td>
-                        <td><i class="far fa-eye"></i></td>
-                    </tr>
+
+                    {% endfor %}
+
                 </tbody>
             </table>
         </div>

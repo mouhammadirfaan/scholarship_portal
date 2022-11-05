@@ -95,7 +95,16 @@ def admin_home(request):
     if not request.user.is_authenticated:
         return redirect('admin_login')
 
-    return render(request, 'admin_home.html')
+    student = StudentUser.objects.all().count
+    provider= Provider.objects.all().count
+    pending = Provider.objects.filter(status="pending").count
+    rejected = Provider.objects.filter(status="reject").count
+
+    showstudent = StudentUser.objects.all()
+    showprovider = Provider.objects.all()
+
+    dic = {'show_provider':showprovider, 'show_student':showstudent, 'student_count': student, 'provider_count': provider, 'pending_count': pending, 'rejected_count': rejected}
+    return render(request, 'admin_home.html', dic)
 
 # Admin can change  Password 
 def change_passwordadmin(request):
