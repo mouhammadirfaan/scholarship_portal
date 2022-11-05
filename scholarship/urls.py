@@ -81,8 +81,6 @@ urlpatterns = [
     path('view_userapplication/<int:application_id>/', view_userapplication, name='view_userapplication'),
 
 
-    # path('notifications/', include('notification.urls')),
-    # path('notifications/', include(('notification.urls', 'home'), namespace='notification')),
 
 
     path('Logout', Logout, name='Logout'),
