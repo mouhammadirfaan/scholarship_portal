@@ -74,6 +74,25 @@
                     </div>
 
                     <div class="row">
+        
+                        <div class="col-md-12">
+                            <!-- <label for="income"><b>Income(Pre Month)</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Income" name="income" value="{{ Student.income}}" required> -->
+                            <label for="status"><b>Level of Education</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.income}}]</span>
+                            <select class="form-select" name="income">
+                                <option value="Matriculation">Matriculation</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Bachelor">Bachelor</option>
+                                <option value="Master">Master</option>
+                                <option value="PhD">PhD</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+        
+                    </div>
+
+                    <div class="row">
 
                         <div class="col-md-6">
                             <label for="degree"><b>Current Program</b></label>
@@ -81,18 +100,9 @@
                         </div>
         
                         <div class="col-md-6">
-                            <label for="marks"><b>Criteria(%)</b></label>
+                            <label for="marks"><b>Grades</b></label>
                             <input type="text" class="form-control" placeholder="Enter previous" name="marks" value="{{ Student.previousmarks}}" required>
                         </div>
-                    </div>
-        
-                    <div class="row">
-        
-                        <div class="col-md-12">
-                            <label for="income"><b>Income(Pre Month)</b></label>
-                            <input type="text" class="form-control" placeholder="Enter Income" name="income" value="{{ Student.income}}" required>
-                        </div>
-        
                     </div>
         
                     <div class="row">
