@@ -14,7 +14,7 @@ class StudentUser(models.Model):
     usertype = models.CharField(max_length=30, null=False)
     currentdegree = models.CharField(max_length=100)
     previousmarks = models.CharField(max_length=100, blank=True)
-    income = models.CharField(max_length=100, blank=True)
+    education_level = models.CharField(max_length=100, blank=True)
     location = models.CharField(max_length=200, blank=True)
     discriotion = models.TextField(blank=True)
     
@@ -50,7 +50,7 @@ class AddScholarship(models.Model):
     Location = models.CharField(max_length=256, null=False)
     scholarshiptype =  models.CharField(max_length=100)
     prviousmarks = models.CharField(max_length=100, null=False)
-    income = models.CharField(max_length=100, null=True)
+    education_level = models.CharField(max_length=100, null=True)
     discription = models.TextField()
     createdate = models.DateField()
     scholarshipform = models.FileField(blank=True)

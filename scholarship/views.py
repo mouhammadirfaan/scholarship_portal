@@ -365,7 +365,7 @@ def add_scholarship(request):
         Title = request.POST['title']
         startDate = request.POST['startdate']
         endDate = request.POST['enddate']
-        Income = request.POST['income']
+        education_level  = request.POST['income']
         Type = request.POST['type']
         Marks = request.POST['marks']
         no = request.POST['nofscholarship']
@@ -378,7 +378,7 @@ def add_scholarship(request):
 
         try:
             addscholaeship = AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
-            enddate=endDate, income=Income, scholarshiptype=Type, noofscholarships=no, logo=Logo, 
+            enddate=endDate, education_level =education_level , scholarshiptype=Type, noofscholarships=no, logo=Logo, 
             prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())            
             error= "no"
         except:
@@ -622,7 +622,7 @@ def user_home(request):
         gen = request.POST['Radios']
         Degree = request.POST['degree']
         Marks = request.POST['marks']
-        Income = request.POST['income']
+        education_level  = request.POST['income']
         Location = request.POST['location']
         disc = request.POST['discription']
 
@@ -632,7 +632,7 @@ def user_home(request):
         STUDENT.gender = gen
         STUDENT.currentdegree = Degree
         STUDENT.previousmarks = Marks
-        STUDENT.income = Income
+        STUDENT.education_level  = education_level 
         STUDENT.location = Location
         STUDENT.discriotion = disc
 
