@@ -65,3 +65,5 @@ class ApplyScholarship(models.Model):
     applyeddate = models.DateField()
 
 
+
+

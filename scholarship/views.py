@@ -165,6 +165,7 @@ def providers_pending(request):
 
     providerdata = Provider.objects.filter(status="pending")
 
+
     dic = {'Pandingdata': providerdata}
 
     return render(request, 'providers_pending.html', dic)
@@ -379,11 +380,7 @@ def add_scholarship(request):
             addscholaeship = AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
             enddate=endDate, income=Income, scholarshiptype=Type, noofscholarships=no, logo=Logo, 
             prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())            
-            
-            #for notification
             error= "no"
-            
-
         except:
             error= "yes"
         
@@ -760,16 +757,24 @@ def applyforscholarship(request, pid):
 
 # For User Notifivation
 
-def view_userapplication(request, application_id):
+def notifications(request):
     if not request.user.is_authenticated:
         return redirect('user_login')
 
-    application = Provider.objects.get(id=application_id)
+    notify = AddScholarship.objects.all()
 
-    # {'userprofile': request.user.userprofile}
+    dic = {'Notify': notify}
 
-    dict = {'message': application}
-    return render(request, 'view_userapplication.html',dict )
+    return render(request, 'notifications.html', dic )
+
+def view_notification(request, n_id):
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+
+    application = AddScholarship.objects.get(id=n_id)
+
+    dict = {'ScholarshipId': application}
+    return render(request, 'view_notification.html',dict )
 
 
     

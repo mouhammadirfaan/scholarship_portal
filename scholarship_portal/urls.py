@@ -63,6 +63,9 @@ urlpatterns = [
 
 
     #for notifications
+    path('notifications', notifications, name='notifications'),
+    path('view_notification/<int:n_id>', view_notification, name='view_notification'),
+
 
 
 # ------------------------------------

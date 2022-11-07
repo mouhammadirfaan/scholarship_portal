@@ -1,0 +1,24 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Notification</h3>
+
+    {% if not Notify %}
+        No notifications yet!
+    {% endif %}
+
+
+    {% for notify in Notify %}
+
+    <p>
+        <a href="{% url 'view_notification' notify.id %}">
+            <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>
+            <small>for {{ notify.income }} students</small>
+        </a> 
+    </p>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

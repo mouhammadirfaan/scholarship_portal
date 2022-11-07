@@ -6,3 +6,4 @@ admin.site.register(StudentUser),
 admin.site.register(Provider),
 admin.site.register(AddScholarship),
 admin.site.register(ApplyScholarship),
+
