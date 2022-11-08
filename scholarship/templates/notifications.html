@@ -11,7 +11,7 @@
 
     {% for notify in Notify %}
 
-    <p>
+    <p style="background: rgb(221, 221, 221)">
         <a href="{% url 'view_notification' notify.id %}">
             <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>
             <small>for {{ notify.income }} students</small>

@@ -48,7 +48,7 @@ def latest_scholarships(request):
 # PAGINATION HERE
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(user_list, 5)
+    paginator = Paginator(user_list, 3)
     try:
         allscholarship = paginator.page(page)
     except PageNotAnInteger:
