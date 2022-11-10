@@ -9,15 +9,26 @@
     {% endif %}
 
 
-    {% for notify in Notify %}
+    <P>{{ forstudent.education_level}}</P>
+    <P>{{ Notify.education_level}}</P>
 
-    <p style="background: rgb(221, 221, 221)">
+
+    {% for notify in Notify %}
+    
+    {% if forstudent.education_level == notify.education_level %}
+    <p style="background: rgb(242, 241, 241)">
         <a href="{% url 'view_notification' notify.id %}">
             <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>
-            <small>for {{ notify.income }} students</small>
+            <small>for {{ notify.education_level }} students</small>
         </a> 
     </p>
+
+    {% endif %}
     {% endfor %}
+
+
+
+    
 </div>
 
 

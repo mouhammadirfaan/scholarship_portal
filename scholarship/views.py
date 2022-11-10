@@ -14,12 +14,7 @@ from datetime import date
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.db.models import Q
-
-
-
 # from django.core.mail import send_mail
-
-
 # Create your views here.
 
 def home(request):
@@ -424,7 +419,7 @@ def edit_scholarshipdetails(request, eid):
         disc = request.POST['discription']
         
         editscholarship.title = Title
-        editscholarship.income = Income
+        editscholarship.education_level = Income
         editscholarship.scholarshiptype = Type
         editscholarship.noofscholarships = no
         editscholarship.prviousmarks=Marks
@@ -761,9 +756,14 @@ def notifications(request):
     if not request.user.is_authenticated:
         return redirect('user_login')
 
-    notify = AddScholarship.objects.all()
 
-    dic = {'Notify': notify}
+    SUSER = request.user
+    STUDENT = StudentUser.objects.get(user=SUSER)
+
+    
+    notic = AddScholarship.objects.all()
+
+    dic = {'Notify': notic, 'forstudent': STUDENT}
 
     return render(request, 'notifications.html', dic )
 

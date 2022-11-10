@@ -63,6 +63,7 @@ class ApplyScholarship(models.Model):
     student = models.ForeignKey(StudentUser, on_delete=models.CASCADE)
     scholarshipform = models.FileField(blank=True)
     applyeddate = models.DateField()
+    
 
 
 
