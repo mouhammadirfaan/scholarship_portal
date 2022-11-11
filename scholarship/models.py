@@ -54,10 +54,11 @@ class AddScholarship(models.Model):
     discription = models.TextField()
     createdate = models.DateField()
     scholarshipform = models.FileField(blank=True)
+    notification_status = models.CharField(max_length=50, null=False)
 
     def __str__(self):
         return self.title
-    
+
 class ApplyScholarship(models.Model):
     addscholarship = models.ForeignKey(AddScholarship, on_delete=models.CASCADE)
     student = models.ForeignKey(StudentUser, on_delete=models.CASCADE)

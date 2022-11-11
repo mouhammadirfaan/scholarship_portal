@@ -374,7 +374,7 @@ def add_scholarship(request):
         try:
             addscholaeship = AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
             enddate=endDate, education_level =education_level , scholarshiptype=Type, noofscholarships=no, logo=Logo, 
-            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())            
+            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, notification_status="unread", createdate=date.today())            
             error= "no"
         except:
             error= "yes"
@@ -757,13 +757,16 @@ def notifications(request):
         return redirect('user_login')
 
 
-    SUSER = request.user
-    STUDENT = StudentUser.objects.get(user=SUSER)
+    S_USER = request.user
+    STUDENT = StudentUser.objects.get(user=S_USER)
 
     
     notic = AddScholarship.objects.all()
 
-    dic = {'Notify': notic, 'forstudent': STUDENT}
+    N_count = AddScholarship.objects.filter(notification_status="unread").count
+
+
+    dic = {'Notify': notic, 'forstudent': STUDENT, 'notification_count': N_count}
 
     return render(request, 'notifications.html', dic )
 
@@ -772,6 +775,10 @@ def view_notification(request, n_id):
         return redirect('user_login')
 
     application = AddScholarship.objects.get(id=n_id)
+
+
+
+        
 
     dict = {'ScholarshipId': application}
     return render(request, 'view_notification.html',dict )

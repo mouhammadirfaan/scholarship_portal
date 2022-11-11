@@ -5,7 +5,7 @@
     <h3>Notification</h3>
 
     {% if not Notify %}
-        No notifications yet!
+        <p>No notifications yet!</p> 
     {% endif %}
 
 
@@ -14,22 +14,27 @@
 
 
     {% for notify in Notify %}
-    
+
     {% if forstudent.education_level == notify.education_level %}
-    <p style="background: rgb(242, 241, 241)">
-        <a href="{% url 'view_notification' notify.id %}">
-            <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>
-            <small>for {{ notify.education_level }} students</small>
-        </a> 
-    </p>
+        <p>
+            <a href="{% url 'view_notification' notify.id %}">
+                <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>
+                <small>for {{ notify.education_level }} students</small>
+            </a> 
+        </p>
 
     {% endif %}
+
+
     {% endfor %}
 
-
-
-    
 </div>
 
 
 {% endblock %}
+
+
+
+
+
+
