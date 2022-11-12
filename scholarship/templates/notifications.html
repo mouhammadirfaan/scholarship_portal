@@ -11,11 +11,17 @@
 
     <P>{{ forstudent.education_level}}</P>
     <P>{{ Notify.education_level}}</P>
+    <P>{{ Notify.date.today()}</P>
 
 
     {% for notify in Notify %}
 
     {% if forstudent.education_level == notify.education_level %}
+
+    <P>---> {{notify.createdate}}</P>
+    <P>---> {{notify.createdate}}</P>
+
+
         <p>
             <a href="{% url 'view_notification' notify.id %}">
                 <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>

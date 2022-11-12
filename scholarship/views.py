@@ -604,6 +604,9 @@ def user_home(request):
 
     if not request.user.is_authenticated:
         return redirect('user_login')
+
+    N_count = AddScholarship.objects.filter(notification_status="unread").count
+
     
     USER = request.user
     STUDENT = StudentUser.objects.get(user=USER)
@@ -647,7 +650,7 @@ def user_home(request):
         except:
             pass
     
-    dic = {'Error': error, 'Student': STUDENT}
+    dic = {'Error': error, 'Student': STUDENT, 'notification_count': N_count}
 
     return render(request, 'user_home.html', dic)
 
@@ -762,7 +765,6 @@ def notifications(request):
 
     
     notic = AddScholarship.objects.all()
-
     N_count = AddScholarship.objects.filter(notification_status="unread").count
 
 
@@ -776,9 +778,16 @@ def view_notification(request, n_id):
 
     application = AddScholarship.objects.get(id=n_id)
 
+    if request.method == "POST":
+        read = request.POST['notification_status']
 
-
-        
+        application.notification_status = read
+    
+        try:
+            application.save()
+            pass
+        except:
+            pass        
 
     dict = {'ScholarshipId': application}
     return render(request, 'view_notification.html',dict )
