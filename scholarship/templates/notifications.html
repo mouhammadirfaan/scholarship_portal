@@ -1,6 +1,16 @@
 {% extends 'user_base.html' %}
 
 {% block content %}
+
+<style>
+.link{
+    color: black;
+    /* font-weight: bold; */
+} 
+.link:visited{
+    color:rgb(106, 104, 104);
+}
+</style>
 <div class="container">
     <h3>Notification</h3>
 
@@ -9,27 +19,24 @@
     {% endif %}
 
 
-    <P>{{ forstudent.education_level}}</P>
-    <P>{{ Notify.education_level}}</P>
-    <P>{{ Notify.date.today()}</P>
+    <!-- <P>{{ forstudent.education_level}}</P>
+    <P>{{ Notify.education_levl}}</P>
+    <P>{{ Notify.date.today()}</P> -->
+
+        <!-- {% if forstudent.education_level == notify.education_level %} -->
+        <!-- {% endif %} -->
+        
 
 
     {% for notify in Notify %}
 
-    {% if forstudent.education_level == notify.education_level %}
-
-    <P>---> {{notify.createdate}}</P>
-    <P>---> {{notify.createdate}}</P>
-
-
         <p>
-            <a href="{% url 'view_notification' notify.id %}">
+            <a class="link" href="{% url 'view_notification' notify.id %}">
                 <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>
                 <small>for {{ notify.education_level }} students</small>
             </a> 
         </p>
 
-    {% endif %}
 
 
     {% endfor %}
