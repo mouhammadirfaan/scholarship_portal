@@ -374,7 +374,7 @@ def add_scholarship(request):
         try:
             addscholaeship = AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
             enddate=endDate, education_level =education_level , scholarshiptype=Type, noofscholarships=no, logo=Logo, 
-            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, notification_status="unread", createdate=date.today())            
+            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())            
             error= "no"
         except:
             error= "yes"
@@ -541,6 +541,7 @@ def user_details(request, pid):
 #----------------------------------------------------
 #               STUDENT USER
 #----------------------------------------------------
+
 # Student Signup here:
 def user_signup(request):
 
@@ -605,8 +606,6 @@ def user_home(request):
     if not request.user.is_authenticated:
         return redirect('user_login')
 
-    N_count = AddScholarship.objects.filter(notification_status="unread").count
-
     
     USER = request.user
     STUDENT = StudentUser.objects.get(user=USER)
@@ -650,7 +649,7 @@ def user_home(request):
         except:
             pass
     
-    dic = {'Error': error, 'Student': STUDENT, 'notification_count': N_count}
+    dic = {'Error': error, 'Student': STUDENT}
 
     return render(request, 'user_home.html', dic)
 
@@ -759,19 +758,16 @@ def notifications(request):
     if not request.user.is_authenticated:
         return redirect('user_login')
 
-
     S_USER = request.user
     STUDENT = StudentUser.objects.get(user=S_USER)
 
-    
-    notic = AddScholarship.objects.all()
-    N_count = AddScholarship.objects.filter(notification_status="unread").count
+    notic = AddScholarship.objects.all().order_by("-time_at")
 
+    dic = {'Notify': notic, 'forstudent': STUDENT }
 
-    dic = {'Notify': notic, 'forstudent': STUDENT, 'notification_count': N_count}
+    return render(request, 'notifications.html', dic)
 
-    return render(request, 'notifications.html', dic )
-
+# view_notification
 def view_notification(request, n_id):
     if not request.user.is_authenticated:
         return redirect('user_login')

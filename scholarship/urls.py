@@ -78,7 +78,7 @@ urlpatterns = [
     path('applied_candidates', applied_candidates, name='applied_candidates'),
 
     # for notification
-    path('view_userapplication/<int:application_id>/', view_userapplication, name='view_userapplication'),
+    path('view_notification/<int:application_id>/', view_notification, name='view_notification'),
 
 
 

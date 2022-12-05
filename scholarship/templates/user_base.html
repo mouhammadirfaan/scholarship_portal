@@ -9,6 +9,8 @@
 
     <!-- Custom CSS  -->
     <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/mycssstyle.css' %}"> -->
+
 
     <!-- bootstrap -->
     <!-- //add bootstrap 5 css file -->
@@ -49,10 +51,13 @@
                   </li>
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'notifications' %}"><i class="fa-solid fa-bell"></i>({{notification_count}})</a>
+                    <a class="nav-link" href="{% url 'notifications' %}"><i class="fa-solid fa-bell"></i></a>
                   </li>
                 </ul>
+
+                <!-- ------------------------ bel start ----------------- -->
                 
+                <!-- --------------------------- bel end ----------------- -->
                 <!-- User Account -->
                 <div class="user-profile">
                   <div class="nav_right">
@@ -76,14 +81,9 @@
                           </div>
                         </div>
                       </li>
-                      <!-- <li class="nr_li">
-                        <i class="fas fa-envelope-open-text"></i>
-                      </li> -->
                     </ul>
                   </div>
                 </div>
-                
-                
                 <!-- \\\\\\\\\\\\\\\ -->
                 
                 <!-- <a class="navbar-brand" href="#" style="padding-left: 35px; color: yellow; font-weight: bold;">{{request.user.first_name}} {{request.user.last_name}}</a> -->

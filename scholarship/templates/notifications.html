@@ -1,53 +1,262 @@
-{% extends 'user_base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- <link rel="stylesheet" href="{% static 'csssecond/mycssstyle.css' %}"> -->
 
-{% block content %}
+    <title>Frontend Mentor | Notifications page</title>
+  </head>
+  <body>
+
+    <style>
+        .link:visited{
+            color: black;
+        }
+    </style>
+
+    <div class="container">
+      <header>
+        <div class="notif_box">
+          <h2 class="title">Notifications</h2>
+          <span id="notifes"></span>
+        </div>
+        <p id="mark_all">Mark all as read</p>
+      </header>
+      <main>
+
+        {% for notify in Notify %}
+            {% if forstudent.education_level == notify.education_level %}
+                <div class="notif_card unread">
+                <img src="{{ notify.logo.url }}" alt="avatar" />
+                <div class="description">
+                    <p class="user_activity">
+                        <a class="link" href="{% url 'view_notification' notify.id %}">
+                            <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship </a> <br>
+                            <small>for <b>{{ notify.education_level }} students</b></small><br>
+                            last date for apply <b>{{ notify.enddate }}</b>
+
+                    </p>
+                    <p class="time"><b>{{ notify.time_at|timesince }}</b> ago</p>
+                </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- <div class="notif_card unread">
+          <img src="./assets/images/avatar-angela-gray.webp" alt="avatar" />
+          <div class="description">
+            <p class="user_activity">
+              <strong>Angela Gray</strong> followed you
+            </p>
+            <p class="time">5m ago</p>
+          </div>
+        </div>
+
+        <div class="notif_card unread">
+          <img src="./assets/images/avatar-jacob-thompson.webp" alt="avatar" />
+          <div class="description">
+            <p class="user_activity">
+              <strong>Jacob Thompson</strong> has joined your group
+              <strong class="link">Chess Club</strong>
+            </p>
+            <p class="time">1 day ago</p>
+          </div>
+        </div>
+        <div>
+          <div class="notif_card">
+          <div class="message_card">
+            <img
+            src="./assets/images/avatar-rizky-hasanuddin.webp"
+            alt="avatar"
+          />
+          <div class="description">
+            <p class="user_activity">
+              <strong>Rizky Hasanuddin</strong> sent you a private message
+            </p>
+            <p class="time">5 days ago</p>
+          </div>
+          </div>
+        </div>
+        <div class="message">
+              <p>
+                Hello, thanks for setting up the Chess Club. I've been a member
+                for a few weeks now and I'm already having lots of fun and
+                improving my game.
+              </p>
+            </div>
+        </div>
+        
+        <div class="notif_card">
+          <img src="./assets/images/avatar-kimberly-smith.webp" alt="avatar" />
+          <div class="description">
+            <p class="user_activity">
+              <strong>Kimberly Smith</strong> commented on your picture
+            </p>
+            <p class="time">1 week ago</p>
+          </div>
+          <img src="./assets/images/image-chess.webp" class="chess_img" alt="chess" />
+        </div>
+        <div class="notif_card">
+          <img src="./assets/images/avatar-nathan-peterson.webp" alt="avatar" />
+          <div class="description">
+            <p class="user_activity">
+              <strong>Nathan Pererson</strong> reacted to your recent post
+              <b>5 end-game strategies to increase your win rate</b>
+            </p>
+            <p class="time">2 weeks ago</p>
+          </div>
+        </div>
+        <div class="notif_card">
+          <img src="./assets/images/avatar-anna-kim.webp" alt="avatar" />
+          <div class="description">
+            <p class="user_activity">
+              <strong>Anna Kim</strong> left the group
+              <strong class="link">Chess Club</strong>
+            </p>
+            <p class="time">2 weeks ago</p>
+          </div>
+        </div>
+      </main>
+    </div> -->
+
+    <script src= "{% static '/js/app.js' %}"></script>
+  </body>
+</html>
 
 <style>
-.link{
-    color: black;
-    /* font-weight: bold; */
-} 
-.link:visited{
-    color:rgb(106, 104, 104);
+    @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap");
+:root {
+  --Red: hsl(1, 90%, 64%);
+  --Blue: hsl(219, 85%, 26%);
+  --White: hsl(0, 0%, 100%);
+  --Very-light-grayish-blue: hsl(210, 60%, 98%);
+  --Light-grayish-blue-1: hsl(211, 68%, 94%);
+  --Light-grayish-blue-2: hsl(205, 33%, 90%);
+  --Grayish-blue: hsl(219, 14%, 63%);
+  --Dark-grayish-blue: hsl(219, 12%, 42%);
+  --Very-dark-blue: hsl(224, 21%, 14%);
+}
+* {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--Very-light-grayish-blue);
+}
+.container {
+  margin: 2rem;
+  width: 700px;
+  background-color: var(--White);
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.notif_box {
+  display: flex;
+  align-items: center;
+}
+#notifes {
+  background-color: var(--Blue);
+  margin-left: 0.5rem;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  color: var(--White);
+  font-weight: 800;
+  border-radius: 0.5rem;
+}
+#mark_all {
+  cursor: pointer;
+}
+#mark_all:hover {
+  color: var(--Blue);
+}
+p {
+  color: var(--Dark-grayish-blue);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.notif_card {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+img{
+  width: 50px;
+}
+.description{
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+strong{
+  color: var(--Very-dark-blue);
+  cursor: pointer;
+}
+strong:hover{
+  color: var(--Blue);
+}
+.unread{
+  background-color: var(--Light-grayish-blue-1) !important;
+}
+.unread p:first-of-type::after{
+  content: " ";
+  background-color: var(--Red);
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+}
+.message_card{
+  display: flex;
+  align-items: center;
+
+}
+.message{
+  padding: 1rem;
+  border: 1px solid var(--Light-grayish-blue-2);
+  border-radius: .3rem;
+  cursor: pointer;
+  margin: 0 0 0 5rem;
+}
+.message:hover{
+  background-color: var(--Light-grayish-blue-1);
+}
+.chess_img{
+margin-left: auto;
+}
+
+@media screen and (max-width:550px) {
+  .container{
+    margin: 0;
+  }
 }
 </style>
-<div class="container">
-    <h3>Notification</h3>
-
-    {% if not Notify %}
-        <p>No notifications yet!</p> 
-    {% endif %}
-
-
-    <!-- <P>{{ forstudent.education_level}}</P>
-    <P>{{ Notify.education_levl}}</P>
-    <P>{{ Notify.date.today()}</P> -->
-
-        <!-- {% if forstudent.education_level == notify.education_level %} -->
-        <!-- {% endif %} -->
-        
-
-
-    {% for notify in Notify %}
-
-        <p>
-            <a class="link" href="{% url 'view_notification' notify.id %}">
-                <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship <br>
-                <small>for {{ notify.education_level }} students</small>
-            </a> 
-        </p>
-
-
-
-    {% endfor %}
-
-</div>
-
-
-{% endblock %}
-
-
-
-
-
 

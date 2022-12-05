@@ -71,6 +71,7 @@ urlpatterns = [
 # ------------------------------------
 #             STUDENT USER URLS
 # ------------------------------------
+
     path('user_login', user_login, name='user_login'),
     path('user_signup', user_signup, name='user_signup'),
     path('user_home', user_home, name='user_home'),

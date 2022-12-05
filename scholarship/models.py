@@ -54,7 +54,7 @@ class AddScholarship(models.Model):
     discription = models.TextField()
     createdate = models.DateField()
     scholarshipform = models.FileField(blank=True)
-    notification_status = models.CharField(max_length=50, null=False)
+    time_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
