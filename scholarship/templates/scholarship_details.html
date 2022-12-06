@@ -4,6 +4,9 @@
 {% block content %}
 
 <style>
+    body{
+        background-color: #f2f7fc;
+    }
     .schilar-details{
         margin: 5%;
         margin-left: 15%;
@@ -140,11 +143,11 @@
                 <a href="#" class="date"><span class="clm-details">Last Date</span>&nbsp;&nbsp;<i class="fa fa-calendar"></i> {{ScholarshipId.enddate}}</a>
 
                 <div class="remaining-details">
+                    <a href="#" class="det"><span>Level of Education:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{ScholarshipId.education_level}}</a><br>
                     <a href="#" class="det"><span>Totle Scholarships:</span>&nbsp;&nbsp;{{ScholarshipId.noofscholarships}}</a><br>
                     <a href="#" class="det"><span>Scholarship Type:</span>&nbsp;&nbsp;&nbsp;{{ScholarshipId.scholarshiptype}}</a><br>
                     <a href="#" class="det"><span>Marks Criteria:</span>&nbsp;&nbsp;&nbsp;&nbsp;Minimum {{ScholarshipId.prviousmarks}}</a><br>
-                    <a href="#" class="det"><span>Income:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{ScholarshipId.income}} /month</a><br>
-                    <a href="{{ ScholarshipId.scholarshipform.url}}" class="btn btn-info" id="view-form">Download Form</a>
+                    <a href="{{ ScholarshipId.scholarshipform.url}}" class="btn btn-info" id="view-form" download>Download Form</a>
 
 
                 </div>

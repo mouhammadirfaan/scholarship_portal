@@ -3,20 +3,6 @@
 
 {% block content %}
 
-<!-- data tables and export button  JS Code start -->
-<!-- <script>
-
-$(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-
-</script> -->
-<!-- data tables and export button JS Code end -->
 
 
 <section class="marquee">
@@ -24,6 +10,12 @@ $(document).ready(function() {
 </section>
 
 <section class="schilarsship-list" id="schilarships">
+
+    <form  action="" method="GET">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Search Scholarships">
+        <button class="login" type="submit" ><i class="fas fa-search"></i></button>
+      </form>
 
     {% for data in AllScholarship %}
 
@@ -78,6 +70,40 @@ $(document).ready(function() {
     </div>
 
     {% endfor %}
+
+    <!-- Pagination -->
+
+ 
+    {% if AllScholarship.has_other_pages %}
+    <ul class="pagination" >
+
+    {% if AllScholarship.has_previous %}
+      <li id="prev"><a href="?page={{ AllScholarship.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+
+    {% for i in AllScholarship.paginator.page_range %}
+
+      {% if AllScholarship.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+      <!-- if we want to show only one no then we comment the below line  -->
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+
+    {% endfor %}
+
+    {% if AllScholarship.has_next %}
+      <li><a href="?page={{ AllScholarship.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %} 
+
+
+<!-- ========================= -->
 
 </section>
 

@@ -79,32 +79,34 @@
                     </div>
 
                     <div class="row">
+        
+                        <div class="col-md-12">
+                            <label for="income"><b>Education Level</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Income" name="income" value="{{ Applyed.education_level}}" readonly required>
+                        </div>
+        
+                    </div>
+
+                    <div class="row">
 
                         <div class="col-md-6">
-                            <label for="degree"><b>Current Degree</b></label>
+                            <label for="degree"><b>Current Program</b></label>
                             <input type="text" class="form-control" placeholder="Enter Current Degree" name="degree" value="{{ Applyed.currentdegree}}" readonly required>
                         </div>
         
                         <div class="col-md-6">
-                            <label for="marks"><b>Previoue Marks</b></label>
+                            <label for="marks"><b>Grades</b></label>
                             <input type="text" class="form-control" placeholder="Enter previous" name="marks" value="{{ Applyed.previousmarks}}" readonly required>
                         </div>
                     </div>
         
-                    <div class="row">
-        
-                        <div class="col-md-12">
-                            <label for="income"><b>Income(Pre Month)</b></label>
-                            <input type="text" class="form-control" placeholder="Enter Income" name="income" value="{{ Applyed.income}}" readonly required>
-                        </div>
-        
-                    </div>
+                    
         
                     <div class="row">
         
                         <div class="col-md-12">
-                            <label for="location"><b>Location</b></label>
-                            <input type="text" class="form-control" placeholder="Enter Location" name="location" value="{{ Applyed.location}}" readonly required>
+                            <label for="location"><b>Address</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Address" name="location" value="{{ Applyed.location}}" readonly required>
                         </div>
         
                     </div>

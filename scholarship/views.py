@@ -1,4 +1,3 @@
-
 from gettext import lngettext
 from pickletools import read_bytes1
 import re
@@ -32,8 +31,6 @@ def latest_scholarships(request):
     user_list = AddScholarship.objects.all().order_by('-startdate')
 
 # SEARCH HERE
-
-
     if request.method=='GET':
         search_term = request.GET.get('query')
         if search_term != None:
@@ -687,6 +684,28 @@ def user_latestscholarships(request):
 
     if not request.user.is_authenticated:
         return redirect('user_login')
+
+    user_list = AddScholarship.objects.all().order_by('-startdate')
+
+    # SEARCH HERE
+    if request.method=='GET':
+        search_term = request.GET.get('query')
+        if search_term != None:
+            user_list = AddScholarship.objects.filter(title__icontains=search_term)
+
+
+# PAGINATION HERE
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(user_list, 3)
+    try:
+        allscholarship = paginator.page(page)
+    except PageNotAnInteger:
+        allscholarship = paginator.page(1)
+    except EmptyPage:
+        allscholarship = paginator.page(paginator.num_pages)
+
+
 
     allscholarship = AddScholarship.objects.all().order_by('-startdate')
 

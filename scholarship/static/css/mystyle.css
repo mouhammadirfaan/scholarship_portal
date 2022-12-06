@@ -33,13 +33,16 @@
     font-family:Arial Narrow Bold;
 }
 .header .navbar .nav-item a{
-    color: #fff !important;
+    color: #fff;
     font-size: 20px;
     font-family: 'Kdam Thmor Pro', sans-serif;
 
 }
 .header .navbar .navbar-nav{
     padding-left: 20rem;
+}
+.header .navbar .nav-item .nav-link:hover{
+    color: #3bfff8;
 }
 .header .navbar .nav-item .nav-link{
     list-style: none;
@@ -297,7 +300,9 @@
 .schilarsship-list{
     margin: 5%;
     padding: 1rem;
-    background-color: rgb(251, 252, 253);
+    /* background-color: rgb(251, 252, 253); */
+    background-color:  #f2f7fc;
+
 }
 .scholarship-card{
     display: flex;
@@ -578,8 +583,9 @@
     margin-top: 10px;
     height: 40px;
     background-color: #222;
-    color: aquamarine;
-    box-shadow: var(--box-shadow);
+    color:#3bfff8;
+
+    box-shdow: var(--box-shadow);
     font-size: 20px;
     font-weight: bold;
     font-family:'Poppins', sans-serif;
