@@ -556,7 +556,7 @@ def user_signup(request):
 
         try:
             USER = User.objects.create_user(first_name=fName, last_name=LName, username=Email, password=pwd)
-            StudentUser.objects.create(user=USER, mobile=phone, gender=gen, image=img, usertype="student")
+            StudentUser.objects.create(user=USER, mobile=phone, gender=gen, image=img, usertype="student", registerdate=date.today())
             error= "no"
 
         except:

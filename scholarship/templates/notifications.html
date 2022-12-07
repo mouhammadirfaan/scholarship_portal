@@ -34,20 +34,24 @@
       <main>
 
         {% for notify in Notify %}
-            {% if forstudent.education_level == notify.education_level %}
-                <div class="notif_card unread">
-                <img src="{{ notify.logo.url }}" alt="avatar" />
-                <div class="description">
-                    <p class="user_activity">
-                        <a class="link" href="{% url 'view_notification' notify.id %}">
-                            <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship </a> <br>
-                            <small>for <b>{{ notify.education_level }} students</b></small><br>
-                            last date for apply <b>{{ notify.enddate }}</b>
+            {% if forstudent.registerdate >= notify.enddate %}
+                {% if forstudent.education_level == notify.education_level %}
 
-                    </p>
-                    <p class="time"><b>{{ notify.time_at|timesince }}</b> ago</p>
-                </div>
-                </div>
+                    <div class="notif_card unread">
+                    <img src="{{ notify.logo.url }}" alt="avatar" />
+                    <div class="description">
+                        <p class="user_activity">
+                            <a class="link" href="{% url 'view_notification' notify.id %}">
+                                <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship </a> <br>
+                                <small>for <b>{{ notify.education_level }} students</b></small><br>
+                                last date for apply <b>{{ notify.enddate }}</b>
+
+                        </p>
+                        <p class="time"><b>{{ notify.time_at|timesince }}</b> ago</p>
+                    </div>
+                    </div>
+                    
+                {% endif %}
             {% endif %}
         {% endfor %}
 

@@ -2,7 +2,6 @@ from statistics import mode
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Create your All models here.
 
 # Student User SignUp details start
@@ -17,6 +16,8 @@ class StudentUser(models.Model):
     education_level = models.CharField(max_length=100, blank=True)
     location = models.CharField(max_length=200, blank=True)
     discriotion = models.TextField(blank=True)
+    registerdate = models.DateField()
+
     
     
     def __str__(self):
