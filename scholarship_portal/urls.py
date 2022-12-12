@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 # Forget Password Library
 from django.contrib.auth import views as auth_views 
+# from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,10 @@ urlpatterns = [
 #             ADMIN URLS
 # ------------------------------------
     path('', home, name='home'),
+    path('contact', contact, name='contact'),
+    path('sendmail', sendmail, name='sendmail'),
+
+
     path('latest_scholarships', latest_scholarships, name='latest_scholarships'),
 
     path('admin_login', admin_login, name='admin_login'),
@@ -83,6 +88,7 @@ urlpatterns = [
 
 
 
+    path('activate/<uidb64>/<token>', activate, name='activate'),
 
     path('Logout', Logout, name='Logout'),
 

@@ -1,0 +1,47 @@
+Frontend
+
+fix-bookmark
+https://appuals.com/fix-bookmark-not-defined-on-word/
+
+https://www.youtube.com/watch?v=WOTC-OipVDw
+👉 https://www.buymeacoffee.com/PotWebco...
+
+
+Forget Password:
+https://www.youtube.com/watch?v=7bfk_Nj_nng
+
+https://www.youtube.com/watch?v=_km7UQmABvc
+
+https://ordinarycoders.com/blog/article/django-password-rese
+
+notification:
+
+https://www.youtube.com/watch?v=C8pYT1R8yo4
+
+https://github.com/SteinOveHelset/CodingJobs
+
+ok notification
+https://github.com/alishirani1384/Notifications-page
+
+
+// Pagination Link
+https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
+
+//bootstrap
+Pill badges 
+
+\\https://www.youtube.com/watch?v=wnibg0AIOq0
+
+// To activate the Environment
+& "d:/MyDjangoProjects/FYP Project/edu/edu/Scripts/Activate.ps1"
+
+
+notification
+https://www.youtube.com/watch?v=3A3dskJU_X0
+
+
+////////////////////////////////////////
+///////////// Documents mistakes////////// 
+
+1- in domain model diagram 
+		serveer --> server

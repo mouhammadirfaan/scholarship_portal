@@ -149,10 +149,19 @@
                 
 
                 <div class="remaining-details">
+                    <a href="#" class="det"><span>Candidate CNIC:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{applieduser.student.cnic}}</a><br>
+                    <a href="#" class="det"><span>Disability:</span>&nbsp;&nbsp;{{applieduser.student.disability}}</a><br>
+                    <a href="#" class="det"><span>Institution:</span>&nbsp;&nbsp;&nbsp;{{applieduser.student.institution}}</a><br>
+                    <a href="#" class="det"><span>Hafiz-e-Quran </span>&nbsp;&nbsp;&nbsp;&nbsp;{{applieduser.student.hafiz}}</a><br>
+                    <a href="#" class="det"><span>Registration No:</span>&nbsp;&nbsp;{{applieduser.student.registration}}</a><br>
+                    <a href="#" class="det"><span>Education Level:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{applieduser.student.education_level}}</a><br>
                     <a href="#" class="det"><span>Current Program:</span>&nbsp;&nbsp;{{applieduser.student.currentdegree}}</a><br>
-                    <a href="#" class="det"><span>Criteria:</span>&nbsp;&nbsp;&nbsp;{{applieduser.student.previousmarks}}</a><br>
-                    <a href="#" class="det"><span>Income:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{applieduser.student.income}} /month</a><br>
-                    <a href="{{ applieduser.scholarshipform.url}}" class="btn btn-info" id="view-form">Download Form</a>
+                    <a href="#" class="det"><span>Grades:</span>&nbsp;&nbsp;&nbsp;{{applieduser.student.previousmarks}}</a><br>
+                    <a href="#" class="det"><span>Guardian CNIC:</span>&nbsp;&nbsp;{{applieduser.student.gcnic}}</a><br>
+                    <a href="#" class="det"><span>Guardian Monthly Income:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{applieduser.student.total}}</a><br>
+                    
+
+                    <a href="{{ applieduser.scholarshipform.url}}" class="btn btn-info" id="view-form" download>Download Form</a>
 
 
                 </div>

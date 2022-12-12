@@ -163,5 +163,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_FROM = 'mouhammadirfaan@gmail.com'
 EMAIL_HOST_USER = 'mouhammadirfaan@gmail.com'
-# EMAIL_HOST_PASSWORD = 'pass.9899'
-EMAIL_HOST_PASSWORD = 'wmyassbnprqstkrb' 
+#EMAIL_HOST_PASSWORD = 'pass.9899'
+EMAIL_HOST_PASSWORD = 'oruijunksuxhlkwe' 
+
+# PASSWORD_RESET_TIMEOUT = 14400

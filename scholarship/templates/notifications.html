@@ -34,7 +34,7 @@
       <main>
 
         {% for notify in Notify %}
-            {% if forstudent.registerdate >= notify.enddate %}
+            {% if notify.enddate >= forstudent.registerdate %}
                 {% if forstudent.education_level == notify.education_level %}
 
                     <div class="notif_card unread">

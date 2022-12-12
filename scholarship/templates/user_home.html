@@ -82,10 +82,83 @@ body{
                     <div class="row">
         
                         <div class="col-md-12">
+                            <label for="uname"><b>CNIC</b></label>
+                            <input type="text" class="form-control" placeholder="Enter CNIC" value="{{ Student.cnic }}" name="cnic" required>
+                        </div>
+        
+                        <!-- <div class="col-md-6">
+                            <label for="uname"><b>Date of Birth</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.dob}}]</span>
+                            <input type="date" class="form-control" placeholder=""  name="dob" required>
+                        </div> -->
+        
+                    </div>
+
+                    <div class="row">
+                                
+                        <div class="col-md-6">
+                            <label for="uname"><b>Religion</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.religion}}]</span>
+                            <!-- <input type="text" class="form-control" placeholder="Enter Religion" value="{{ Student.religion }}" name="religion" required> -->
+                            <select class="form-select" name="religion">
+                                <option >----</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Christianity">Christianity</option>
+                                <option value="Buddhism">Buddhism</option>
+                                <option value="Hinduism">Hinduism</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Disability</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.disability}}]</span>
+                            <!-- <input type="text" class="form-control" placeholder="Enter Disability" value="{{ Student.disability}}" name="disability" required> -->
+                            <select class="form-select" name="disability">
+                                <option >----</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+        
+                    </div>
+
+                    <div class="row">
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Institution Name</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Intitution" value="{{ Student.institution }}" name="inst" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Registration /Roll No</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Registration /Roll No" value="{{ Student.registration}}" name="reg" required>
+                        </div>
+        
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <label for="startdate"><b>Are you Hafiz-e-Quran</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.hafiz}}]</span>
+                            <!-- <input type="text" class="form-control" placeholder="" name="hfz" required> -->
+                            <select class="form-select" name="hfz">
+                                <option >----</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+        
+                        
+    
+                    </div>
+
+
+                    <div class="row">
+        
+                        <div class="col-md-12">
                             <!-- <label for="income"><b>Income(Pre Month)</b></label>
                             <input type="text" class="form-control" placeholder="Enter Income" name="income" value="{{ Student.income}}" required> -->
                             <label for="status"><b>Level of Education</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.education_level}}]</span>
                             <select class="form-select" name="income">
+                                <option >Chose Education Level</option>
                                 <option value="Matriculation">Matriculation</option>
                                 <option value="Intermediate">Intermediate</option>
                                 <option value="Bachelor">Bachelor</option>
@@ -109,6 +182,43 @@ body{
                             <label for="marks"><b>Grades</b></label>
                             <input type="text" class="form-control" placeholder="Enter previous" name="marks" value="{{ Student.previousmarks}}" required>
                         </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label for="startdate"><b>Guardian Name</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Guardian Name"  value="{{ Student.gname}}" name="gname" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="enddate"><b>Guardian CNIC</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Guardian CNIC" value="{{ Student.gcnic}}" name="gcnic" required>
+                        </div>
+    
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label for="startdate"><b>Income Type</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.itype}}]</span>
+                            <!-- <input type="text" class="form-control" placeholder="Enter Income Type" value="{{ Student.itype}}" name="itype" required> -->
+                            <select class="form-select" name="itype">
+                                <option >----</option>
+                                <option value="Govt. Employee">Govt. Employee</option>
+                                <option value="Sami-Govt. Employee">Sami-Govt. Employee</option>
+                                <option value="Private Employee">Private Employee</option>
+                                <option value="Non-Salaried">Non-Salaried</option>
+                                <option value="pensioner">pensioner</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="enddate"><b>Guardian Monthly Income (from all sources)</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Income"  value="{{ Student.total}}" name="total" required>
+                        </div>
+    
                     </div>
         
                     <div class="row">
@@ -185,8 +295,6 @@ body{
 
 
         </div>
-
-
         
     </div>
 </section>

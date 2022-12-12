@@ -9,6 +9,21 @@ from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 
+# =================== email varification ========================
+from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.core.mail import EmailMessage
+from django.contrib import messages
+
+from .decorators import user_not_authenticated
+from .tokens import account_activation_token
+
+
+from django.core.mail import send_mail
+# ============================================
+
 from datetime import date
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -24,6 +39,30 @@ def home(request):
     dic = {'AllScholarship': allscholarship}
 
     return render(request, 'home.html', dic)
+
+def contact(request):
+    
+    return render(request, 'contact.html')
+
+def sendmail(request):
+    if request.method == 'POST':
+        
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        send_mail(
+            subject,
+            message,
+            'mouhammadirfaan@gmail.com',
+            ['mouhammadirfaan@gmail.com'],
+            fail_silently=False,
+
+        )
+        messages.info(request, 'Your message send successlly')
+        return render(request, 'contact.html')
+    else:
+        messages.info(request, 'Your message not send')
+        return render(request, 'contact.html')
 
 # Latest Scholarship view here
 def latest_scholarships(request):
@@ -539,6 +578,43 @@ def user_details(request, pid):
 #               STUDENT USER
 #----------------------------------------------------
 
+# ==================== email varification ==========================
+def activate(request, uidb64, token):
+    User = request.user
+    # User = get_user_model()
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except:
+        user = None
+
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+
+        messages.success(request, "Thank you for your email confirmation. Now you can login your account.")
+        return redirect('user_login')
+    else:
+        messages.error(request, "Activation link is invalid!")
+
+    return redirect('home')
+
+def activateEmail(request, user, to_email):
+    mail_subject = "Activate your user account."
+    message = render_to_string("template_activate_account.html", {
+        'user': user.username,
+        'domain': get_current_site(request).domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': account_activation_token.make_token(user),
+        "protocol": 'https' if request.is_secure() else 'http'
+    })
+    email = EmailMessage(mail_subject, message, to=[to_email])
+    if email.send():
+        messages.success(request, f'Dear <b>{user}</b>, please go to you email <b>{to_email}</b> inbox and click on \
+                received activation link to confirm and complete the registration. <b>Note:</b> Check your spam folder.')
+    else:
+        messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly.')
+
 # Student Signup here:
 def user_signup(request):
 
@@ -557,10 +633,10 @@ def user_signup(request):
         try:
             USER = User.objects.create_user(first_name=fName, last_name=LName, username=Email, password=pwd)
             StudentUser.objects.create(user=USER, mobile=phone, gender=gen, image=img, usertype="student", registerdate=date.today())
-            error= "no"
-
+            error = "no"
+            
         except:
-            error= "yes"
+            error = "yes"
     
     dic = {'Error': error}
     return render(request, 'user_signup.html', dic)
@@ -620,6 +696,19 @@ def user_home(request):
         Location = request.POST['location']
         disc = request.POST['discription']
 
+        CNIC = request.POST['cnic']
+        religion = request.POST['religion']
+        disability = request.POST['disability']
+        inst = request.POST['inst']
+        reg = request.POST['reg']
+        hafiz = request.POST['hfz']
+        gname = request.POST['gname']
+        gcnic = request.POST['gcnic']
+        itype = request.POST['itype']
+        total = request.POST['total']
+
+        
+
         STUDENT.user.first_name = fName
         STUDENT.user.last_name = LName
         STUDENT.mobile = phone
@@ -630,6 +719,19 @@ def user_home(request):
         STUDENT.location = Location
         STUDENT.discriotion = disc
 
+        STUDENT.cnic = CNIC
+        STUDENT.religion = religion
+        STUDENT.disability = disability
+        STUDENT.institution = inst
+        STUDENT.registration = reg
+        STUDENT.hafiz = hafiz
+        STUDENT.gname = gname
+        STUDENT.gcnic = gcnic
+        STUDENT.itype  = itype 
+        STUDENT.total = total
+
+        
+
         try:
             STUDENT.save()
             STUDENT.user.save()
@@ -637,6 +739,33 @@ def user_home(request):
 
         except:
             error= "yes"
+
+        # if start:
+        #     try:
+        #         STUDENT.start = start
+        #         STUDENT.save()
+        #     except:
+        #         pass
+        # else:
+        #     pass
+
+        # if end:
+        #     try:
+        #         STUDENT.end = end
+        #         STUDENT.save()
+        #     except:
+        #         pass
+        # else:
+        #     pass
+
+        # if dob:
+        #     try:
+        #         STUDENT.dob = dob
+        #         STUDENT.save()
+        #     except:
+        #         pass
+        # else:
+        #     pass
 
         try:
             img = request.FILES['image']
@@ -707,7 +836,7 @@ def user_latestscholarships(request):
 
 
 
-    allscholarship = AddScholarship.objects.all().order_by('-startdate')
+    # allscholarship = AddScholarship.objects.all().order_by('-startdate')
 
     USER = request.user
     STUDENT = StudentUser.objects.get(user=USER)
@@ -719,9 +848,23 @@ def user_latestscholarships(request):
         List.append(data.addscholarship.id)
 
 
-    dic = {'AllScholarship': allscholarship, 'List':List}
+    dic = {'AllScholarship': allscholarship, 'List':List, 'user_list':user_list}
 
     return render(request, 'user_latestscholarships.html', dic)
+
+
+# view_shDetail
+def view_detailfor(request, pid):
+    
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+
+    scholarship = AddScholarship.objects.get(id=pid)
+
+
+    dic = {'ScholarshipId': scholarship}
+
+    return render(request, 'view_detailfor.html', dic)
 
 
 #  Scholarship whole details view here

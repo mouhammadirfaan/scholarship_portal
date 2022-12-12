@@ -16,6 +16,17 @@ class StudentUser(models.Model):
     education_level = models.CharField(max_length=100, blank=True)
     location = models.CharField(max_length=200, blank=True)
     discriotion = models.TextField(blank=True)
+
+    cnic = models.CharField(max_length=100, blank=True)
+    disability = models.CharField(max_length=200, blank=True)
+    institution = models.CharField(max_length=200, blank=True)
+    registration = models.CharField(max_length=200, blank=True)
+    hafiz = models.CharField(max_length=100, blank=True) 
+    gname = models.CharField(max_length=100, blank=True)
+    gcnic = models.CharField(max_length=100, blank=True)
+    itype = models.CharField(max_length=200, blank=True)
+    total = models.CharField(max_length=200, blank=True)
+
     registerdate = models.DateField()
 
     

@@ -42,9 +42,16 @@
             <div class="col-md-2">
                 <div class="scholarship-name">
                     <div class="scholarship-lable">
-                        <a class="lable-a" href="#">{{ data.scholarshiptype }}</a>
+                        <a class="lable-a" href="#">{{ data.education_level }}</a>
                     </div>
+                    
                 </div>
+                <!-- <div class="scholarship-name">
+                    <div class="scholarship-lable">
+                        <a href="#" class="btn"><b>View Details</b></a>
+                    </div>
+                    
+                </div> -->
 
             </div>
 
@@ -53,7 +60,7 @@
                 <div class="scholarship-name">
                     <div class="posted">
                         {% if data.id in List %}
-                        <p>Applied</p>
+                        <p><b>Applied</b></p>
                         {% else %}
                         <a href="{% url 'scholarship_details' data.id  %}" class="btn btn-info">Apply</a>
                         {% endif %}

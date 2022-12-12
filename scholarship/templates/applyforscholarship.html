@@ -81,6 +81,62 @@
                     <div class="row">
         
                         <div class="col-md-12">
+                            <label for="uname"><b>CNIC</b></label>
+                            <input type="text" class="form-control" placeholder="Enter CNIC" value="{{ Applyed.cnic }}" name="cnic" readonly required>
+                        </div>
+        
+                        <!-- <div class="col-md-6">
+                            <label for="uname"><b>Date of Birth</b></label><span style="color: rgb(157, 169, 159);"> [{{Student.dob}}]</span>
+                            <input type="date" class="form-control" placeholder=""  name="dob" required>
+                        </div> -->
+        
+                    </div>
+
+                    <div class="row">
+                                
+                        <div class="col-md-6">
+                            <label for="uname"><b>Religion</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Religion" value="{{ Applyed.religion }}" name="religion" readonly required>
+                            
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Disability</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Disability" value="{{ Applyed.disability}}" name="disability" readonly required>
+            
+                        </div>
+        
+                    </div>
+
+                    <div class="row">
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Institution Name</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Intitution" value="{{ Applyed.institution }}" name="inst" readonly required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="uname"><b>Registration /Roll No</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Registration /Roll No" value="{{ Applyed.registration}}" name="reg" readonly required>
+                        </div>
+        
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <label for="startdate"><b>Are you Hafiz-e-Quran</b></label>
+                            <input type="text" class="form-control" placeholder="" value="{{Applyed.hafiz}}" name="hfz" readonly required>
+                            
+                        </div>
+        
+                        
+    
+                    </div>
+
+                    <div class="row">
+        
+                        <div class="col-md-12">
                             <label for="income"><b>Education Level</b></label>
                             <input type="text" class="form-control" placeholder="Enter Income" name="income" value="{{ Applyed.education_level}}" readonly required>
                         </div>
@@ -100,7 +156,34 @@
                         </div>
                     </div>
         
-                    
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label for="startdate"><b>Guardian Name</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Guardian Name"  value="{{ Applyed.gname}}" name="gname" readonly required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="enddate"><b>Guardian CNIC</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Guardian CNIC" value="{{ Applyed.gcnic}}" name="gcnic" readonly required>
+                        </div>
+    
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label for="startdate"><b>Income Type</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Income Type" value="{{ Applyed.itype}}" name="itype" readonly required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="enddate"><b>Guardian Monthly Income </b></label>
+                            <input type="text" class="form-control" placeholder="Enter Income"  value="{{ Applyed.total}}" name="total" readonly required>
+                        </div>
+                    </div>
+
+                
         
                     <div class="row">
         

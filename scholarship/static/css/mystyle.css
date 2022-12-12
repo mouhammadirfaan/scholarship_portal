@@ -27,11 +27,13 @@
     margin-bottom: 0px;
     
 }
+
 .header .navbar-brand{
     color: var(--maganda);
     font-size: 30px;
     font-family:Arial Narrow Bold;
 }
+
 .header .navbar .nav-item a{
     color: #fff;
     font-size: 20px;
@@ -170,7 +172,7 @@
     background-size: cover;
     background-position: center;
     width:100%;
-    height: 130vh; 
+    height: 120vh; 
 }
 
 .banar .banar-img::before{
@@ -180,9 +182,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(176, 202, 229, 0.6) 0%, rgba(158, 186, 215, 0.5) 100%),
+    background: linear-gradient(180deg, rgba(150, 169, 188, 0.6) 0%, rgba(123, 167, 210, 0.5) 100%),
     linear-gradient(180deg, rgba(7, 12, 18, 0.65) 0%, transparent 100%);
-    height: 143vh; 
+    height: 134vh; 
 }
 .banar-text{
     color: #fff;
@@ -252,7 +254,7 @@
 
      
     /* for chrome */
-    margin-top: 39.9rem;
+    margin-top: 37.9rem;
     
     /* for edge */
     /* margin-top: 43.1rem; */

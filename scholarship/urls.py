@@ -76,6 +76,8 @@ urlpatterns = [
     path('applyforscholarship/<int:pid>', applyforscholarship, name='applyforscholarship'),
     path('applied_candidates', applied_candidates, name='applied_candidates'),
     path('applied_candidates', applied_candidates, name='applied_candidates'),
+    path('view_detailfor/<int:sh_id>', view_detailfor, name='view_detailfor'),
+
 
     # for notification
     path('view_notification/<int:application_id>/', view_notification, name='view_notification'),

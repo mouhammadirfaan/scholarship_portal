@@ -1,0 +1,212 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+
+<style>
+    .schilar-details{
+        margin: 5%;
+        margin-left: 15%;
+        margin-right: 15%;
+        padding: 1rem;
+        /* background-color: #f3f3f3; */
+    }
+    #detal-page{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        margin: 0.5rem;
+        min-height: 100px;
+        align-items: center;
+        background-color: #ffffff;
+        box-shadow: rgb(0, 0, 0, 0.20) 0px 1px 4px;
+        cursor: pointer;
+    }
+    #clm-a{
+        padding: 10px;
+    }
+    #clm-a .logo-imgs{
+        /* display: flex; */
+        width: 70px;
+        height: 120px;
+        margin: 1rem;
+        padding: 0.1rem 1rem 0.1rem 5rem ;
+        margin-bottom: 3rem;
+    }
+    #clm-b{
+        margin-left: 2rem;
+    }
+    #clm-b >h2{
+        color: hsl(174, 100%, 62%);
+        font-size: 2rem;
+        font-family:Tahoma;
+    }
+    #clm-b >h1{
+        color: hsl(277, 100%, 62%);
+        font-size: 2rem;
+        font-family: monospace;
+        font-weight: bolder;
+    }
+    #clm-b > p {
+        text-align: justify;
+
+    }
+    #clm-b > p >b {
+        color: #3341ab;
+
+    }
+    #clm-b > a{
+        text-decoration: none;
+        font-size: 1rem;
+        color: #33ab35;
+        padding-top: 1.3rem;
+    }
+    #clm-b .clm-details{
+        color: #3341ab;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .remaining-details{
+        margin-top: 1rem;
+        width: 100%;     
+        
+    }
+   
+    .remaining-details > a{
+        text-decoration: none;
+        padding-top: 2px;
+        font-size: 1rem;
+        color: #3341ab;
+
+    }
+    .remaining-details > a >span{
+        color: cadetblue;
+        font-size: 1.1rem;
+        font-weight: bold;
+
+    }
+    .remaining-details #view-form{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 5rem;
+
+    }
+
+    .more-apply{
+    display: block;
+    text-decoration: none;
+    margin: 20px auto;
+    padding: 0,3rem 2rem;
+    width: 250px;
+    background-color: transparent;
+    color: rgb(164, 175, 12);
+    border: 1px solid rgb(164, 175, 12);
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.more-apply:hover{
+    background-color: rgb(164, 175, 12);
+    color: white;
+}
+
+.back{
+    display: block;
+    text-decoration: none;
+    height: 40px;
+    width: 100px;
+    margin-right: 2rem;
+    background: black;
+    color: white;
+    padding-left: 20px;
+    padding-top: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.back:hover{
+    color: white;
+
+}
+
+.autosubmit{
+    border: none;
+}
+
+    
+
+
+</style>
+
+<section class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship Details</marquee>
+</section>
+
+<h2 class="titles">scholarship details</h2>
+
+
+<section class="schilar-details">
+
+    <div class="container" id="detal-page">
+
+        <div class="row" id="row-a" style="width: 100%;">
+
+            <!-- col-1 -->
+            
+            <div class="col-md-7" id="clm-b">
+                <h2><i class="fa fa-buildings"></i>{{ ScholarshipId.provider.companyname}}</h2>
+                <h1>{{ ScholarshipId.title }}</h1>
+                <a href="#" class="clm-details-1"><i class="fa fa-location"></i> {{ ScholarshipId.Location}}</a><br>
+                <a href="#"><span class="clm-details">Post Date</span>&nbsp;&nbsp;<i class="fa fa-calendar"></i> {{ScholarshipId.createdate}}</a><br><br>
+                <p><b>Discription:</b> {{ScholarshipId.discription}}</p>
+                <a href="#" class="date"><span class="clm-details">Start Date</span>&nbsp;&nbsp;<i class="fa fa-calendar"></i> {{ScholarshipId.startdate}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#" class="date"><span class="clm-details">Last Date</span>&nbsp;&nbsp;<i class="fa fa-calendar"></i> {{ScholarshipId.enddate}}</a>
+
+                <div class="remaining-details">
+                    <a href="#" class="det"><span>Level of Education:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{ScholarshipId.education_level}}</a><br>
+                    <a href="#" class="det"><span>Totle Scholarships:</span>&nbsp;&nbsp;{{ScholarshipId.noofscholarships}}</a><br>
+                    <a href="#" class="det"><span>Scholarship Type:</span>&nbsp;&nbsp;&nbsp;{{ScholarshipId.scholarshiptype}}</a><br>
+                    <a href="#" class="det"><span>Marks Criteria:</span>&nbsp;&nbsp;&nbsp;&nbsp;Minimum {{ScholarshipId.prviousmarks}}</a><br>
+                    <a href="{{ ScholarshipId.scholarshipform.url}}" class="btn btn-info" id="view-form" download>Download Form</a>
+
+
+                </div>
+            </div>
+
+            <!-- col-2 -->
+            <div class="col-md-4" id="clm-a">
+                <img class="logo-imgs" src="{{ ScholarshipId.logo.url }}" style="width: 300px; height: 220;">
+
+            </div>
+
+            
+            <a href="#" class="more-apply">Apply for this scholarship</a>
+            <a href="#" class="back"><i class="	fa fa-arrow-left"></i> Back</a>
+
+
+
+            
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+{% if ScholarshipId.notification_status == 'unread' %}
+    <input type="text" value="read" name="notification_status">
+<script>
+
+    window.onload = function(){
+        document.getElementById('mark').click();
+    }
+</script>
+
+{% endif %}
+
+
+ 
+{% endblock %}
+

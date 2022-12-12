@@ -25,7 +25,7 @@
                     <th>Email</th>
                     <th>Contact</th>
                     <th>Scholarship Title</th>
-                    <th>Company Name</th>
+                    <!-- <th>Company Name</th> -->
                     <th>Apply Date</th>
                     <th>Form</th>
                     <th>Candidate Details</th>
@@ -46,9 +46,9 @@
                     <td>{{ data.student.user.username }}</td>
                     <td>{{ data.student.mobile }}</td>
                     <td>{{ data.addscholarship.title }}</td>
-                    <td>{{ data.addscholarship.provider.companyname }}</td>
+                    <!-- <td>{{ data.addscholarship.provider.companyname }}</td> -->
                     <td>{{ data.applyeddate }}</td>
-                    <td><a href="{{ data.scholarshipform.url }}" class="btn">Download</a></td>
+                    <td><a href="{{ data.scholarshipform.url }}" class="btn" download>Download</a></td>
                     <td><a href="{% url 'user_details' data.id %}" class="btn btn-info">view</a></td>
 
 

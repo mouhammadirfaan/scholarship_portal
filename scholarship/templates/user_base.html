@@ -37,7 +37,7 @@
 
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Edu Scholarship</a>
+              <a class="navbar-brand" href="#"><img class="logo-img" src="{% static 'img/logo4.png' %}" style="height: 3rem;"/></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -74,7 +74,7 @@
                           </div>
                           <div class="dd_right">
                             <ul>
-                              <li><a href="#">{{request.user.first_name}}{{request.user.last_name}}</a></li>
+                              <li><a href="#">{{request.user.first_name}}</a></li>
                               <li><a href="{% url 'change_passworduser' %}">Change</a></li>
                               <li><a href="{% url 'Logout' %}">Logout</a></li>
                             </ul>
