@@ -22,7 +22,7 @@ $(document).ready(function() {
 <section class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="12">Scholarship List</marquee>
 </section>
-<h2 class="titles">Scholarship List</h2>
+<h2 class="titles">post Scholarships List</h2>
 <section class="view-table"> 
 
     <div class="container" >
@@ -36,6 +36,8 @@ $(document).ready(function() {
                     <th>S. No.</th>
                     <th>Logo</th>
                     <th>Title</th>
+                    <th>Program</th>
+                    <th>start date</th>
                     <th>End date</th>
                     <th>Action</th>
                     
@@ -51,6 +53,8 @@ $(document).ready(function() {
                     <td>{{ forloop.counter }}</td>
                     <td><img class="timgs" src="{{ data.logo.url }}"></td>
                     <td>{{ data.title }}</td>
+                    <td>{{ data.education_level }}</td>
+                    <td>{{ data.startdate }}</td>
                     <td>{{ data.enddate }}</td>
                     <td><a href="{% url 'edit_scholarshipdetails' data.id %}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         &nbsp; || &nbsp;

@@ -17,7 +17,7 @@
 <section class="forms" id="form">
 
     <div class="container" id="sign-form">
-        <h2 class="login-title">Student Login</h2>
+        <h2 class="login-title">Login</h2>
         <form action="" method="POST">
             {% csrf_token %}
             <label for="uname"><b>Email</b></label>
@@ -30,8 +30,8 @@
 
 
             <a class="register" href="{% url 'user_signup' %}" id ="bt">Regirter</a>
-            <hr>
-            <p><a href="{% url 'password_reset' %}" >Forgotten Your Password?</a></p>
+            <!-- <hr>
+            <p><a href="{% url 'password_reset' %}" >Forgotten Your Password?</a></p> -->
             
         </form>
     </div>

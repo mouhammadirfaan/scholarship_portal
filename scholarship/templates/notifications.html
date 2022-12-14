@@ -29,7 +29,9 @@
           <h2 class="title">Notifications</h2>
           <span id="notifes"></span>
         </div>
+        <!-- <p id="mark_all">Mark all as read</p> -->
         <p id="mark_all">Mark all as read</p>
+
       </header>
       <main>
 
@@ -42,13 +44,14 @@
                     <div class="description">
                         <p class="user_activity">
                             <a class="link" href="{% url 'view_notification' notify.id %}">
-                                <strong>{{ notify.provider.companyname }}</strong> Post a new scholarship </a> <br>
+                                <strong>{{ notify.provider.companyname }}</strong> Posted a new scholarship </a> <br>
                                 <small>for <b>{{ notify.education_level }} students</b></small><br>
-                                last date for apply <b>{{ notify.enddate }}</b>
+                                <b>{{ notify.time_at|timesince }} ago </b>
 
                         </p>
-                        <p class="time"><b>{{ notify.time_at|timesince }}</b> ago</p>
-                    </div>
+                        <p>Last date for apply <b>{{ notify.enddate }}</b>
+                        </p>
+                      </div>
                     </div>
                     
                 {% endif %}

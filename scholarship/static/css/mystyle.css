@@ -254,7 +254,7 @@
 
      
     /* for chrome */
-    margin-top: 37.9rem;
+    margin-top: 31.9rem;
     
     /* for edge */
     /* margin-top: 43.1rem; */
@@ -606,7 +606,9 @@
     padding-left: 5rem;
     padding-right: 5rem;
     border-radius: 40px;
-    background: #e0e0e0;
+    /* background: #e0e0e0; */
+    background: #f0f1f2;
+
     box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2), -12px -12px 24px 0 rgba(255, 255, 255, 1);
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -631,7 +633,7 @@ input[type=text], input[type=password], input[type=email] {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    background: #e0e0e0;
+    background: #f0f1f2;
     border: 1px solid #ccc;
     box-sizing: border-box;
   }

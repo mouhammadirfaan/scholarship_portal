@@ -740,33 +740,6 @@ def user_home(request):
         except:
             error= "yes"
 
-        # if start:
-        #     try:
-        #         STUDENT.start = start
-        #         STUDENT.save()
-        #     except:
-        #         pass
-        # else:
-        #     pass
-
-        # if end:
-        #     try:
-        #         STUDENT.end = end
-        #         STUDENT.save()
-        #     except:
-        #         pass
-        # else:
-        #     pass
-
-        # if dob:
-        #     try:
-        #         STUDENT.dob = dob
-        #         STUDENT.save()
-        #     except:
-        #         pass
-        # else:
-        #     pass
-
         try:
             img = request.FILES['image']
             STUDENT.image = img

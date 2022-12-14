@@ -9,6 +9,7 @@
 <section class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="12">Applied Candidates </marquee>
 </section>
+<h2 class="titles">Applied Candidates</h2>
 
 <section class="view-table"> 
 
@@ -23,7 +24,7 @@
                     <th>S. No.</th>
                     <th>Candidate Name</th>
                     <th>Email</th>
-                    <th>Contact</th>
+                    <!-- <th>Contact</th> -->
                     <th>Scholarship Title</th>
                     <!-- <th>Company Name</th> -->
                     <th>Apply Date</th>
@@ -44,7 +45,7 @@
                     <td>{{ forloop.counter }}</td>
                     <td>{{ data.student.user.first_name }} {{ data.student.user.last_name }}</td>
                     <td>{{ data.student.user.username }}</td>
-                    <td>{{ data.student.mobile }}</td>
+                    <!-- <td>{{ data.student.mobile }}</td> -->
                     <td>{{ data.addscholarship.title }}</td>
                     <!-- <td>{{ data.addscholarship.provider.companyname }}</td> -->
                     <td>{{ data.applyeddate }}</td>

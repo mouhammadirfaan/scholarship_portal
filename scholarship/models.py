@@ -21,6 +21,7 @@ class StudentUser(models.Model):
     disability = models.CharField(max_length=200, blank=True)
     institution = models.CharField(max_length=200, blank=True)
     registration = models.CharField(max_length=200, blank=True)
+    religion = models.CharField(max_length=200, blank=True)
     hafiz = models.CharField(max_length=100, blank=True) 
     gname = models.CharField(max_length=100, blank=True)
     gcnic = models.CharField(max_length=100, blank=True)
