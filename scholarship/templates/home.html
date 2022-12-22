@@ -14,8 +14,8 @@
             <!-- <p>Help your self to grow and be successfull</p> -->
             
             <div class="banar-row">
-                <a href="#" class="banar-btn"><span></span>Apply Now</a>
-                <a href="#" class="banar-btn"><span></span>Visit</a>
+                <a href="{% url 'user_login' %}" class="banar-btn"><span></span>Apply Now</a>
+                <a href="{% url 'latest_scholarships' %}" class="banar-btn"><span></span>Visit</a>
                 
 
             </div>
@@ -107,7 +107,7 @@
             </div>
 
             <div class="col-md-4" id="clm-btm">
-                <a class="join-butten" href="#">Donate Now</a>
+                <a class="join-butten" href="{% url 'provider_login' %}">Donate Now</a>
             </div>
 
         </div>
