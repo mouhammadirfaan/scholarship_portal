@@ -46,12 +46,7 @@
                     </div>
                     
                 </div>
-                <!-- <div class="scholarship-name">
-                    <div class="scholarship-lable">
-                        <a href="#" class="btn"><b>View Details</b></a>
-                    </div>
-                    
-                </div> -->
+                
 
             </div>
 
@@ -116,56 +111,6 @@
 
 
 
-<!-- Schilarship details start -->
 
-<!-- 
-<section class="view"> 
-
-    <div class="container">
-
-        <table class="table" id="example" >
-
-            <thead>
-
-                <tr>
-
-                    <th>S. No.</th>
-                    <th>Logo</th>
-                    <th>Title</th>
-                    <th>Start date</th>
-                    <th>End date</th>
-                    <th>No of Scholarships</th>
-                    <th>Action</th>
-                    
-
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                {% for data in AllScholarship %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td><img src="{{ data.logo.url }}"></td>
-                    <td>{{ data.title }}</td>
-                    <td>{{ data.startdate }}</td>
-                    <td>{{ data.enddate }}</td>
-                    <td>{{ data.noofscholarships }}</td>
-
-                    {% if data.id in List %}
-                    <td>Applied</td>
-                    {% else %}
-                    <td><a href="{% url 'scholarship_details' data.id  %}" type="button" class="btn btn-info">Apply</td>
-                    {% endif %}
-                </tr>
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-
-    </div>
-</section> -->
 
 {% endblock %}

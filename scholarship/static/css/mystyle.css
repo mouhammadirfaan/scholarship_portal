@@ -662,12 +662,7 @@ input[type=text], input[type=password], input[type=email] {
 
 }
 .login:hover {
-    /* opacity: 0.8; */
-    /* background-color:#74ded8 ;
-    color: black;
-    font-weight: bold;
-    border-radius: 10px; */
-
+    
     border: 1px solid #e0e0e0;
 }
 
@@ -718,68 +713,6 @@ input[type=text], input[type=password], input[type=email] {
 /* admin-login pages start */
 
 
-/* ///////////////////////////////////////// */
-
-        /* TABLE */
-
-/* view_users page here: */
-
-/* .view{
-    margin-top: 30px;
-    margin-bottom: 50px;
-}
-
-.view .container{
-
-    border: 3px solid #f5eded;
-    padding: 0px;
-    text-align: center;
-
-}
-
-
-thead{
-
-    background-color: #00ad6d;
-    height: 50px;
-}
-
-
-.view .container .table{
-    
-    background-color: rgb(239, 238, 245);
-    margin: 0px;
-
-}
-
-.view .container .table :hover{
-    
-    background-color: rgb(205, 150, 130);
-
-}
-.view .container .table tr{
-    border: 3px solid #f8acac;
-    
-}
-
-.view .container .table tbody :hover{
-    background-color: rgb(204, 222, 162);
-    font-weight: bold;
-}
-
-.view .container .table td{
-    padding-top: 30px;
-    padding-bottom: 15px;
-}
-
-.view .container img{
-    height: 70px;
-    width: 70px;
-    border-radius: 45%;
-    
-} */
-
-/* ////////////////////////////////////// */
 
 
 
@@ -803,49 +736,6 @@ thead{
     background: #f5f5f5;
 }
 
-/* .top-bar {
-    position: fixed;
-    height: 60px;
-    width: calc(100% - 300px);
-    background: #fff;
-    display: grid;
-    grid-template-columns: 10fr 0.4fr 1fr;
-    grid-gap: 5px;
-    align-items: center;
-    color: #444;
-    padding: 0 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.top-bar .search {
-    position: relative;
-    max-width: 400px;
-} */
-
-/* .search input {
-    width: 100%;
-    min-width: 128px;
-    height: 40px;
-    padding: 0 40px;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    background: #f5f5f5;
-}
-
-.search i {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
-}
-
-.user {
-    position: relative;
-    width: 50px;
-    height: 50px;
-} */
 
 .timgs{
     /* position: absolute; */

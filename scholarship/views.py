@@ -407,11 +407,18 @@ def add_scholarship(request):
         USER=request.user
         PROVIDER = Provider.objects.get(user=USER)
 
+        # if SCHOLARSHIP.enddate > SCHOLARSHIP.startdate:
+        #     error="grater"
+
         try:
             addscholaeship = AddScholarship.objects.create(provider=PROVIDER, title=Title, startdate=startDate, 
             enddate=endDate, education_level =education_level , scholarshiptype=Type, noofscholarships=no, logo=Logo, 
-            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())            
-            error= "no"
+            prviousmarks=Marks, Location=Location, discription=disc, scholarshipform=Form, createdate=date.today())  
+
+            if addscholaeship.enddate < addscholaeship.startdate:
+                error="grater"
+            else:
+                error= "no"
         except:
             error= "yes"
         
